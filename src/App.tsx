@@ -39,7 +39,7 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <HeroSection backgroundImage="/images/1001631204_enhanced.jpg.avif" brandName="SKYFLO" /> <ProductCarousel /> {/* New carousel under the hero section */}
+            <HeroSection backgroundImage="/images/HP_Hero-FullBleed-Desktop_Gucci-SOFTBIT-Mar25-GUCCI-PREFALL-DETAILS-29-INDIGO-LEWIN_001_Default.jpg" brandName="BOSHAN" /> <ProductCarousel /> {/* New carousel under the hero section */}
             <ProductGrid products={sampleProducts} />
           </>
         } />
