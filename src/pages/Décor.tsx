@@ -13,7 +13,7 @@ const Décor: React.FC = () => {
     <main>
       {/* Customized Hero Section */}
       <HeroSection
-        backgroundImage="/images/1001631204_enhanced.jpg.avif"
+        backgroundImage="/images/HP_Hero-FullBleed-Desktop_Gucci-SOFTBIT-Mar25-GUCCI-PREFALL-DETAILS-29-INDIGO-LEWIN_001_Default.avif"
         className="h-[20vh]"
       >
         <div className="max-w-[70%] mx-auto p-6 rounded-lg">
