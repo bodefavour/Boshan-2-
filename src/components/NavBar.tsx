@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MenuIcon, XIcon, SearchIcon, ShoppingBagIcon, ArrowLeftIcon, UserIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
-import boshanLogo from "/path-to-your-logo/boshan-logo.png"; // Import logo
+import boshanLogo from "/image/boshan-logo.png"; // Import logo
 
 const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
