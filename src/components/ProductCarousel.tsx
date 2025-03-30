@@ -7,9 +7,9 @@ import "swiper/css/pagination";
 
 const ProductCarousel = () => {
   const carouselItems = [
-    { id: 1, name: "Elegant Earrings", image: "/images/31343C.svg" },
-    { id: 2, name: "Luxury Bag", image: "/images/31343C.svg" },
-    { id: 3, name: "Classic Watch", image: "/images/31343C.svg" }, { id: 3, name: "Classic Watch", image: "/images/31343C.svg" }, { id: 3, name: "Classic Watch", image: "/images/31343C.svg" },
+    { id: 1, name: "Elegant Earrings", image: "/images/Cosmetic_Tube_3.png" },
+    { id: 2, name: "Luxury Bag", image: "/images/Boshan_Beauty_Products.png" },
+    { id: 3, name: "Classic Watch", image: "/images/Cosmetic_Tube.png" }, { id: 3, name: "Classic Watch", image: "/images/Cup.png" }, { id: 3, name: "Classic Watch", image: "/images/Foundation.png" },
   ];
 
   return (

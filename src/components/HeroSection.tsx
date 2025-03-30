@@ -44,12 +44,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <h1 className="absolute font-extralight uppercase font-phudu text-white"
           style={{
             top: "1%", // Upper 1/3 of screen
-            left: "55%",
+            left: "52%",
             transform: "translateX(-50%)",
             whiteSpace: "nowrap",
           }}
         >
-          <span className="text-[6rem] tracking-[0.2em] md:text-[14rem] md:tracking-[0.4em]">
+          <span className="text-[6.2rem] tracking-[0.2em] md:text-[12.8rem] md:tracking-[0.4em]">
             {brandName}
           </span>
         </h1>
