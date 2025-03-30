@@ -9,13 +9,13 @@ const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
 return ( <div className="w-full max-w-7xl mx-auto py-2 border-b border-gray-300 flex items-center justify-between"> <h2 className="text-lg font-medium whitespace-nowrap hidden md:block">Filter Products</h2>
 
 {/* Mobile Filter Button */}
-  <button 
-    className="md:hidden flex items-right gap-2 px-3 py-2 border border-gray-400 rounded-md bg-transparent text-sm"
-    onClick={() => setIsOpen(true)}
-  >
-    <AdjustmentsIcon className="w-6 h-6" />
-    <span>Filters</span>
-  </button>
+<button 
+  className="md:hidden flex items-center gap-2 ml-auto text-sm text-gray-700"
+  onClick={() => setIsOpen(true)}
+>
+  <AdjustmentsIcon className="w-6 h-6" />
+  <span>Filters</span>
+</button>
   
   {/* Desktop Filters */}
   <div className="hidden md:flex flex-wrap items-center gap-3">
