@@ -148,7 +148,7 @@ const NavBar: React.FC = () => {
                         alt={subItem.name}
                         className="w-20 h-20 object-cover rounded-lg shadow-md"
                       />
-                      <Link to={`/${subItem.path}`} onClick={() => setMenuOpen(false)} className="text-lg font-phudu text-black hover:text-gray-500 transition">
+                      <Link to={`/${subItem.path}`} onClick={() => setMenuOpen(false)} className="text-lg font-phudu text-black hover:text-gray-500 transition"}>
                       {subItem.name}
                       </Link>
                     </div>
