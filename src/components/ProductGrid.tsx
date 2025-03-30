@@ -71,7 +71,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
 
             {/* Product Features */}
             <div className="text-xs text-gray-600 flex flex-col gap-1">
-              {product.features.map((feature, index) => (
+              {product.features?.map((feature, index) => (
                 <div key={index} className="flex items-center gap-1">
                   <span className="text-black">⚫</span> {feature}
                 </div>
