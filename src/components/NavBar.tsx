@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MenuIcon, XIcon, SearchIcon, ShoppingBagIcon, ArrowLeftIcon, UserIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
-import boshanLogo from "/image/boshanlogo.png"; // Import logo
+import boshanLogo from "./assets/Boshanlogo.png"; // Import logo
 
 const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -72,15 +72,15 @@ const NavBar: React.FC = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-black bg-opacity-50 text-white py-4 px-6 z-50 flex justify-end">
-{/* Left Section: Boshan Logo */}
-  <div className="flex items-center">
-    <Link to="/">
-      <img src={boshanLogo} alt="Boshan Logo" className="h-10 w-auto" />
-    </Link>
-  </div>
+      {/* Left Section: Boshan Logo */}
+      <div className="flex items-center">
+        <Link to="/">
+          <img src={boshanLogo} alt="Boshan Logo" className="h-10 w-auto" />
+        </Link>
+      </div>
       {/* Right Section: Icons */}
       <div className="flex items-center space-x-4">
-<UserIcon className="w-6 h-6 cursor-pointer text-white" />
+        <UserIcon className="w-6 h-6 cursor-pointer text-white" />
         <SearchIcon className="w-6 h-6 cursor-pointer text-white" />
         <ShoppingBagIcon className="w-6 h-6 cursor-pointer text-white" />
         <button onClick={() => setMenuOpen(true)} className="focus:outline-none">
