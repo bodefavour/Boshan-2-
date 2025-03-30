@@ -13,7 +13,7 @@ return ( <div className="w-full max-w-7xl mx-auto py-2 border-b border-gray-300 
     className="md:hidden flex items-center gap-2 px-3 py-2 border border-gray-400 rounded-md bg-transparent text-sm"
     onClick={() => setIsOpen(true)}
   >
-    <AdjustmentsVerticalIcon className="w-6 h-6" />
+    <AdjustmentsIcon className="w-6 h-6" />
     <span>Filters</span>
   </button>
   
@@ -37,7 +37,7 @@ return ( <div className="w-full max-w-7xl mx-auto py-2 border-b border-gray-300 
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white p-6 rounded-lg w-4/5 max-w-md shadow-lg relative">
         <button onClick={() => setIsOpen(false)} className="absolute top-2 right-2 p-2">
-          <XMarkIcon className="w-6 h-6" />
+          <XIcon className="w-6 h-6" />
         </button>
         <h3 className="text-lg font-bold mb-4">Filter Products</h3>
         <select name="sort" value={filters.sort} onChange={handleChange} className="w-full px-3 py-2 border border-gray-400 rounded-md mb-2">
