@@ -8,7 +8,6 @@ interface Product {
   oldPrice?: number;
   image: string;
   isNew?: boolean;
-  features: string[];
   rating?: number;
   reviews?: number;
 }
