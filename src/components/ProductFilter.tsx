@@ -1,4 +1,4 @@
-import React, { useState } from "react"; import { AdjustmentsVerticalIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import React, { useState } from "react"; import { AdjustmentsVerticalIcon, XMarkIcon } from "@heroicons/react/outline";
 
 const ProductFilter = ({ onFilterChange }: { onFilterChange: (filters: any) => void }) => { const [filters, setFilters] = useState({ priceRange: "", category: "", sort: "newest", line: "", color: "", material: "", });
 
