@@ -27,7 +27,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat", 
-width: "100vw", // Ensures no side gaps
+            width: "100vw", // Ensures no side gaps
             height: "100vh",
           }}
         ></div>
@@ -51,7 +51,7 @@ width: "100vw", // Ensures no side gaps
             whiteSpace: "nowrap",
           }}
         >
-          <span className="text-[6.2rem] tracking-[0.2em] md:text-[12.8rem] md:tracking-[0.4em]">
+          <span className="text-[5rem] tracking-[0.2em] md:text-[12.8rem] md:tracking-[0.4em]">
             {brandName}
           </span>
         </h1>
