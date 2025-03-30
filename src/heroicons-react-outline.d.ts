@@ -6,5 +6,5 @@ declare module '@heroicons/react/outline' {
     export const ShoppingBagIcon: ComponentType<SVGProps<SVGSVGElement>>;
     export const MenuIcon: ComponentType<SVGProps<SVGSVGElement>>;
 export const UserIcon: ComponentType<SVGProps<SVGSVGElement>>;
-export const AdjustmentsVerticalIcon: ComponentType<SVGProps<SVGSVGElement>>;
+export const AdjustmentsIcon: ComponentType<SVGProps<SVGSVGElement>>;
     export const ArrowLeftIcon: ComponentType<SVGProps<SVGSVGElement>>; }
