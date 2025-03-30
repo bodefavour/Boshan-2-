@@ -98,7 +98,7 @@ const NavBar: React.FC = () => {
         <div className={'fixed inset-0 bg-black bg-opacity-40 backdrop-blur-lg z-50 flex justify-end transition-opacity duration-500 ${menuOPen ? "opacity-100" : "opacity-0 pointer-events-none"}'}>
           {/* Popup Panel – Fullscreen on mobile, 43% width on desktop */}
           <div
-            className={`relative bg-white w-full h-full md:w-[43%] shadow-lg p-6 flex flex-col transform transition-all duration-1200 ease-in-out ${menuOpen ? "translate-x-0 opacity-100 scale-100" : "translate-x-full opacity-0 scale-95"}'}>
+            className={relative bg-white w-full h-full md:w-[43%] shadow-lg p-6 flex flex-col transform transition-all duration-1200 ease-in-out ${menuOpen ? "translate-x-0 opacity-100 scale-100" : "translate-x-full opacity-0 scale-95"}'}>
             
             {/* Close Button */}
             <button
@@ -148,7 +148,7 @@ const NavBar: React.FC = () => {
                         alt={subItem.name}
                         className="w-20 h-20 object-cover rounded-lg shadow-md"
                       />
-                      <Link to={`/${subItem.path}`} onClick={() => setMenuOpen(false)} className="text-lg font-phudu text-black hover:text-gray-500 transition"}>
+                      <Link to={`/${subItem.path}`} onClick={() => setMenuOpen(false)} className="text-lg font-phudu text-black hover:text-gray-500 transition">
                       {subItem.name}
                       </Link>
                     </div>
