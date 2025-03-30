@@ -26,7 +26,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundRepeat: "no-repeat", width: "100vw", // Ensures no side gaps
+            backgroundRepeat: "no-repeat", 
+width: "100vw", // Ensures no side gaps
             height: "100vh",
           }}
         ></div>
