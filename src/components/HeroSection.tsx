@@ -6,7 +6,7 @@ interface HeroSectionProps {
   textSize?: string; 
   textSpacing?: string;
   customStyle?: React.CSSProperties; 
-children?: ReactNode;
+  children?: ReactNode;
   className?: string;  
 brandNameStyle?: React.CSSProperties;
 }
@@ -26,7 +26,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
+            backgroundRepeat: "no-repeat", width: "100vw", // Ensures no side gaps
+            height: "100vh",
           }}
         ></div>
       </div>
@@ -43,7 +44,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {brandName && (
         <h1 className="absolute font-extralight uppercase font-phudu text-white"
           style={{
-            top: "1%", // Upper 1/3 of screen
+            top: "5%", // Upper 1/3 of screen
             left: "52%",
             transform: "translateX(-50%)",
             whiteSpace: "nowrap",

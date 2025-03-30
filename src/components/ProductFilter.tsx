@@ -12,28 +12,81 @@ const ProductFilter = ({ onFilterChange }: { onFilterChange: (filters: any) => v
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => {
     const { name, value } = e.target;
-    const newFilters = { ...filters, [name]: value };
-    setFilters(newFilters);
-    onFilterChange(newFilters);
+    setFilters((prevFilters) => {
+      const newFilters = { ...prevFilters, [name]: value };
+      onFilterChange(newFilters);
+      return newFilters;
+    });
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto flex flex-wrap gap-4 p-6 bg-gray-100 rounded-lg shadow-md">
-      <select name="sort" value={filters.sort} onChange={handleChange} className="p-2 border rounded">
-        <option value="newest">Sort by Newest</option>
-        <option value="lowToHigh">Price: Low to High</option>
-        <option value="highToLow">Price: High to Low</option>
-      </select>
+    <div className="w-full max-w-7xl mx-auto py-2 border-b border-gray-300 flex items-center justify-between">
+      <h2 className="text-lg font-medium whitespace-nowrap">Filter Products</h2>
+      
+      <div className="flex flex-wrap items-center gap-3">
+        <select
+          name="sort"
+          value={filters.sort}
+          onChange={handleChange}
+          className="px-3 py-2 border border-gray-400 rounded-md bg-transparent text-sm"
+        >
+          <option value="newest">Newest</option>
+          <option value="lowToHigh">Price: Low to High</option>
+          <option value="highToLow">Price: High to Low</option>
+        </select>
 
-      <input type="text" name="category" placeholder="Category" value={filters.category} onChange={handleChange} className="p-2 border rounded" />
+        <input
+          type="text"
+          name="category"
+          placeholder="Category"
+          value={filters.category}
+          onChange={handleChange}
+          className="px-3 py-2 border border-gray-400 rounded-md bg-transparent text-sm w-32"
+        />
 
-      <input type="text" name="line" placeholder="Line" value={filters.line} onChange={handleChange} className="p-2 border rounded" />
+        <input
+          type="text"
+          name="line"
+          placeholder="Line"
+          value={filters.line}
+          onChange={handleChange}
+          className="px-3 py-2 border border-gray-400 rounded-md bg-transparent text-sm w-32"
+        />
 
-      <input type="text" name="color" placeholder="Color" value={filters.color} onChange={handleChange} className="p-2 border rounded" />
+        <input
+          type="text"
+          name="color"
+          placeholder="Color"
+          value={filters.color}
+          onChange={handleChange}
+          className="px-3 py-2 border border-gray-400 rounded-md bg-transparent text-sm w-32"
+        />
 
-      <input type="text" name="material" placeholder="Material" value={filters.material} onChange={handleChange} className="p-2 border rounded" />
+        <input
+          type="text"
+          name="material"
+          placeholder="Material"
+          value={filters.material}
+          onChange={handleChange}
+          className="px-3 py-2 border border-gray-400 rounded-md bg-transparent text-sm w-32"
+        />
 
-      <input type="number" name="priceRange" placeholder="Max Price" value={filters.priceRange} onChange={handleChange} className="p-2 border rounded" />
+        <input
+          type="number"
+          name="priceRange"
+          placeholder="Max Price"
+          value={filters.priceRange}
+          onChange={handleChange}
+          className="px-3 py-2 border border-gray-400 rounded-md bg-transparent text-sm w-32"
+        />
+
+        <button
+          onClick={() => onFilterChange(filters)}
+          className="px-4 py-2 bg-black text-white rounded-md text-sm"
+        >
+          Apply Filters
+        </button>
+      </div>
     </div>
   );
 };
