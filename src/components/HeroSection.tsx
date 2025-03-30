@@ -51,7 +51,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             whiteSpace: "nowrap",
           }}
         >
-          <span className="text-[6rem] tracking-[0.2em] md:text-[12.8rem] md:tracking-[0.4em]">
+          <span className="text-[4rem] tracking-[0.2em] md:text-[12.8rem] md:tracking-[0.4em]">
             {brandName}
           </span>
         </h1>
