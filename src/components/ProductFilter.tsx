@@ -10,7 +10,7 @@ return ( <div className="w-full max-w-7xl mx-auto py-2 border-b border-gray-300 
 
 {/* Mobile Filter Button */}
   <button 
-    className="md:hidden flex items-center gap-2 px-9 py-1 rounded-md bg-transparent text-sm"
+    className="md:hidden flex items-center gap-2 px-20 py-0 border border-gray-400 rounded-md bg-transparent text-sm"
     onClick={() => setIsOpen(true)}
   >
     <AdjustmentsIcon className="w-6 h-6" />
