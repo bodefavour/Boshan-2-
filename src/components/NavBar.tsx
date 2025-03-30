@@ -120,7 +120,7 @@ const NavBar: React.FC = () => {
                     <li key={index}>
                       <button
                         onClick={() => setActiveSection(item)}
-                        className="text-xl font-phudu uppercase tracking-wider text-black block w-full text-left hover:text-gray-500 transition"
+                        className="text-xl font-phudu uppercase tracking-wider text-black block w-full text-left hover:text-gray-500 transition" 
                       >
                         {item}
                       </button>
