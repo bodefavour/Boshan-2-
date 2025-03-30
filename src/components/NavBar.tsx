@@ -80,9 +80,14 @@ const NavBar: React.FC = () => {
       </div>
       {/* Right Section: Icons */}
       <div className="flex items-center space-x-4">
-        <UserIcon className="w-6 h-6 cursor-pointer text-white" />
-        <SearchIcon className="w-6 h-6 cursor-pointer text-white" />
-        <ShoppingBagIcon className="w-6 h-6 cursor-pointer text-white" />
+        {/* Hide other icons on mobile */}
+        <div className="hidden md:flex space-x-4">
+          <UserIcon className="w-6 h-6 cursor-pointer text-white" />
+          <SearchIcon className="w-6 h-6 cursor-pointer text-white" />
+          <ShoppingBagIcon className="w-6 h-6 cursor-pointer text-white" />
+        </div>
+        
+        {/* MenuIcon is always visible, but only icon visible on mobile */}
         <button onClick={() => setMenuOpen(true)} className="focus:outline-none">
           <MenuIcon className="w-6 h-6 cursor-pointer text-white" />
         </button>
