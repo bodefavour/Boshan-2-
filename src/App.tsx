@@ -14,7 +14,7 @@ import HolidaySpecials from "./pages/HolidaySpecials"; // Import the new page
 import BirthdayGifts from "./pages/BirthdayGiftPage"; // Import the new page
 import ProductCarousel from "./components/ProductCarousel"; // Import the new carousel component
 import Layout from "./components/Layout";
-import ProductPage from "./components/productpage";
+import ProductPage from "./components/productpage"; import { ProductProvider } from "./context/ProductContext";
 function App() {
   const sampleProducts = [
     { id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
