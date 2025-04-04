@@ -4,24 +4,39 @@ import { Link } from "react-router-dom";
 
 const services = [
   {
-    title: "Skincare & Beardcare",
+    title: "Skincare Essentials",
     desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
-    image: "/images/skincare.jpg",
+    image: "/images/IMG-20250322-WA0051.jpg",
     link: "/skincare",
   },
   {
-    title: "Fashion & Accessories",
-    desc: "Modern fits with cultural drips – from tote bags to regal gowns, uniquely designed for the bold at heart.",
-    image: "/images/fashion.jpg",
+    title: "Beardcare Essentials",
+    desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
+    image: "/images/IMG-20250322-WA0048.jpg",
     link: "/Fashion",
   },
   {
-    title: "Gifting & Celebrations",
+    title: "Personal ",
     desc: "Curated gift boxes, party props, and special occasion sets that elevate memories with culture and love.",
-    image: "/images/gifts.jpg",
+    image: "/images/IMG-20250322-WA0046",
     link: "/birthday-gifts",
   },
   {
+    title: "Event Styling & Decor",
+    desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
+    image: "/images/decor.jpg",
+    link: "/Decor",
+  }, {
+    title: "Event Styling & Decor",
+    desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
+    image: "/images/decor.jpg",
+    link: "/Decor",
+  }, {
+    title: "Event Styling & Decor",
+    desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
+    image: "/images/decor.jpg",
+    link: "/Decor",
+  }, {
     title: "Event Styling & Decor",
     desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
     image: "/images/decor.jpg",
