@@ -12,10 +12,8 @@ import Décor from "./pages/Décor"; // Import the new page
 import EventsPae from "./pages/EventsPae"; // Import the new page
 import HolidaySpecials from "./pages/HolidaySpecials"; // Import the new page
 import BirthdayGifts from "./pages/BirthdayGiftPage"; // Import the new page
-import ProductCarousel from "./components/ProductCarousel"; // Import the new carousel component
 import Layout from "./components/Layout";
 import ProductPage from "./components/productpage"; 
-import { ProductProvider } from "./context/ProductContext";
 import LandingContent from "./components/LandingContent";
 
 
