@@ -6,7 +6,7 @@ const services = [
   {
     title: "Skincare Essentials",
     desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
-    image: "/images/IMG-20250322-WA0051.jpg",
+    image: "/images/IMG-20250402-WA0132.jpg",
     link: "/skincare",
   },
   {
@@ -16,32 +16,32 @@ const services = [
     link: "/Fashion",
   },
   {
-    title: "Personal ",
-    desc: "Curated gift boxes, party props, and special occasion sets that elevate memories with culture and love.",
-    image: "/images/IMG-20250322-WA0046",
+    title: "Personal Hygiene",
+    desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
+    image: "/images/IMG-20250322-WA0051.jpg",
     link: "/birthday-gifts",
   },
   {
-    title: "Event Styling & Decor",
+    title: "Beauty Tools and Makeup Accessories",
     desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-    image: "/images/decor.jpg",
+    image: "/images/IMG-20250402-WA0140.jpg",
     link: "/Decor",
   }, {
-    title: "Event Styling & Decor",
+    title: "Subscription Boxes",
     desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-    image: "/images/decor.jpg",
+    image: "/images/IMG-20250322-WA0051.jpg",
     link: "/Decor",
   }, {
-    title: "Event Styling & Decor",
+    title: "Skin Therapy and Consultations",
     desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-    image: "/images/decor.jpg",
+    image: "/images/IMG-20250402-WA0132.jpg",
     link: "/Decor",
   }, {
-    title: "Event Styling & Decor",
+    title: "Skinfood & Nutrition",
     desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-    image: "/images/decor.jpg",
+    image: "/images/IMG-20250402-WA0134.jpg",
     link: "/Decor",
-  },
+  }, 
 ];
 
 const LandingContent = () => {
