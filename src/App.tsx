@@ -76,7 +76,7 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <HeroSection backgroundImage="/images/HP_Hero-FullBleed-Desktop_Gucci-SOFTBIT-Mar25-GUCCI-PREFALL-DETAILS-29-INDIGO-LEWIN_001_Default.avif" brandName="BOSHAN" /> 
+            <HeroSection backgroundImage="/images/IMG-20250402-WA0139.jpg" brandName="BOSHAN" /> 
             <LandingContent /> {/* New carousel under the hero section */}
           </>
         } />
