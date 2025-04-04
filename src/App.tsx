@@ -16,7 +16,7 @@ import ProductCarousel from "./components/ProductCarousel"; // Import the new ca
 import Layout from "./components/Layout";
 import ProductPage from "./components/productpage"; 
 import { ProductProvider } from "./context/ProductContext";
-import Landing content from "./components/Landing content";
+import LandingContent from "./components/LandingContent";
 
 
 function App() {
@@ -79,7 +79,7 @@ function App() {
         <Route path="/" element={
           <>
             <HeroSection backgroundImage="/images/HP_Hero-FullBleed-Desktop_Gucci-SOFTBIT-Mar25-GUCCI-PREFALL-DETAILS-29-INDIGO-LEWIN_001_Default.avif" brandName="BOSHAN" /> 
-<LandingContent /> {/* New carousel under the hero section */}
+            <LandingContent /> {/* New carousel under the hero section */}
             <ProductGrid products={sampleProducts} />
           </>
         } />
