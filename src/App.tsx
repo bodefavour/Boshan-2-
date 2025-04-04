@@ -78,7 +78,6 @@ function App() {
           <>
             <HeroSection backgroundImage="/images/HP_Hero-FullBleed-Desktop_Gucci-SOFTBIT-Mar25-GUCCI-PREFALL-DETAILS-29-INDIGO-LEWIN_001_Default.avif" brandName="BOSHAN" /> 
             <LandingContent /> {/* New carousel under the hero section */}
-            <ProductGrid products={sampleProducts} />
           </>
         } />
         <Route path="/birthday-gifts" element={<BirthdayGifts />} />
