@@ -14,7 +14,11 @@ import HolidaySpecials from "./pages/HolidaySpecials"; // Import the new page
 import BirthdayGifts from "./pages/BirthdayGiftPage"; // Import the new page
 import ProductCarousel from "./components/ProductCarousel"; // Import the new carousel component
 import Layout from "./components/Layout";
-import ProductPage from "./components/productpage"; import { ProductProvider } from "./context/ProductContext";
+import ProductPage from "./components/productpage"; 
+import { ProductProvider } from "./context/ProductContext";
+import Landing content from "./components/Landing content";
+
+
 function App() {
   const sampleProducts = [
     { id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
@@ -74,7 +78,8 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <HeroSection backgroundImage="/images/HP_Hero-FullBleed-Desktop_Gucci-SOFTBIT-Mar25-GUCCI-PREFALL-DETAILS-29-INDIGO-LEWIN_001_Default.avif" brandName="BOSHAN" /> <LandingContent /> {/* New carousel under the hero section */}
+            <HeroSection backgroundImage="/images/HP_Hero-FullBleed-Desktop_Gucci-SOFTBIT-Mar25-GUCCI-PREFALL-DETAILS-29-INDIGO-LEWIN_001_Default.avif" brandName="BOSHAN" /> 
+<LandingContent /> {/* New carousel under the hero section */}
             <ProductGrid products={sampleProducts} />
           </>
         } />
