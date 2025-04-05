@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 const images = [
-  "/images/31343C.svg",
-  "/images/31343C.svg",
-  "/images/31343C.svg",
+  "/images/IMG-20250402-WA0139.jpg",
+  "/images/IMG-20250402-WA0134.jpg",
+  "/images/IMG-20250402-WA0140.jpg",
 ];
 
 const ProductImages = () => {
