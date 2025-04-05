@@ -13,7 +13,7 @@ const BirthdayGifts: React.FC = () => {
     <main>
       {/* Customized Hero Section */}
       <HeroSection
-        backgroundImage="/images/HP_Hero-FullBleed-Desktop_Gucci-SOFTBIT-Mar25-GUCCI-PREFALL-DETAILS-29-INDIGO-LEWIN_001_Default.avif"
+        backgroundImage="/images/IMG-20250402-WA0139.jpg"
         className="h-[20vh]"
       >
         <div className="max-w-[70%] mx-auto p-6 rounded-lg">
