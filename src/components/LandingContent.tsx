@@ -1,6 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const services = [
     {
@@ -164,22 +167,43 @@ const LandingContent = () => {
 
       {/* UGC Invite */}
       <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 1 }}
-        className="bg-orange-100 text-black p-8 md:p-16 rounded-3xl shadow-md space-y-6 text-center"
-        >
-        <h3 className="text-2xl font-bold">“Want to be a Boshan Babe?”</h3>
-        <p>We’re looking for glow queens 👑 to try our products early!</p>
-        <div className="flex gap-4 overflow-x-auto pb-4">
-          {/* Replace these with TikTok embeds or thumbnail previews */}
-          <video controls className="w-60 rounded-xl" src="/videos/tiktok1.mp4"></video>
-          <video controls className="w-60 rounded-xl" src="/videos/tiktok2.mp4"></video>
-          <video controls className="w-60 rounded-xl" src="/videos/tiktok3.mp4"></video><video controls className="w-60 rounded-xl" src="/videos/tiktok1.mp4"></video>
-          <video controls className="w-60 rounded-xl" src="/videos/tiktok2.mp4"></video>
-          <video controls className="w-60 h-100 rounded-xl" src="/videos/tiktok3.mp4"></video>
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1 }}
+  className="text-center space-y-6"
+>
+  <h3 className="text-3xl md:text-4xl font-bold">Want to be a Boshan Babe?</h3>
+  <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+    We’re looking for glow queens 👑 to try our products early!
+  </p>
+
+  <Slider
+    dots={true}
+    infinite={true}
+    speed={500}
+    slidesToShow={1}
+    slidesToScroll={1}
+    className="max-w-3xl mx-auto"
+  >
+    {[
+      "https://www.tiktok.com/embed/v2/ZMBxR2MED/",
+      "https://www.tiktok.com/embed/v2/YOUR_SECOND_VIDEO/",
+      "https://www.tiktok.com/embed/v2/YOUR_THIRD_VIDEO/"
+    ].map((url, index) => (
+      <div key={index} className="px-4">
+        <div className="w-full min-h-[500px] flex justify-center">
+          <iframe
+            src={url}
+            allowFullScreen
+            frameBorder="0"
+            className="w-[340px] h-[500px] rounded-xl shadow-xl"
+          />
         </div>
-      </motion.section>
+      </div>
+    ))}
+  </Slider>
+</motion.section>
+
 
       {/* Countdown Section */}
       <motion.section className="text-center bg-orange-100 py-10 rounded-2xl">
