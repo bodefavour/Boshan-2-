@@ -191,12 +191,12 @@ const LandingContent = () => {
       "https://www.tiktok.com/embed/v2/YOUR_THIRD_VIDEO/"
     ].map((url, index) => (
       <div key={index} className="px-4">
-        <div className="w-full min-h-[500px] flex justify-center">
+        <div className="w-full min-h-[400px] flex justify-center">
           <iframe
             src={url}
             allowFullScreen
             frameBorder="0"
-            className="w-[340px] h-[500px] rounded-xl shadow-xl"
+            className="w-[300px] h-[400px] rounded-xl shadow-xl"
           />
         </div>
       </div>
