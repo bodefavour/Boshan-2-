@@ -47,7 +47,7 @@ const services = [
       }, 
 ];
 
-const LandingContent = () => {
+const LandingContents = () => {
   return (
     <div className="bg-white text-black px-6 md:px-16 py-12 space-y-20">
       {/* Awareness Teaser */}
@@ -262,4 +262,4 @@ const LandingContent = () => {
   );
 };
 
-export default LandingContent;
+export default LandingContents;

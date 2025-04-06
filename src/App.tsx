@@ -15,7 +15,7 @@ import BirthdayGifts from "./pages/BirthdayGiftPage"; // Import the new page
 import Layout from "./components/Layout";
 import ProductPage from "./components/productpage"; 
 import LandingContent from "./components/LandingContent";
-
+import LandingContents from "./components/LandingContentPreorder";
 
 function App() {
   const sampleProducts = [
@@ -89,7 +89,7 @@ function App() {
         <Route path="/Decor" element={<Décor />} />
         <Route path="/Events" element={<EventsPae />} />
         <Route path="/Holiday-Specials" element={<HolidaySpecials />} />
-        <Route path="/Product-page" element={<ProductPage />} />
+        <Route path="/Product-page" element={<ProductPage />} /> <Route path="/Oldpa" element={<LandingContents />} />
       </Routes> 
 <Layout children={undefined} /> {/* Wrap the entire app with the Layout component */}
     </Router>
