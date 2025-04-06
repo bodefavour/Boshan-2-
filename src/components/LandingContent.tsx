@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Lottie from "lottie-react";
 
 const services = [
     {
@@ -48,92 +49,131 @@ const services = [
 ];
 
 const LandingContent = () => {
+  const [email, setEmail] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [formData, setFormData] = useState({ name: "", gender: "", ageRange: "", phone: "", email: "" });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    if (email) setShowPopup(true);
+  };
+
+  const handleFinalSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    const fullMessage = `New Glow List Signup:\nEmail: ${email}\nName: ${formData.name}\nGender: ${formData.gender}\nAge Range: ${formData.ageRange}\nPhone: ${formData.phone}`;
+    alert("Thank you for joining the Glow List!");
+    setSubmitted(true);
+    alert("Thank you for joining the Glow List!");
+    setEmail("");
+    setFormData({ name: "", gender: "", ageRange: "", phone: "", email: "" });
+    setShowPopup(false);
+  };
   return (
     <div className="bg-white text-black px-6 md:px-16 py-12 space-y-20">
       {/* Awareness Teaser */}
       <motion.section className="text-center">
         <p className="text-xl italic text-gray-700">“You’ve never glowed like this before… Boshan is almost here 👀✨”</p>
       </motion.section>
-
+      {/* CTA + Email Capture */}
       <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="max-w-4xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Welcome to Boshan – Your Skin. Your Ritual. Your Lifestyle.
-        </h2>
-        <p className="text-lg md:text-xl leading-relaxed">
-            BOSHAN is more than a brand – it's a movement. Rooted in rich Esan culture and elevated with modern elegance,
-            we curate handcrafted skincare, luxe fashion, and memorable gifting experiences for today’s bold, conscious generation.
-            Join the Glow List today to be the first to preorder and get exclusive early bird benefits!
-        </p>
-        <Link to="/Product-page">
-            <button className="mt-6 bg-orange-600 hover:bg-orange-700 transition text-white px-8 py-3 rounded-full text-lg font-medium shadow-xl">
-                Be the First to Pre-Order
-            </button>
-        </Link>
-        </motion.section>
-      
-{/* Services Overview */}
-<motion.section
-        initial="hidden"
-        whileInView="visible"
-        variants={{
-          hidden: { opacity: 0 },
-          visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.3 },
-          },
-        }}
-        className="grid md:grid-cols-2 gap-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.3, duration: 1 }}
+        className="bg-black text-white p-8 md:p-16 rounded-3xl shadow-2xl text-center space-y-6"
       >
-        {services.map((service, index) => (
-          <motion.div
-            key={index}
-            variants={{
-              hidden: { opacity: 0, y: 40 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            className="group bg-[#fdf8f3] hover:shadow-xl transition p-6 rounded-2xl flex flex-col justify-between"
+        <h3 className="text-4xl font-semibold">Your Skin. Your Ritual. Your Lifestyle.</h3>
+        <p className="text-lg max-w-xl mx-auto">Be the First to Pre-Order. Join the Glow List.</p>
+        <form className="flex flex-col md:flex-row gap-4 justify-center" onSubmit={handleSubmit}>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+            required
+            className="px-4 py-2 rounded-full text-black w-full md:w-1/3"
+          />
+          <button
+            type="submit"
+            className="bg-orange-500 hover:bg-orange-600 transition text-white px-6 py-2 rounded-full text-lg font-medium shadow-xl"
           >
-            <img
-              src={service.image}
-              alt={service.title}
-              className="rounded-xl mb-4 h-48 object-cover w-full"
-            />
-            <h4 className="text-2xl font-semibold mb-2">{service.title}</h4>
-            <p className="text-base text-gray-700 mb-4">{service.desc}</p>
-            <Link
-              to={service.link}
-              className="text-orange-500 hover:underline font-medium"
-            >
-              Explore More →
-            </Link>
-          </motion.div>
-        ))}
+            Join Now
+          </button>
+        </form>
       </motion.section>
-{/* CTA + Email Capture */}
-<motion.section
-         initial={{ opacity: 0 }}
-         whileInView={{ opacity: 1 }}
-         transition={{ delay: 0.3, duration: 1 }}
-         className="bg-black text-white p-8 md:p-16 rounded-3xl shadow-2xl text-center space-y-6"
-       >
-         <h3 className="text-4xl font-semibold">Your Skin. Your Ritual. Your Lifestyle.</h3>
-         <p className="text-lg max-w-xl mx-auto">Be the First to Pre-Order. Join the Glow List.</p>
-         <form className="flex flex-col md:flex-row gap-4 justify-center">
-           <input
-             type="email"
-             placeholder="Enter your email"
-             className="px-4 py-2 rounded-full text-black w-full md:w-1/3"
-           />
-           <button className="bg-orange-500 hover:bg-orange-600 transition text-white px-6 py-2 rounded-full text-lg font-medium shadow-xl">
-             Join Now
-           </button>
-         </form>
-         <p className="text-sm italic">Thanks for joining Boshan’s Glow List. We’ll let you know when pre-orders open!</p>
-       </motion.section>
+
+      {showPopup && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+          <div className="bg-white text-black p-6 rounded-xl shadow-2xl w-[90%] max-w-lg space-y-4">
+          {!submitted ? (
+              <>
+                <h3 className="text-xl font-semibold mb-4 text-center">Complete Your Sign-Up</h3>
+                <form onSubmit={handleFinalSubmit} className="space-y-4">
+                  <input
+                    type="text"
+                    placeholder="Name"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-2 border rounded"
+                  />
+                  <select
+                    required
+                    value={formData.gender}
+                    onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
+                    className="w-full px-4 py-2 border rounded"
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                  </select>
+                  <select
+                    required
+                    value={formData.ageRange}
+                    onChange={(e) => setFormData({ ...formData, ageRange: e.target.value })}
+                    className="w-full px-4 py-2 border rounded"
+                  >
+                    <option value="">Select Age Range</option>
+                    {Array.from({ length: 34 }, (_, i) => 17 + i).map((age) => (
+                      <option key={age} value={age}>{age}</option>
+                    ))}
+                  </select>
+                  <input
+                    type="email"
+                    placeholder="Email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-2 border rounded"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone Number (optional)"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className="w-full px-4 py-2 border rounded"
+                  />
+                  <button
+                    type="submit"
+                    className="bg-black text-white px-6 py-3 rounded-full w-full hover:bg-opacity-90 transition"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </>
+            ) : (
+              <div className="text-center">
+                <Lottie animationData={require("../animations/success.json")} loop={false} className="h-40 mx-auto" />
+                <h4 className="text-lg font-semibold mt-4">
+                  Thanks for joining Boshan's Glow List!
+                </h4>
+                <p className="mt-2">We’ll let you know when pre-orders open.</p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
       
       {/* Product Sneak Peek */}
     <motion.section
@@ -151,111 +191,6 @@ const LandingContent = () => {
           <img src="/images/IMG-20250322-WA0051.jpg" alt="Sneak Peek 2" className="w-60 h-60 object-cover rounded-xl blur-sm" />
           <img src="/images/IMG-20250322-WA0051.jpg" alt="Sneak Peek 3" className="w-60 h-60 object-cover rounded-xl blur-sm" />
         </div>
-    </motion.section>
- 
-      {/* Fun Roast Section */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 1 }}
-        className="bg-orange-100 text-black p-8 md:p-16 rounded-3xl shadow-md space-y-6 text-center"
-        >
-        <p className="text-lg">“How often do you use makeup brushes? 🤔”</p>
-        <p className="font-semibold">“Each Boshan Box = brushes, beauty, and bold confidence.”</p>
-        <img src="/images/IMG-20250322-WA0051.jpg" alt="Makeup Brushes" className="w-64 h-64 object-cover rounded-xl mx-auto" />
-      </motion.section>
-
-      {/* UGC Invite */}
-      <motion.section
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
-  className="text-center space-y-6"
->
-  <h3 className="text-3xl md:text-4xl font-bold">Want to be a Boshan Babe?</h3>
-  <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-    We’re looking for glow queens 👑 to try our products early!
-  </p>
-
-  <Slider
-    dots={true}
-    infinite={true}
-    speed={500}
-    slidesToShow={1}
-    slidesToScroll={1}
-    className="max-w-3xl mx-auto"
-  >
-    {[
-      "https://www.tiktok.com/embed/v2/ZMBxR2MED/",
-      "https://www.tiktok.com/embed/v2/YOUR_SECOND_VIDEO/",
-      "https://www.tiktok.com/embed/v2/YOUR_THIRD_VIDEO/"
-    ].map((url, index) => (
-      <div key={index} className="px-4">
-        <div className="w-full min-h-[400px] flex justify-center">
-          <iframe
-            src={url}
-            allowFullScreen
-            frameBorder="0"
-            className="w-[300px] h-[400px] rounded-xl shadow-xl"
-          />
-        </div>
-      </div>
-    ))}
-  </Slider>
-</motion.section>
-
-
-      {/* Countdown Section */}
-      <motion.section className="text-center bg-orange-100 py-10 rounded-2xl">
-        <h3 className="text-3xl font-semibold">Boshan is Almost Here!</h3>
-        <p className="text-lg">Something gorgeous arrives. Pre-orders drop soon.</p>
-        <p className="text-lg mt-2">Only 50 pre-order spots left! Don’t miss out.</p>
-      </motion.section>
-
-      {/* Preorder CTA */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 1 }}
-        className="bg-black text-white p-8 md:p-16 rounded-3xl shadow-2xl text-center space-y-6"
-      >
-        <h3 className="text-3xl md:text-4xl font-semibold">Be the first to glow. Pre-orders drop soon. Join our list.</h3>
-        <p className="text-lg max-w-2xl mx-auto">
-          Get early access to our exclusive Boshan Beauty Sets. All preorders come with a cultural collectible + a surprise gift on launch day.
-        </p>
-        <Link to="/product-page">
-          <button className="bg-orange-500 hover:bg-orange-600 transition text-white px-6 py-3 rounded-full text-lg font-medium shadow-xl">
-            Preorder Now
-          </button>
-        </Link>
-      </motion.section>
-
-      {/* Final CTA */}
-      <motion.section
-        initial={{ scale: 0.95, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 0.7 }}
-        className="text-center space-y-6"
-      >
-        <h3 className="text-3xl font-bold">Glow Different. Gift Bold. The Boshan Way.</h3>
-        <p className="max-w-2xl mx-auto text-lg">
-          Join the tribe that's redefining beauty, fashion, and celebration. Culture meets Gen-Z energy in every drop, stitch, and beat.
-        </p>
-        <Link to="/product-page">
-          <button className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-md">
-            Shop Now
-          </button>
-        </Link>
-      </motion.section> {/* Founder Section */}
-    <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 1 }}
-        className="bg-orange-100 text-black p-8 md:p-16 rounded-3xl shadow-md space-y-6 text-center"
-    >
-        <h3 className="text-3xl font-semibold">Meet the Founder</h3>
-        <p className="text-lg">“My journey from skin struggles to skincare. Boshan was born from my story.”</p>
-        <img src="/images/IMG-20250322-WA0051.jpg" alt="Founder" className="w-full max-w-md mx-auto rounded-xl" />
     </motion.section>
 
     </div>
