@@ -58,6 +58,7 @@ const LandingContent = () => {
   const [submitted, setSubmitted] = useState(false);
 const formRef = useRef<HTMLFormElement>(null);
 const [showThankYou, setShowThankYou] = useState(false);
+const [showSuccess, setShowSuccess] = useState(false);
 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
@@ -87,7 +88,7 @@ const [showThankYou, setShowThankYou] = useState(false);
   setEmail("");
   setFormData({ name: "", gender: "", ageRange: "", phone: "", email: "" });
   setShowPopup(false);
-  setShowThankYou(true);
+  setShowSuccess(true);
 })
 };
 {showThankYou && (
@@ -235,6 +236,7 @@ const [showThankYou, setShowThankYou] = useState(false);
           </div>
         </div>
       )}
+{showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
       
       {/* Product Sneak Peek */}
     <motion.section
