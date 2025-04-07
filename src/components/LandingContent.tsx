@@ -117,6 +117,24 @@ const [showThankYou, setShowThankYou] = useState(false);
       {/* Awareness Teaser */}
       <motion.section className="text-center">
         <p className="text-xl italic text-gray-700">“You’ve never glowed like this before… Boshan is almost here 👀✨”</p>
+
+<motion.section
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                  Welcome to Boshan!!! <p> Your Skin. Your Ritual. Your Lifestyle. </p>
+              </h2>
+              <p className="text-lg md:text-xl leading-relaxed">
+                  BOSHAN is more than a brand</p> <p className="text-lg md:text-xl leading-relaxed">It's Nigerian First Self-care Beauty Club.</p>
+                  <p className="text-lg md:text-xl leading-relaxed">Join the Glow List today to be the first to preorder and get exclusive early bird benefits!
+              </p>
+                  <button className="mt-6 bg-orange-600 hover:bg-orange-700 transition text-white px-8 py-3 rounded-full text-lg font-medium shadow-xl">
+                      Join our wait-list
+                  </button>
+          </motion.section>
+
       </motion.section>
       {/* CTA + Email Capture */}
       <motion.section
