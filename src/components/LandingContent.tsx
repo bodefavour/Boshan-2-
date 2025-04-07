@@ -76,10 +76,10 @@ const [showThankYou, setShowThankYou] = useState(false);
 
   emailjs
     .send(
-      'service_ewwqqnk',
-      'template_q6h7yoj',
+      'service_1j6yt08',
+      'template_6h3c04s',
       templateParams,
-      '8ciFt7VtaT1wR_wj0'
+      'O_7iX1tN5LyntxS2V'
     )
     .then(() => {
   setSubmitted(true);
