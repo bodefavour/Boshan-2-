@@ -56,7 +56,8 @@ const LandingContent = () => {
   const [formData, setFormData] = useState({ name: "", gender: "", ageRange: "", phone: "", email: "" });
   const [submitted, setSubmitted] = useState(false);
 const formRef = useRef<HTMLFormElement>(null);
- 
+const [showThankYou, setShowThankYou] = useState(false);
+
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (email) setShowPopup(true);
@@ -81,16 +82,20 @@ const formRef = useRef<HTMLFormElement>(null);
       '8ciFt7VtaT1wR_wj0'
     )
     .then(() => {
-      setSubmitted(true);
-      setEmail("");
-      setFormData({ name: "", gender: "", ageRange: "", phone: "", email: "" });
-      setShowPopup(false);
-    })
-    .catch((error) => {
-      console.error("EmailJS Error:", error);
-      alert("There was an error sending your details. Please try again.");
-    });
+  setSubmitted(true);
+  setEmail("");
+  setFormData({ name: "", gender: "", ageRange: "", phone: "", email: "" });
+  setShowPopup(false);
+  setShowThankYou(true); // Show the thank-you feedback
+})
 };
+{showThankYou && (
+  <div className="thank-you-modal">
+    <p>You're on the Glow List! We've sent a confirmation email.</p>
+    <div className="happy-animation"> {/* You can use Lottie or GIF here */} </div>
+    <button onClick={() => setShowThankYou(false)}>Close</button>
+  </div>
+)}
   return (
     <div className="bg-white text-black px-6 md:px-16 py-12 space-y-20">
       {/* Awareness Teaser */}
