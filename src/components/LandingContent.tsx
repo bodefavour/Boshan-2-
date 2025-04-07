@@ -5,6 +5,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Lottie from "lottie-react";
+import emailjs from '@emailjs/browser';
+import { useRef } from 'react';
 
 const services = [
     {
@@ -53,22 +55,42 @@ const LandingContent = () => {
   const [showPopup, setShowPopup] = useState(false);
   const [formData, setFormData] = useState({ name: "", gender: "", ageRange: "", phone: "", email: "" });
   const [submitted, setSubmitted] = useState(false);
-
+const formRef = useRef<HTMLFormElement>(null);
+ 
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (email) setShowPopup(true);
   };
 
-  const handleFinalSubmit = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-    const fullMessage = `New Glow List Signup:\nEmail: ${email}\nName: ${formData.name}\nGender: ${formData.gender}\nAge Range: ${formData.ageRange}\nPhone: ${formData.phone}`;
-    alert("Thank you for joining the Glow List!");
-    setSubmitted(true);
-    alert("Thank you for joining the Glow List!");
-    setEmail("");
-    setFormData({ name: "", gender: "", ageRange: "", phone: "", email: "" });
-    setShowPopup(false);
+  const handleFinalSubmit = (e: { preventDefault: () => void }) => {
+  e.preventDefault();
+
+  const templateParams = {
+    email: email,
+    name: formData.name,
+    gender: formData.gender,
+    ageRange: formData.ageRange,
+    phone: formData.phone || "N/A",
   };
+
+  emailjs
+    .send(
+      'service_ewwqqnk',
+      'template_q6h7yoj',
+      templateParams,
+      '8ciFt7VtaT1wR_wj0'
+    )
+    .then(() => {
+      setSubmitted(true);
+      setEmail("");
+      setFormData({ name: "", gender: "", ageRange: "", phone: "", email: "" });
+      setShowPopup(false);
+    })
+    .catch((error) => {
+      console.error("EmailJS Error:", error);
+      alert("There was an error sending your details. Please try again.");
+    });
+};
   return (
     <div className="bg-white text-black px-6 md:px-16 py-12 space-y-20">
       {/* Awareness Teaser */}
