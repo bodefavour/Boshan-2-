@@ -8,6 +8,7 @@ import Lottie from "lottie-react";
 import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+import SuccessModal from './SuccessModal';
 
 const services = [
     {
