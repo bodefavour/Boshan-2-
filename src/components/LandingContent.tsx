@@ -7,6 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Lottie from "lottie-react";
 import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const services = [
     {
@@ -86,14 +87,29 @@ const [showThankYou, setShowThankYou] = useState(false);
   setEmail("");
   setFormData({ name: "", gender: "", ageRange: "", phone: "", email: "" });
   setShowPopup(false);
-  setShowThankYou(true); // Show the thank-you feedback
+  setShowThankYou(true);
 })
 };
 {showThankYou && (
-  <div className="thank-you-modal">
-    <p>You're on the Glow List! We've sent a confirmation email.</p>
-    <div className="happy-animation"> {/* You can use Lottie or GIF here */} </div>
-    <button onClick={() => setShowThankYou(false)}>Close</button>
+  <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="bg-white rounded-2xl p-6 shadow-lg text-center max-w-md w-full">
+      <div className="flex justify-center">
+        <DotLottieReact
+          src="https://lottie.host/75f367cd-cb68-4cb9-acad-fb6e55f5ae11/hPdCcDeevm.lottie"
+          loop
+          autoplay
+          style={{ height: 200, width: 200 }}
+        />
+      </div>
+      <h2 className="text-2xl font-bold mt-4 text-orange-500">You're on the Glow List!</h2>
+      <p className="mt-2 text-gray-600">We’ve sent a confirmation email to you. Stay tuned for launch day!</p>
+      <button
+        onClick={() => setShowThankYou(false)}
+        className="mt-4 px-4 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition"
+      >
+        Got it!
+      </button>
+    </div>
   </div>
 )}
   return (
