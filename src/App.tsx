@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import ProductGrid from "./components/ProductGrid";
-import JewellriesBeads from "./pages/BirthdayGiftPage"; // Import the new page
-import TravelSection from "./pages/TravelSection"; // Import the new page
-import ToteBag from "./pages/ToteBaSec"; // Import the new page
-import FashionSection from "./pages/FashionSection"; // Import the new page
-import LipGloss from "./pages/LipGloss"; // Import the new page
-import Décor from "./pages/Décor"; // Import the new page
-import EventsPae from "./pages/EventsPae"; // Import the new page
-import HolidaySpecials from "./pages/HolidaySpecials"; // Import the new page
-import BirthdayGifts from "./pages/BirthdayGiftPage"; // Import the new page
+import JewellriesBeads from "./pages/BirthdayGiftPage";
+import TravelSection from "./pages/TravelSection";
+import ToteBag from "./pages/ToteBaSec";
+import FashionSection from "./pages/FashionSection";
+import LipGloss from "./pages/LipGloss";
+import Décor from "./pages/Décor";
+import EventsPae from "./pages/EventsPae";
+import HolidaySpecials from "./pages/HolidaySpecials";
+import BirthdayGifts from "./pages/BirthdayGiftPage";
 import Layout from "./components/Layout";
 import ProductPage from "./components/productpage"; 
 import LandingContent from "./components/LandingContent";
