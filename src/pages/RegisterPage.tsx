@@ -1,56 +1,93 @@
-// RegisterPage.tsx
-import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebaseConfig';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { auth } from "../firebaseConfig";
+import { useNavigate } from "react-router-dom";
 
 const RegisterPage: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleRegister = async (e: React.FormEvent) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError("");
+    setLoading(true);
+
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      navigate('/account');
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        formData.email,
+        formData.password
+      );
+
+      if (auth.currentUser) {
+        await updateProfile(auth.currentUser, {
+          displayName: formData.name,
+        });
+      }
+
+      setLoading(false);
+      navigate("/account");
     } catch (err: any) {
+      setLoading(false);
       setError(err.message);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#fff8f5] px-4">
-      <div className="bg-white p-8 rounded-2xl shadow-md max-w-md w-full">
-        <h2 className="text-2xl font-bold mb-6 text-center text-[#c07c6c]">Create a Boshan Account</h2>
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-        <form onSubmit={handleRegister} className="space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#fff8f5] p-6">
+      <div className="bg-white shadow-lg rounded-xl p-8 w-full max-w-md">
+        <h2 className="text-2xl font-semibold text-center mb-6 text-[#C07C6C]">
+          Create your Boshan account
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="w-full px-4 py-2 border rounded-md"
+          />
           <input
             type="email"
+            name="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
+            value={formData.email}
+            onChange={handleChange}
             required
+            className="w-full px-4 py-2 border rounded-md"
           />
           <input
             type="password"
+            name="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
+            value={formData.password}
+            onChange={handleChange}
             required
+            className="w-full px-4 py-2 border rounded-md"
           />
           <button
             type="submit"
-            className="bg-[#c07c6c] text-white w-full py-2 rounded font-semibold hover:bg-[#a86257]"
+            disabled={loading}
+            className="w-full bg-orange-500 text-white py-2 rounded-full hover:bg-orange-600 transition"
           >
-            Sign Up
+            {loading ? "Creating..." : "Register"}
           </button>
         </form>
+        {error && <p className="text-red-500 text-sm mt-4 text-center">{error}</p>}
         <p className="text-sm text-center mt-4">
-          Already have an account? <a href="/login" className="text-[#c07c6c] underline">Log in</a>
+          Already have an account? <a href="/login" className="text-orange-600 underline">Login</a>
         </p>
       </div>
     </div>
