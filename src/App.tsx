@@ -16,6 +16,9 @@ import Layout from "./components/Layout";
 import ProductPage from "./components/productpage"; 
 import LandingContent from "./components/LandingContent";
 import LandingContents from "./components/LandingContentPreorder";
+import PrivateRoute from './components/PrivateRoute';
+import RegisterPage from "./pages/RegisterPage";
+import AccountPage from "./pages/AccountPage";
 
 function App() {
   const sampleProducts = [
@@ -88,6 +91,8 @@ function App() {
         <Route path="/Lip-gloss" element={<LipGloss />} />
         <Route path="/Decor" element={<Décor />} />
         <Route path="/Events" element={<EventsPae />} />
+        <Route path="/Register" element={<RegisterPage />} />
+        <Route path="/AccountPage" element={<AccountPage />} />
         <Route path="/Holiday-Specials" element={<HolidaySpecials />} />
         <Route path="/Product-page" element={<ProductPage />} /> <Route path="/Oldpa" element={<LandingContents />} />
       </Routes> 
