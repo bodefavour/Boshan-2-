@@ -1,7 +1,8 @@
 // src/context/AuthContext.tsx
+
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { getAuth, onAuthStateChanged, signOut, User } from 'firebase/auth';
-import { getDoc, setDoc, doc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 
 interface AuthContextType {
@@ -18,7 +19,7 @@ const AuthContext = createContext<AuthContextType>({
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
-  const [UserData, setUserData] = useState<any | null>(null);
+  const [userData, setUserData] = useState<any | null>(null);
   const auth = getAuth();
 
   const createUserDocument = async (user: User) => {
@@ -40,17 +41,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setCurrentUser(user);
-      
+
       if (user) {
-        await createUserDocument(user);
-        const UserDoc = await getDoc(doc(db, "users", user.uid));
-        if (UserDoc.exists()) {
-          setUserData(UserDoc.data());
+        await createUserDocument(user); // <<< important: ensure user doc exists
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        if (userDoc.exists()) {
+          setUserData(userDoc.data());
         } else {
-            setUserData(null);
-          }
+          setUserData(null);
         }
-          else {
+      } else {
         setUserData(null);
       }
     });
@@ -61,17 +61,10 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = () => signOut(auth);
 
   return (
-    <AuthContext.Provider value={{ currentUser, UserData, logout }}>
+    <AuthContext.Provider value={{ currentUser, userData, logout }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
 export const useAuth = () => useContext(AuthContext);
-// This hook provides access to the authentication context, allowing components to access the current user and logout function.
-// The `AuthProvider` component wraps the application and provides the authentication context to all child components.
-// The `createUserDocument` function creates a user document in Firestore when a new user signs up.
-// The `useEffect` hook listens for authentication state changes and updates the current user accordingly.
-// The `logout` function allows the user to sign out of their account.
-// The `useAuth` hook is used to access the authentication context in other components.
-// This context is essential for managing user authentication and user data in the application.
