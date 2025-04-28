@@ -1,60 +1,140 @@
-// RegisterPage.tsx
-import React, { useState } from 'react';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebaseConfig';
-import { useNavigate } from 'react-router-dom';
+// src/pages/AuthPage.tsx
 
-const RegisterPage: React.FC = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
+import { motion } from "framer-motion";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebookF } from "react-icons/fa";
+
+const AuthPage: React.FC = () => {
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const auth = getAuth();
 
-  const handleRegister = async (e: React.FormEvent) => {
+  const from = location.state?.from?.pathname || "/";
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      navigate('/account');
-    } catch (err: any) {
-      setError(err.message);
+      if (isRegistering) {
+        await createUserWithEmailAndPassword(auth, email, password);
+      } else {
+        await signInWithEmailAndPassword(auth, email, password);
+      }
+      navigate(from, { replace: true });
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    const provider = new GoogleAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      navigate(from, { replace: true });
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+
+  const handleFacebookSignIn = async () => {
+    const provider = new FacebookAuthProvider();
+    try {
+      await signInWithPopup(auth, provider);
+      navigate(from, { replace: true });
+    } catch (error: any) {
+      alert(error.message);
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#fff8f5] px-4">
-      <div className="bg-white p-8 rounded-2xl shadow-md max-w-md w-full">
-        <h2 className="text-2xl font-bold mb-6 text-center text-[#c07c6c]">Create a Boshan Account</h2>
-        {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
-        <form onSubmit={handleRegister} className="space-y-4">
+    <div className="min-h-screen flex items-center justify-center bg-[#FFF8F5] px-4">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+        className="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full space-y-6"
+      >
+        <h2 className="text-2xl font-bold text-center text-[#C07C6C]">
+          {isRegistering ? "Create your Boshan Account" : "Welcome Back to Boshan"}
+        </h2>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="email"
             placeholder="Email"
+            className="w-full p-3 border border-gray-300 rounded-lg"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
             required
           />
           <input
             type="password"
             placeholder="Password"
+            className="w-full p-3 border border-gray-300 rounded-lg"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-2 border rounded"
             required
           />
+
           <button
             type="submit"
-            className="bg-[#c07c6c] text-white w-full py-2 rounded font-semibold hover:bg-[#a86257]"
+            className="w-full bg-[#C07C6C] hover:bg-[#b06e5f] transition text-white font-semibold py-3 rounded-lg"
           >
-            Sign Up
+            {isRegistering ? "Create Account" : "Login"}
           </button>
         </form>
-        <p className="text-sm text-center mt-4">
-          Already have an account? <a href="/login" className="text-[#c07c6c] underline">Log in</a>
+
+        {/* Social login buttons */}
+        <div className="space-y-3">
+          <button
+            onClick={handleGoogleSignIn}
+            className="flex items-center justify-center gap-3 w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-100 transition"
+          >
+            <FcGoogle className="text-2xl" />
+            Continue with Google
+          </button>
+
+          <button
+            onClick={handleFacebookSignIn}
+            className="flex items-center justify-center gap-3 w-full border border-gray-300 py-3 rounded-lg hover:bg-gray-100 transition"
+          >
+            <FaFacebookF className="text-blue-600 text-2xl" />
+            Continue with Facebook
+          </button>
+        </div>
+
+        {/* Toggle between login and register */}
+        <p className="text-center text-sm text-gray-500">
+          {isRegistering ? (
+            <>
+              Already have an account?{" "}
+              <span
+                onClick={() => setIsRegistering(false)}
+                className="text-[#C07C6C] cursor-pointer font-semibold"
+              >
+                Login
+              </span>
+            </>
+          ) : (
+            <>
+              New to Boshan?{" "}
+              <span
+                onClick={() => setIsRegistering(true)}
+                className="text-[#C07C6C] cursor-pointer font-semibold"
+              >
+                Create Account
+              </span>
+            </>
+          )}
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 };
 
-export default RegisterPage;
+export default AuthPage;
