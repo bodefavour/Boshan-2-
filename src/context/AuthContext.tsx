@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = () => signOut(auth);
 
   return (
-    <AuthContext.Provider value={{ currentUser, userData, logout }}>
+    <AuthContext.Provider value={{ currentUser, UserData, logout }}>
       {children}
     </AuthContext.Provider>
   );
