@@ -4,10 +4,21 @@ import { getAuth, onAuthStateChanged, signOut, User } from 'firebase/auth';
 import { getDoc, setDoc, doc } from 'firebase/firestore';
 import { db } from '../firebaseConfig';
 
-const AuthContext = createContext<any>(null);
+interface AuthContextType {
+  currentUser: User | null;
+  userData: any | null;
+  logout: () => Promise<void>;
+}
+
+const AuthContext = createContext<AuthContextType>({
+  currentUser: null,
+  userData: null,
+  logout: async () => {},
+});
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [UserData, setUserData] = useState<any | null>(null);
   const auth = getAuth();
 
   const createUserDocument = async (user: User) => {
@@ -28,20 +39,29 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      setCurrentUser(user);
+      
       if (user) {
         await createUserDocument(user);
-        setCurrentUser(user);
-      } else {
-        setCurrentUser(null);
+        const UserDoc = await getDoc(doc(db, "users", user.uid));
+        if (UserDoc.exists()) {
+          setUserData(UserDoc.data());
+        } else {
+            setUserData(null);
+          }
+        }
+          else {
+        setUserData(null);
       }
     });
+
     return () => unsubscribe();
   }, [auth]);
 
   const logout = () => signOut(auth);
 
   return (
-    <AuthContext.Provider value={{ currentUser, logout }}>
+    <AuthContext.Provider value={{ currentUser, UserData, logout }}>
       {children}
     </AuthContext.Provider>
   );
