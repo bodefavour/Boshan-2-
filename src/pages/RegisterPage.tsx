@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider, signInWithPopup } from "firebase/auth";
 import { motion } from "framer-motion";
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from "react-icons/fc/index.js";
 import { FaFacebookF } from "react-icons/fa";
 
 const AuthPage: React.FC = () => {
