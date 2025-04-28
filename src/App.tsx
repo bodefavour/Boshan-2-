@@ -17,7 +17,7 @@ import ProductPage from "./components/productpage";
 import LandingContent from "./components/LandingContent";
 import LandingContents from "./components/LandingContentPreorder";
 import PrivateRoute from './components/PrivateRoute';
-import RegisterPage from "./pages/RegisterPage";
+import AuthPage from "./pages/RegisterPage";
 import AccountPage from "./pages/AccountPage";
 import LoginPage from "./pages/LoginPage";
 
@@ -92,7 +92,7 @@ function App() {
         <Route path="/Lip-gloss" element={<LipGloss />} />
         <Route path="/Decor" element={<Décor />} />
         <Route path="/Events" element={<EventsPae />} />
-        <Route path="/Register" element={<RegisterPage />} />
+        <Route path="/auth" element={<AuthPage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/AccountPage" element={<AccountPage />} />
         <Route path="/Holiday-Specials" element={<HolidaySpecials />} />
