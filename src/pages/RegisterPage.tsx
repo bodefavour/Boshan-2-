@@ -1,52 +1,106 @@
-// src/pages/LoginPage.tsx import React, { useState } from 'react'; import { motion } from 'framer-motion'; import { Link, useNavigate } from 'react-router-dom'; import { FcGoogle } from 'react-icons/fc'; import { ClipLoader } from 'react-spinners'; import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'; import { auth } from '../firebaseConfig'; import { db } from '../firebaseConfig'; import { doc, setDoc } from 'firebase/firestore'; import { toast } from 'react-hot-toast';
+// src/pages/LoginPage.tsx 
+import React, { useState } from 'react'; 
+import { motion } from 'framer-motion'; 
+import { Link, useNavigate } from 'react-router-dom'; 
+import { FcGoogle } from 'react-icons/fc'; 
+import { ClipLoader } from 'react-spinners'; 
+import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth'; 
+import { auth } from '../firebaseConfig'; 
+import { db } from '../firebaseConfig'; 
+import { doc, setDoc } from 'firebase/firestore'; import { toast } from 'react-hot-toast';
 
-const LoginPage = () => { const [isRegister, setIsRegister] = useState(false); const [email, setEmail] = useState(''); const [password, setPassword] = useState(''); const [name, setName] = useState(''); const [loading, setLoading] = useState(false); const navigate = useNavigate();
+const LoginPage = () => { const [isRegister, setIsRegister] = useState(false); 
+  const [email, setEmail] = useState(''); 
+  const [password, setPassword] = useState(''); 
+  const [name, setName] = useState(''); 
+  const [loading, setLoading] = useState(false); 
+  const navigate = useNavigate();
 
-const handleGoogleSignIn = async () => { try { const provider = new GoogleAuthProvider(); const result = await signInWithPopup(auth, provider); const user = result.user; toast.success(Welcome to Boshan, ${user.displayName || 'Glow Queen'}!); navigate('/account'); } catch (error) { console.error(error); toast.error('Google Sign-In failed. Try again!'); } };
+  const handleGoogleSignIn = async () => { 
+    try { const provider = new GoogleAuthProvider(); 
+      const result = await signInWithPopup(auth, provider); 
+      const user = result.user; toast.success('Welcome to Boshan, ${user.displayName || "Glow Queen"}!'); 
+      navigate('/account'); 
+    } 
+      catch (error) { 
+        console.error(error); 
+        toast.error('Google Sign-In failed. Try again!'); 
+      } 
+    };
 
-const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); setLoading(true); try { const result = await signInWithEmailAndPassword(auth, email, password); toast.success(Welcome back to Boshan, ${result.user.displayName || 'Glow Queen'}!); navigate('/account'); } catch (error: any) { console.error(error); if (error.code === 'auth/user-not-found') { toast.error('No account found with this email.'); } else if (error.code === 'auth/wrong-password') { toast.error('Incorrect password. Please try again.'); } else { toast.error('Login failed. Please check your credentials.'); } } finally { setLoading(false); } };
+  const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
+    e.preventDefault(); 
+    setLoading(true); 
+    try { const result = await signInWithEmailAndPassword(auth, email, password); 
+      toast.success('Welcome back to Boshan, ${result.user.displayName || "Glow Queen"}!');
+      navigate('/account'); 
+    } catch (error: any) { 
+      console.error(error); 
+      if (error.code === 'auth/user-not-found') { 
+        toast.error('No account found with this email.'); 
+      } 
+        else if (error.code === 'auth/wrong-password') { 
+          toast.error('Incorrect password. Please try again.'); 
+        } else { 
+          toast.error('Login failed. Please check your credentials.'); 
+        } 
+      } finally { 
+        setLoading(false); 
+      } 
+    };
 
-const handleRegisterSubmit = async (e: React.FormEvent<HTMLFormElement>) => { e.preventDefault(); setLoading(true); try { const result = await createUserWithEmailAndPassword(auth, email, password); const user = result.user; await updateProfile(user, { displayName: name });
+  const handleRegisterSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
+    e.preventDefault(); 
+    setLoading(true); 
+    try { 
+      const result = await createUserWithEmailAndPassword(auth, email, password); 
+      const user = result.user; 
+      await updateProfile(user, { displayName: name });
 
-await setDoc(doc(db, 'users', user.uid), {
-    profile: {
-      name: name,
-      email: email,
-      gender: '',
-      age: '',
-    },
-    cart: [],
-    wishlist: [],
-    orders: [],
-  });
+      await setDoc(doc(db, 'users', user.uid), {
+        profile: {
+        name: name,
+        email: email,
+        gender: '',
+        age: '',
+      },
+      cart: [],
+      wishlist: [],
+      orders: [],
+    });
 
-  toast.success(`Welcome to Boshan, ${name || 'Glow Queen'}!`);
-  navigate('/account');
-} catch (error: any) {
-  console.error(error);
-  if (error.code === 'auth/email-already-in-use') {
-    toast.error('Email already in use. Try logging in.');
-  } else {
-    toast.error('Registration failed. Please try again.');
-  }
-} finally {
-  setLoading(false);
-}
+      toast.success(`Welcome to Boshan, ${name || 'Glow Queen'}!`);
+      navigate('/account');
+    } catch (error: any) {
+      console.error(error);
+      if (error.code === 'auth/email-already-in-use') {
+        toast.error('Email already in use. Try logging in.');
+      } else {
+        toast.error('Registration failed. Please try again.');
+      }
+    } finally {
+      setLoading(false);
+    }
 
-};
+  };
 
-return ( <div className="min-h-screen flex items-center justify-center bg-[#FFF8F5] px-4 py-12"> <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2"> <div className="hidden md:block bg-orange-100"> <img
-src="/images/IMG-20250402-WA0139.jpg"
-alt="Boshan Visual"
-className="w-full h-full object-cover"
-/> </div>
+  return ( 
+  <div className="min-h-screen flex items-center justify-center bg-[#FFF8F5] px-4 py-12"> 
+    <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2"> 
+      <div className="hidden md:block bg-orange-100"> 
+        <img
+          src="/images/IMG-20250402-WA0139.jpg"
+          alt="Boshan Visual"
+          className="w-full h-full object-cover"
+        /> 
+      </div>
 
-<motion.div
-      initial={{ opacity: 0, x: 50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      className="p-10 flex flex-col justify-center space-y-8"
-    >
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        className="p-10 flex flex-col justify-center space-y-8"
+      >
       <h2 className="text-3xl md:text-4xl font-bold text-center text-[#C07C6C]">
         {isRegister ? 'Create Your Account' : 'Welcome Back to Boshan'}
       </h2>
