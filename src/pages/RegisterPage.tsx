@@ -8,6 +8,7 @@ import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, si
 import { auth } from '../firebaseConfig'; 
 import { db } from '../firebaseConfig'; 
 import { doc, setDoc } from 'firebase/firestore'; import { toast } from 'react-hot-toast';
+import { getDoc } from "firebase/firestore";
 
 const LoginPage = () => { const [isRegister, setIsRegister] = useState(false); 
   const [email, setEmail] = useState(''); 
@@ -19,73 +20,90 @@ const LoginPage = () => { const [isRegister, setIsRegister] = useState(false);
   const handleGoogleSignIn = async () => { 
     try { const provider = new GoogleAuthProvider(); 
       const result = await signInWithPopup(auth, provider); 
-      const user = result.user; toast.success('Welcome to Boshan, ${user.displayName || "Glow Queen"}!'); 
-      navigate('/account'); 
-    } 
-      catch (error) { 
-        console.error(error); 
-        toast.error('Google Sign-In failed. Try again!'); 
-      } 
-    };
-
-  const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
-    e.preventDefault(); 
-    setLoading(true); 
-    try { const result = await signInWithEmailAndPassword(auth, email, password); 
-      toast.success('Welcome back to Boshan, ${result.user.displayName || "Glow Queen"}!');
-      navigate('/account'); 
-    } catch (error: any) { 
-      console.error(error); 
-      if (error.code === 'auth/user-not-found') { 
-        toast.error('No account found with this email.'); 
-      } 
-        else if (error.code === 'auth/wrong-password') { 
-          toast.error('Incorrect password. Please try again.'); 
-        } else { 
-          toast.error('Login failed. Please check your credentials.'); 
-        } 
-      } finally { 
-        setLoading(false); 
-      } 
-    };
-
-  const handleRegisterSubmit = async (e: React.FormEvent<HTMLFormElement>) => { 
-    e.preventDefault(); 
-    setLoading(true); 
-    try { 
-      const result = await createUserWithEmailAndPassword(auth, email, password); 
       const user = result.user; 
-      await updateProfile(user, { displayName: name });
+      toast.success(`Welcome to Boshan, ${user.displayName || "Glow Queen"}!`);
+      navigate('/account'); 
 
-      await setDoc(doc(db, 'users', user.uid), {
-        profile: {
-        name: name,
-        email: email,
-        gender: '',
-        age: '',
-      },
-      cart: [],
-      wishlist: [],
-      orders: [],
-    });
-
-      toast.success(`Welcome to Boshan, ${name || 'Glow Queen'}!`);
-      navigate('/account');
-    } catch (error: any) {
-      console.error(error);
-      if (error.code === 'auth/email-already-in-use') {
-        toast.error('Email already in use. Try logging in.');
-      } else {
-        toast.error('Registration failed. Please try again.');
+      const userDocRef = doc(db, 'users', user.uid);
+      const userSnap = await getDoc(userDocRef);
+      if (!userSnap.exists()) {
+        await setDoc(userDocRef, {
+          profile: {
+            name: user.displayName || "",
+            email: user.email || "",
+          },
+          cart: [],
+          wishlist: [],
+          orders: [],
+        });
       }
-    } finally {
-      setLoading(false);
-    }
-
+    } catch (error) { 
+      console.error(error); 
+      toast.error('Google Sign-In failed. Try again!'); 
+    } 
   };
 
+    const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      setLoading(true);
+    
+      try {
+        const result = await signInWithEmailAndPassword(auth, email, password);
+        toast.success(`Welcome back to Boshan, ${result.user.displayName || "Glow Queen"}!`);
+        navigate("/account");
+      } catch (error: any) {
+        console.error(error);
+        if (error.code === "auth/user-not-found") {
+          toast.error("No account found with this email.");
+        } else if (error.code === "auth/wrong-password") {
+          toast.error("Incorrect password. Please try again.");
+        } else {
+          toast.error("Login failed. Please check your credentials.");
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    const handleRegisterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      setLoading(true);
+    
+      try {
+        const result = await createUserWithEmailAndPassword(auth, email, password);
+        const user = result.user;
+    
+        await updateProfile(user, { displayName: name });
+    
+        await setDoc(doc(db, "users", user.uid), {
+          profile: {
+            name: name,
+            email: email,
+            gender: "",
+            age: "",
+          },
+          cart: [],
+          wishlist: [],
+          orders: [],
+        });
+    
+        toast.success(`Welcome to Boshan, ${name || "Glow Queen"}!`);
+        navigate("/account");
+      } catch (error: any) {
+        console.error(error);
+        if (error.code === "auth/email-already-in-use") {
+          toast.error("Email already in use. Try logging in.");
+        } else {
+          toast.error("Registration failed. Please try again.");
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+
   return ( 
-  <div className="min-h-screen flex items-center justify-center bg-[#FFF8F5] px-4 py-12"> 
+  <div className="min-h-screen flex items-center justify-center bg-[#FFF8F5] px-4 py-16"> 
     <div className="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-2"> 
       <div className="hidden md:block bg-orange-100"> 
         <img
