@@ -181,44 +181,45 @@ const LandingContents = () => {
           </motion.section>
 
           {/* UGC Invite */}
-          motion.section
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1 }}
-  className="text-center space-y-6"
->
-  <h3 className="text-3xl md:text-4xl font-bold">Want to be a Boshan Babe?</h3>
-  <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-    We’re looking for glow queens 👑 to try our products early!
-  </p>
-
-  <Swiper
-    modules={[Autoplay, Pagination]}
-    autoplay={{ delay: 4000, disableOnInteraction: false }}
-    pagination={{ clickable: true }}
-    loop={true}
-    spaceBetween={20}
-    className="max-w-3xl mx-auto"
-  >
-    {[
-      "https://www.tiktok.com/embed/v2/ZMBxR2MED/",
-      "https://www.tiktok.com/embed/v2/YOUR_SECOND_VIDEO/",
-      "https://www.tiktok.com/embed/v2/YOUR_THIRD_VIDEO/"
-    ].map((url, index) => (
-      <SwiperSlide key={index}>
-        <div className="w-full min-h-[400px] flex justify-center">
-          <iframe
-            src={url}
-            allowFullScreen
-            allow="autoplay"
-            frameBorder="0"
-            className="w-[300px] h-[400px] rounded-xl shadow-xl"
-          />
-        </div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</motion.section>
+          <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-center space-y-6"
+          >
+            <h3 className="text-3xl md:text-4xl font-bold">Want to be a Boshan Babe?</h3>
+            <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+                We’re looking for glow queens 👑 to try our products early!
+            </p>
+            
+            <Swiper
+            modules={[Autoplay, Pagination]}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            pagination={{ clickable: true }}
+            loop={true}
+            spaceBetween={20}
+            className="max-w-3xl mx-auto"
+            >
+                {[
+                    "https://www.tiktok.com/embed/v2/ZMBxR2MED/",
+                    "https://www.tiktok.com/embed/v2/YOUR_SECOND_VIDEO/",
+                     "https://www.tiktok.com/embed/v2/YOUR_THIRD_VIDEO/"
+                ].map((url, index ) => (
+                
+                <SwiperSlide key={index}>
+                    <div className="w-full min-h-[400px] flex justify-center">
+                        <iframe
+                        src={url}
+                        allowFullScreen
+                        allow="autoplay"
+                        frameBorder="0"
+                        className="w-[300px] h-[400px] rounded-xl shadow-xl"
+                        />
+                    </div>
+                </SwiperSlide>
+                ))}
+            </Swiper>
+            </motion.section>
 
 
 
