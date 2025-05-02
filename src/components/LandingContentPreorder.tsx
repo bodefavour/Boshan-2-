@@ -7,6 +7,9 @@ import "slick-carousel/slick/slick-theme.css";
 import HeroSection from "./HeroSection";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
+import { EffectCoverflow } from "swiper/modules";
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
 
 const services = [
     {
@@ -266,15 +269,49 @@ const LandingContents = () => {
               </Link>
           </motion.section> {/* Founder Section */}
           <motion.section
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ delay: 0.2, duration: 1 }}
-              className="bg-orange-100 text-black p-8 md:p-16 rounded-3xl shadow-md space-y-6 text-center"
-          >
-              <h3 className="text-3xl font-semibold">Meet the Founder</h3>
-              <p className="text-lg">“My journey from skin struggles to skincare. Boshan was born from my story.”</p>
-              <img src="/images/IMG-20250322-WA0051.jpg" alt="Founder" className="w-full max-w-md mx-auto rounded-xl" />
-          </motion.section>
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ delay: 0.2, duration: 1 }}
+  className="bg-orange-100 text-black p-8 md:p-16 rounded-3xl shadow-md text-center"
+>
+  <h3 className="text-3xl font-semibold mb-6">Meet the Team</h3>
+  <Swiper
+    effect="coverflow"
+    grabCursor={true}
+    centeredSlides={true}
+    slidesPerView="auto"
+    loop={true}
+    autoplay={{ delay: 4000 }}
+    coverflowEffect={{
+      rotate: 0,
+      stretch: 0,
+      depth: 120,
+      modifier: 2.5,
+      slideShadows: false,
+    }}
+    modules={[EffectCoverflow, Autoplay]}
+    className="w-full max-w-5xl"
+  >
+    {[
+      { name: "Jane (Founder)", img: "/images/IMG-20250322-WA0051.jpg" },
+      { name: "Ella (Designer)", img: "/images/team-ella.jpg" },
+      { name: "Tayo (Marketing)", img: "/images/team-tayo.jpg" },
+      { name: "Chidera (Product Dev)", img: "/images/team-chidera.jpg" },
+      // Add more as needed
+    ].map((member, i) => (
+      <SwiperSlide key={i} className="w-[250px]">
+        <div className="flex flex-col items-center space-y-4">
+          <img
+            src={member.img}
+            alt={member.name}
+            className="w-[200px] h-[200px] object-cover rounded-full border-4 border-orange-400 shadow-lg"
+          />
+          <p className="font-medium text-lg">{member.name}</p>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</motion.section>
 
       </div></>
   );
