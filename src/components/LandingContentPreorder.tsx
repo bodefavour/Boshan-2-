@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -10,6 +9,8 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { EffectCoverflow } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 const services = [
     {
@@ -204,7 +205,7 @@ const LandingContents = () => {
             className="max-w-3xl mx-auto"
             >
                 {[
-                    "https://www.tiktok.com/embed/v2/ZMBxR2MED/",
+                    "https://www.tiktok.com/@woktrapped/video/7477802203718126878?is_from_webapp=1&sender_device=pc",
                     "https://www.tiktok.com/embed/v2/YOUR_SECOND_VIDEO/",
                      "https://www.tiktok.com/embed/v2/YOUR_THIRD_VIDEO/"
                 ].map((url, index ) => (
