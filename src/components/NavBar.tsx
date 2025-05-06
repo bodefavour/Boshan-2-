@@ -56,7 +56,7 @@ const NavBar: React.FC = () => {
       <div className="flex items-center space-x-4">
         {/* Hide other icons on mobile */}
         <div className="hidden md:flex space-x-4">
-        <Link to="Oldpa"><UserIcon className="w-6 h-6 cursor-pointer text-white" /></Link> 
+        <Link to="auth"><UserIcon className="w-6 h-6 cursor-pointer text-white" /></Link> 
           <SearchIcon className="w-6 h-6 cursor-pointer text-white" />
           <ShoppingBagIcon className="w-6 h-6 cursor-pointer text-white" />
         </div>
