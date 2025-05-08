@@ -3,15 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import ProductGrid from "./components/ProductGrid";
-import JewellriesBeads from "./pages/BirthdayGiftPage";
-import TravelSection from "./pages/TravelSection";
-import ToteBag from "./pages/ToteBaSec";
-import FashionSection from "./pages/FashionSection";
-import LipGloss from "./pages/LipGloss";
-import Décor from "./pages/Décor";
-import EventsPae from "./pages/EventsPae";
-import HolidaySpecials from "./pages/HolidaySpecials";
-import BirthdayGifts from "./pages/BirthdayGiftPage";
+// import JewellriesBeads from "./pages/BirthdayGiftPage";
+// import TravelSection from "./pages/TravelSection";
+// import ToteBag from "./pages/ToteBaSec";
+// import FashionSection from "./pages/FashionSection";
+// import LipGloss from "./pages/LipGloss";
+// import Décor from "./pages/Décor";
+// import EventsPae from "./pages/EventsPae";
+// import HolidaySpecials from "./pages/HolidaySpecials";
+// import BirthdayGifts from "./pages/BirthdayGiftPage";
 import Layout from "./components/Layout";
 import ProductPage from "./components/productpage"; 
 import LandingContent from "./components/LandingContent";
@@ -84,19 +84,19 @@ function App() {
             <LandingContent /> {/* New carousel under the hero section */}
           </>
         } />
-        <Route path="/birthday-gifts" element={<BirthdayGifts />} />
+        {/* <Route path="/birthday-gifts" element={<BirthdayGifts />} />
         <Route path="/Jewellries-Beads" element={<JewellriesBeads />} />
         <Route path="/Fashion" element={<FashionSection />} />
         <Route path="/travel-section" element={<TravelSection />} />
         <Route path="/tote-bags" element={<ToteBag />} />
         <Route path="/Lip-gloss" element={<LipGloss />} />
         <Route path="/Decor" element={<Décor />} />
-        <Route path="/Events" element={<EventsPae />} />
+        <Route path="/Events" element={<EventsPae />} /> */}
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/Login" element={<LoginPage />} />
         <Route path="/ProductGrid" element={<ProductGrid />} />
         <Route path="/AccountPage" element={<AccountPage />} />
-        <Route path="/Holiday-Specials" element={<HolidaySpecials />} />
+        {/* <Route path="/Holiday-Specials" element={<HolidaySpecials />} /> */}
         <Route path="/Product-page" element={<ProductPage />} /> <Route path="/Oldpa" element={<LandingContents />} />
       </Routes> 
 <Layout children={undefined} /> {/* Wrap the entire app with the Layout component */}
