@@ -1,35 +1,51 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-import * as fs from "fs";
+import { initializeApp, cert } from "firebase-admin/app";
+import { getFirestore } from "firebase-admin/firestore";
+import fs from "fs";
 
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID,
-};
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+// Firebase Admin SDK initialization
+initializeApp({
+  credential: cert("./boshan-store-firebase-adminsdk-fbsvc-d239dd1610.json"), // Update the path
+});
 
-// Load and parse products.json file
-let products: any[] = [];
-try {
-  const data = fs.readFileSync("./src/data/products.json", "utf-8");
-  products = JSON.parse(data);
-} catch (error) {
-  console.error("Error reading JSON file:", error);
-}
+const db = getFirestore();
 
+// Function to upload products to Firestore
 async function uploadProducts() {
   try {
-    for (const product of products) {
-      await addDoc(collection(db, "products"), product);
+    // Read and parse the products.json file
+    const productsData = JSON.parse(fs.readFileSync("./src/data/products.json", "utf8"));
+
+    // Ensure products is an array
+    if (!Array.isArray(productsData)) {
+      throw new Error("Products data is not an array");
+    }
+
+    const collectionRef = db.collection("products");
+
+    // Loop through each product and upload to Firestore
+    for (const product of productsData) {
+      const docRef = collectionRef.doc(product.id.toString()); // Use id as document ID
+
+      // Validate product fields
+      const validatedProduct = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        oldPrice: product.oldPrice || null,
+        image: product.image,
+        isNew: product.isNew,
+        features: Array.isArray(product.features) ? product.features : [],
+        rating: product.rating,
+        reviews: product.reviews,
+        description: product.description || "",
+        images: Array.isArray(product.images) ? product.images : [],
+      };
+
+      await docRef.set(validatedProduct);
       console.log(`Uploaded: ${product.name}`);
     }
-    console.log("All products uploaded successfully!");
+
+    console.log("All products uploaded successfully.");
   } catch (error) {
     console.error("Error uploading products:", error);
   }

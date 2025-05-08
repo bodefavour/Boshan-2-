@@ -94,6 +94,7 @@ function App() {
         <Route path="/Events" element={<EventsPae />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/Login" element={<LoginPage />} />
+        <Route path="/ProductGrid" element={<ProductGrid />} />
         <Route path="/AccountPage" element={<AccountPage />} />
         <Route path="/Holiday-Specials" element={<HolidaySpecials />} />
         <Route path="/Product-page" element={<ProductPage />} /> <Route path="/Oldpa" element={<LandingContents />} />
