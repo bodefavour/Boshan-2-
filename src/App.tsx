@@ -74,7 +74,7 @@ function App() {
     { id: 2, name: "Royal Crown", price: 299.99, image: "/images/31343C.svg", path: "./Product-page" },// Add more products
   ];
 
-  return (
+  return ( 
     <Router> 
       <NavBar /> {/* NavBar stays on every page */}
       <Routes>

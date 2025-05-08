@@ -89,7 +89,7 @@ const LandingContents = () => {
                   we curate handcrafted skincare, luxe fashion, and memorable gifting experiences for today’s bold, conscious generation.
                   Join the Glow List today to be the first to preorder and get exclusive early bird benefits!
               </p>
-              <Link to="/Register">
+              <Link to="/auth">
                   <button className="mt-6 bg-orange-600 hover:bg-orange-700 transition text-white px-8 py-3 rounded-full text-lg font-medium shadow-xl">
                       Be the First to Pre-Order
                   </button>

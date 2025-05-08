@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 import ProductFilter from "./ProductFilter";
 
 interface Product {
-  id: number;
+  id: string;
   name: string;
   price: number;
   oldPrice?: number;
@@ -13,17 +15,36 @@ interface Product {
   reviews?: number;
 }
 
-interface ProductGridProps {
-  products: Product[];
-}
-
-const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
-  const [filteredProducts, setFilteredProducts] = useState(products);
+const ProductGrid: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
   interface Filters {
     sort?: "lowToHigh" | "highToLow";
     priceRange?: string;
   }
+
+  // Fetch products from Firestore
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "products"));
+        const productList: Product[] = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        })) as Product[];
+        setProducts(productList);
+        setFilteredProducts(productList);
+        setLoading(false);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleFilterChange = (filters: Filters) => {
     let updatedProducts = products;
@@ -43,20 +64,24 @@ const ProductGrid: React.FC<ProductGridProps> = ({ products }) => {
     setFilteredProducts(updatedProducts);
   };
 
+  if (loading) {
+    return <div className="text-center">Loading products...</div>;
+  }
+
   return (
     <section className="py-6 px-4 md:py-12 md:px-6">
       {/* Filter Component */}
       <ProductFilter onFilterChange={handleFilterChange} />
 
       {/* Product Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 mt-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
         {filteredProducts.map((product) => (
-          <div key={product.id} className="border border-gray-300 p-2">
+          <div key={product.id} className="border border-gray-300 p-2 rounded-md shadow hover:shadow-lg transition">
             {/* Product Image */}
             <img
               src={product.image}
               alt={product.name}
-              className="w-full object-cover"
+              className="w-full h-48 object-cover rounded-md"
             />
 
             {/* "New Arrival" Badge */}
