@@ -21,6 +21,15 @@
 .env.production.local
 .env 
 boshan-store-firebase-adminsdk-fbsvc-d239dd1610.json
+BirthdayGiftPage.tsx
+Décor.tsx
+EventsPae.tsx
+FashionSection.tsx
+HolidaySpecials.tsx
+JewellriesBeadsPAge.tsx
+LipGloss.tsx
+ToteBaSec.tsx
+TravelSection.tsx
 
 npm-debug.log*
 yarn-debug.log*
