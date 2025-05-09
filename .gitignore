@@ -36,3 +36,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 boshan-store-firebase-adminsdk-fbsvc-d239dd1610.json
+src/components/LandingContentPreorder.tsx
