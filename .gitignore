@@ -30,6 +30,7 @@ JewellriesBeadsPAge.tsx
 LipGloss.tsx
 ToteBaSec.tsx
 TravelSection.tsx
+process.env
 
 npm-debug.log*
 yarn-debug.log*
