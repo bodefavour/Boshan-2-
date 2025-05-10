@@ -4,7 +4,7 @@
       "name": "Boshan Luxurious Shea Butter",
       "price": 3500,
       "oldPrice": 5000,
-      "image": "/assets/images/shea-butter.jpg",
+      "image": "/assets/images/hero-bg.jpg",
       "isNew": true,
       "features": ["100% Organic", "Infused with Herbs", "Smooth Texture"],
       "rating": 4.8,

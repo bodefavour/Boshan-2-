@@ -1,12 +1,22 @@
-import React, { useState } from "react"; import { AdjustmentsIcon, XIcon } from "@heroicons/react/outline";
+import React, { useState } from "react"; 
+import { AdjustmentsIcon, XIcon } from "@heroicons/react/outline";
 
-const ProductFilter = ({ onFilterChange }: { onFilterChange: (filters: any) => void }) => { const [filters, setFilters] = useState({ priceRange: "", category: "", sort: "newest", line: "", color: "", material: "", });
+const ProductFilter = ({ onFilterChange }: { 
+  onFilterChange: (filters: any) => void 
+}) => { 
+  const [filters, setFilters] = useState(
+    { priceRange: "", category: "", sort: "newest", line: "", color: "", material: "", 
+
+    });
 
 const [isOpen, setIsOpen] = useState(false);
 
-const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => { const { name, value } = e.target; setFilters((prevFilters) => { const newFilters = { ...prevFilters, [name]: value }; onFilterChange(newFilters); return newFilters; }); };
+const handleChange = (e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>) => { 
+  const { name, value } = e.target; setFilters((prevFilters) => { 
+    const newFilters = { ...prevFilters, [name]: value }; onFilterChange(newFilters); return newFilters; }); };
 
-return ( <div className="w-full max-w-7xl mx-auto py-2 border-b border-gray-300 flex items-center justify-between"> <h2 className="text-lg font-medium whitespace-nowrap hidden md:block">Filter Products</h2>
+return ( 
+<div className="w-full max-w-7xl mx-auto py-2 border-b border-gray-300 flex items-center justify-between"> <h2 className="text-lg font-medium whitespace-nowrap hidden md:block">Filter Products</h2>
 
 {/* Mobile Filter Button */}
 <button 

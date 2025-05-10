@@ -80,8 +80,16 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-            <HeroSection backgroundImage="/images/IMG-20250402-WA0139.jpg" brandName="BOSHAN" /> 
-            <LandingContent /> {/* New carousel under the hero section */}
+            <HeroSection
+            backgroundImage="/images/IMG-20250402-WA0139.jpg"
+            brandName="Boshan"
+            ctaText="Experience the glow with Boshan."
+            ctaButton="Shop Now"
+            onCtaClick={() => console.log("CTA Clicked")}
+             >
+              <p className="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </HeroSection>
+              <LandingContent />
           </>
         } />
         {/* <Route path="/birthday-gifts" element={<BirthdayGifts />} />
@@ -94,10 +102,27 @@ function App() {
         <Route path="/Events" element={<EventsPae />} /> */}
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/Login" element={<LoginPage />} />
-        <Route path="/ProductGrid" element={<ProductGrid />} />
+        <Route path="/Preorder-items" element={<>
+            <HeroSection backgroundImage="/images/IMG-20250402-WA0139.jpg" brandName="BOSHAN" /> 
+            <ProductGrid />
+          </>
+        } />
         <Route path="/AccountPage" element={<AccountPage />} />
         {/* <Route path="/Holiday-Specials" element={<HolidaySpecials />} /> */}
-        <Route path="/Product-page" element={<ProductPage />} /> <Route path="/Oldpa" element={<LandingContents />} />
+        <Route path="/Product-page" element={<ProductPage />} /> 
+        <Route path="/Oldpa" element={<>
+            <HeroSection
+            backgroundImage="/images/IMG-20250402-WA0139.jpg"
+            brandName="Boshan"
+            ctaText="Experience the glow with Boshan."
+            ctaButton="Shop Now"
+            onCtaClick={() => console.log("CTA Clicked")}
+             >
+              <p className="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </HeroSection>
+              <LandingContents />
+          </>
+        } />
       </Routes> 
 <Layout children={undefined} /> {/* Wrap the entire app with the Layout component */}
     </Router>
