@@ -27,7 +27,7 @@
     "react-hot-toast": "^2.5.2",
     "react-icons": "^4.10.1",
     "react-router-dom": "^7.4.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-slick": "^0.30.3",
     "react-spinners": "^0.17.0",
     "slick-carousel": "^1.8.1",
