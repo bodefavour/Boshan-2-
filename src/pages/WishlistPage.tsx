@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { db } from "../firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
-import { Link } from "react-router-dom";
 
 interface Product {
   id: string;
