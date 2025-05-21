@@ -21,6 +21,7 @@ import AuthPage from "./pages/RegisterPage";
 import AccountPage from "./pages/AccountPage";
 // import LoginPage from "./pages/LoginPage";
 import { AuthProvider } from "./context/AuthContext"
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const sampleProducts = [
@@ -77,7 +78,8 @@ function App() {
 
   return ( 
     <AuthProvider>
-    <Router> 
+    <Router>
+    <Toaster position="top-right" reverseOrder={false} /> 
       <NavBar /> {/* NavBar stays on every page */}
       <Routes>
         <Route path="/" element={

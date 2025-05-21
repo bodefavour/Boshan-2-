@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { MenuIcon, XIcon, SearchIcon, ShoppingBagIcon, ArrowLeftIcon, UserIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import boshanLogo from "./assets/Boshanlogo.png"; // Import logo
+import useCartCount from "../hooks/useCartCount";
 
 const NavBar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string | null>(null);
+  const cartCount = useCartCount();
 
   const menuItems = [
     "Skincare Essentails",
@@ -58,7 +60,14 @@ const NavBar: React.FC = () => {
         <div className="hidden md:flex space-x-4">
         <Link to="auth"><UserIcon className="w-6 h-6 cursor-pointer text-white" /></Link> 
           <SearchIcon className="w-6 h-6 cursor-pointer text-white" />
-          <ShoppingBagIcon className="w-6 h-6 cursor-pointer text-white" />
+          <Link to="/cart" className="relative">
+  <ShoppingBagIcon className="w-6 h-6" />
+  {cartCount > 0 && (
+    <span className="absolute -top-1 -right-1 bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+      {cartCount}
+    </span>
+  )}
+</Link>
         </div>
         
         {/* MenuIcon is always visible, but only icon visible on mobile */}

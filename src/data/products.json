@@ -11,9 +11,9 @@
       "reviews": 120,
       "description": "Our premium shea butter is sourced from local Esan farmers and infused with traditional herbs to nourish your skin deeply.",
       "images": [
-        "/assets/images/shea-butter.jpg",
-        "/assets/images/shea-butter-2.jpg",
-        "/assets/images/shea-butter-3.jpg"
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
       ]
     },
     {
@@ -28,8 +28,8 @@
       "reviews": 80,
       "description": "Gentle but effective, this black soap bar is perfect for daily skin detox without drying out your skin.",
       "images": [
-        "/assets/images/black-soap.jpg",
-        "/assets/images/black-soap-2.jpg"
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
       ]
     }
   ]
