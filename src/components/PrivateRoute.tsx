@@ -1,6 +1,6 @@
 // src/components/PrivateRoute.tsx
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebaseConfig";
 
@@ -10,13 +10,15 @@ interface PrivateRouteProps {
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
   const [user, loading] = useAuthState(auth);
+  const location = useLocation();
 
   if (loading) return <div className="text-center mt-10">Loading...</div>;
 
-  return user ? <>{children}</> : <Navigate to="/login" replace />;
+  return user ? (
+    <>{children}</>
+  ) : (
+    <Navigate to="/auth" replace state={{ from: location }} />
+  );
 };
 
 export default PrivateRoute;
-// This component checks if the user is authenticated before rendering the children components.
-// If the user is not authenticated, it redirects them to the login page.
-// The `useAuthState` hook from `react-firebase-hooks/auth` is used to manage the authentication state.

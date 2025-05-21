@@ -9,6 +9,8 @@ import { db } from '../firebaseConfig';
 import { doc, setDoc } from 'firebase/firestore'; import { toast } from 'react-hot-toast';
 import { getDoc } from "firebase/firestore";
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'; 
+import { useLocation } from 'react-router-dom';
+
 
 const LoginPage = () => { const [isRegister, setIsRegister] = useState(false); 
   const [email, setEmail] = useState(''); 
@@ -17,13 +19,15 @@ const LoginPage = () => { const [isRegister, setIsRegister] = useState(false);
   const [loading, setLoading] = useState(false); 
   const [showPassword, setShowPassword] = useState(false); // Toggle state
   const navigate = useNavigate();
+  const location = useLocation(); // ✅ Correct position
+  const redirectPath = (location.state as any)?.from?.pathname || "/account";
 
   const handleGoogleSignIn = async () => { 
     try { const provider = new GoogleAuthProvider(); 
       const result = await signInWithPopup(auth, provider); 
       const user = result.user; 
       toast.success(`Welcome to Boshan, ${user.displayName || "Glow Queen"}!`);
-      navigate('/account'); 
+      navigate(redirectPath);
 
       const userDocRef = doc(db, 'users', user.uid);
       const userSnap = await getDoc(userDocRef);
@@ -73,7 +77,7 @@ const LoginPage = () => { const [isRegister, setIsRegister] = useState(false);
         });
       }
   
-      navigate("/account");
+      navigate(redirectPath);
     } catch (error: any) {
       console.error("Login failed", error); // More detailed logging
       toast.error(`Login failed: ${error.message}`);
@@ -121,7 +125,7 @@ const LoginPage = () => { const [isRegister, setIsRegister] = useState(false);
         });
     
         toast.success(`Welcome to Boshan, ${name || "Glow Queen"}!`);
-        navigate("/account");
+        navigate(redirectPath);
       } catch (error: any) {
         console.error(error);
         if (error.code === "auth/email-already-in-use") {

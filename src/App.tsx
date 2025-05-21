@@ -2,15 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import ProductGrid from "./components/ProductGrid";
-// import JewellriesBeads from "./pages/BirthdayGiftPage";
-// import TravelSection from "./pages/TravelSection";
-// import ToteBag from "./pages/ToteBaSec";
-// import FashionSection from "./pages/FashionSection";
-// import LipGloss from "./pages/LipGloss";
-// import Décor from "./pages/Décor";
-// import EventsPae from "./pages/EventsPae";
-// import HolidaySpecials from "./pages/HolidaySpecials";
-// import BirthdayGifts from "./pages/BirthdayGiftPage";
 import Layout from "./components/Layout";
 import ProductPage from "./components/productpage"; 
 import LandingContent from "./components/LandingContent";
@@ -18,7 +9,6 @@ import LandingContents from "./components/LandingContentPreorder";
 import PrivateRoute from './components/PrivateRoute';
 import AuthPage from "./pages/RegisterPage";
 import AccountPage from "./pages/AccountPage";
-// import LoginPage from "./pages/LoginPage";
 import { AuthProvider } from "./context/AuthContext"
 import { Toaster } from "react-hot-toast";
 import CartPage from "./pages/CartPage";
@@ -26,57 +16,6 @@ import WishlistPage from "./pages/WishlistPage";
 import PreorderCategoryPage from "./pages/PreorderCategoryPage";
 
 function App() {
-  const sampleProducts = [
-    { id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
-    isNew: true,
-    rating: 4.5,
-    reviews: 120 },
-{ id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
-    isNew: true,
-    rating: 4.5,
-    reviews: 120 },
-{ id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
-    isNew: true,
-    rating: 4.5,
-    reviews: 120 },
-{ id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
-    isNew: true,
-    rating: 4.5,
-    reviews: 120 },
-{ id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
-    isNew: true,
-    rating: 4.5,
-    reviews: 120 },
-{ id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
-    isNew: true,
-    rating: 4.5,
-    reviews: 120 },
-{ id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
-    isNew: true,
-    rating: 4.5,
-    reviews: 120 },
-{ id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
-    isNew: true,
-    rating: 4.5,
-    reviews: 120 },
-{ id: 1, name: "Red Gown", price: 599.99, oldPrice: 30000, image: "/images/31343C.svg", path: "./Product-page", features: ["Bluetooth 5.0", "Long battery life", "Noise cancellation"],
-    isNew: true,
-    rating: 4.5,
-    reviews: 120 },
-    { id: 2, name: "Royal Crown", price: 299.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 1, name: "Red Gown", price: 599.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 2, name: "Royal Crown", price: 299.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 1, name: "Red Gown", price: 599.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 2, name: "Royal Crown", price: 299.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 1, name: "Red Gown", price: 599.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 2, name: "Royal Crown", price: 299.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 1, name: "Red Gown", price: 599.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 2, name: "Royal Crown", price: 299.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 1, name: "Red Gown", price: 599.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 2, name: "Royal Crown", price: 299.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 1, name: "Red Gown", price: 599.99, image: "/images/31343C.svg", path: "./Product-page" },
-    { id: 2, name: "Royal Crown", price: 299.99, image: "/images/31343C.svg", path: "./Product-page" },// Add more products
-  ];
 
   return ( 
     <AuthProvider>
@@ -115,27 +54,17 @@ function App() {
               <LandingContent />
           </>
         } />
-        {/* <Route path="/birthday-gifts" element={<BirthdayGifts />} />
-        <Route path="/Jewellries-Beads" element={<JewellriesBeads />} />
-        <Route path="/Fashion" element={<FashionSection />} />
-        <Route path="/travel-section" element={<TravelSection />} />
-        <Route path="/tote-bags" element={<ToteBag />} />
-        <Route path="/Lip-gloss" element={<LipGloss />} />
-        <Route path="/Decor" element={<Décor />} />
-        <Route path="/Events" element={<EventsPae />} /> */}
         <Route path="/auth" element={<AuthPage />} />
-        {/* <Route path="/Login" element={<LoginPage />} /> */}
         <Route path="/Preorder-items" element={<>
             <HeroSection backgroundImage="/images/IMG-20250402-WA0139.jpg" brandName="BOSHAN" /> 
             <ProductGrid />
           </>
         } />
-        <Route path="/AccountPage" element={<AccountPage />} />
-        {/* <Route path="/Holiday-Specials" element={<HolidaySpecials />} /> */}
+        <Route path="/AccountPage" element={<PrivateRoute> <AccountPage /> </PrivateRoute>} />
         <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/preorder/:category" element={<PreorderCategoryPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/wishlist" element={<WishlistPage />} />
+        <Route path="/cart" element={<PrivateRoute> <CartPage /> </PrivateRoute>} />
+        <Route path="/wishlist" element={<PrivateRoute> <WishlistPage /> </PrivateRoute>} />
 
         <Route path="/Oldpa" element={<>
             <HeroSection

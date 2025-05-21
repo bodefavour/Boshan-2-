@@ -48,6 +48,10 @@ const services = [
   }));
 
 const LandingContents = () => {
+    function handleLogout(event: React.MouseEvent<HTMLButtonElement>): void {
+        throw new Error("Function not implemented.");
+    }
+
   return ( <><main>
       
   </main><div className="bg-white text-black px-6 md:px-16 py-12 space-y-20">
@@ -205,6 +209,12 @@ const LandingContents = () => {
             </Swiper>
             </motion.section>
 
+            <button
+  onClick={handleLogout}
+  className="mt-4 px-6 py-3 bg-red-500 text-white rounded-full hover:bg-red-600"
+>
+  Logout
+</button>
 
 
           {/* Countdown Section */}
