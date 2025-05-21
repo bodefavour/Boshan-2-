@@ -19,7 +19,8 @@ import LandingContents from "./components/LandingContentPreorder";
 import PrivateRoute from './components/PrivateRoute';
 import AuthPage from "./pages/RegisterPage";
 import AccountPage from "./pages/AccountPage";
-import LoginPage from "./pages/LoginPage";
+// import LoginPage from "./pages/LoginPage";
+import { AuthProvider } from "./context/AuthContext"
 
 function App() {
   const sampleProducts = [
@@ -75,6 +76,7 @@ function App() {
   ];
 
   return ( 
+    <AuthProvider>
     <Router> 
       <NavBar /> {/* NavBar stays on every page */}
       <Routes>
@@ -101,7 +103,7 @@ function App() {
         <Route path="/Decor" element={<Décor />} />
         <Route path="/Events" element={<EventsPae />} /> */}
         <Route path="/auth" element={<AuthPage />} />
-        <Route path="/Login" element={<LoginPage />} />
+        {/* <Route path="/Login" element={<LoginPage />} /> */}
         <Route path="/Preorder-items" element={<>
             <HeroSection backgroundImage="/images/IMG-20250402-WA0139.jpg" brandName="BOSHAN" /> 
             <ProductGrid />
@@ -126,6 +128,7 @@ function App() {
       </Routes> 
 <Layout children={undefined} /> {/* Wrap the entire app with the Layout component */}
     </Router>
+    </AuthProvider>
   );
 }
 

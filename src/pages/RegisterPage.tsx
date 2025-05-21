@@ -8,12 +8,14 @@ import { auth } from '../firebaseConfig';
 import { db } from '../firebaseConfig'; 
 import { doc, setDoc } from 'firebase/firestore'; import { toast } from 'react-hot-toast';
 import { getDoc } from "firebase/firestore";
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai'; 
 
 const LoginPage = () => { const [isRegister, setIsRegister] = useState(false); 
   const [email, setEmail] = useState(''); 
   const [password, setPassword] = useState(''); 
   const [name, setName] = useState(''); 
   const [loading, setLoading] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false); // Toggle state
   const navigate = useNavigate();
 
   const handleGoogleSignIn = async () => { 
@@ -42,27 +44,59 @@ const LoginPage = () => { const [isRegister, setIsRegister] = useState(false);
     } 
   };
 
-    const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
-      setLoading(true);
-    
-      try {
-        const result = await signInWithEmailAndPassword(auth, email, password);
-        toast.success(`Welcome back to Boshan, ${result.user.displayName || "Glow Queen"}!`);
-        navigate("/account");
-      } catch (error: any) {
-        console.error(error);
-        if (error.code === "auth/user-not-found") {
-          toast.error("No account found with this email.");
-        } else if (error.code === "auth/wrong-password") {
-          toast.error("Incorrect password. Please try again.");
-        } else {
-          toast.error("Login failed. Please check your credentials.");
-        }
-      } finally {
-        setLoading(false);
+  const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    console.log("Login attempt started"); // Debugging line
+  
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      const user = result.user;
+  
+      console.log("Login successful", user); // Debugging line
+      toast.success(`Welcome back to Boshan, ${user.displayName || "Glow Queen"}!`);
+  
+      // Check if user data exists
+      const userDocRef = doc(db, "users", user.uid);
+      const userSnap = await getDoc(userDocRef);
+  
+      if (!userSnap.exists()) {
+        console.log("User does not exist, creating profile"); // Debugging line
+        await setDoc(userDocRef, {
+          profile: {
+            name: user.displayName || "User",
+            email: user.email || "",
+          },
+          cart: [],
+          wishlist: [],
+          orders: [],
+        });
       }
-    };
+  
+      navigate("/account");
+    } catch (error: any) {
+      console.error("Login failed", error); // More detailed logging
+      toast.error(`Login failed: ${error.message}`);
+  
+      // Specific error messages based on error code
+      switch (error.code) {
+        case "auth/user-not-found":
+          toast.error("No account found with this email.");
+          break;
+        case "auth/wrong-password":
+          toast.error("Incorrect password. Please try again.");
+          break;
+        case "auth/network-request-failed":
+          toast.error("Network error. Check your connection.");
+          break;
+        default:
+          toast.error("An unexpected error occurred. Please try again.");
+      }
+    } finally {
+      setLoading(false);
+    }
+  };  
+  
     
     const handleRegisterSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -140,15 +174,22 @@ const LoginPage = () => { const [isRegister, setIsRegister] = useState(false);
           onChange={(e) => setEmail(e.target.value)}
           required
           className="w-full px-4 py-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-orange-500"
-        />
+        />  <div className="relative">
         <input
-          type="password"
+          type={showPassword ? "text" : "password"}
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
           className="w-full px-4 py-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-orange-500"
         />
+        <span
+          className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
+          onClick={() => setShowPassword(!showPassword)}
+        >
+          {showPassword ? <AiOutlineEyeInvisible size={20} /> : <AiOutlineEye size={20} />}
+        </span>
+      </div>
         <button
           type="submit"
           disabled={loading}
