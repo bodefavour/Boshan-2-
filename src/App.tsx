@@ -109,7 +109,7 @@ function App() {
         } />
         <Route path="/AccountPage" element={<AccountPage />} />
         {/* <Route path="/Holiday-Specials" element={<HolidaySpecials />} /> */}
-        <Route path="/Product-page" element={<ProductPage />} /> 
+        <Route path="/product/:id" element={<ProductPage />} />
         <Route path="/Oldpa" element={<>
             <HeroSection
             backgroundImage="/images/IMG-20250402-WA0139.jpg"

@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 
-const images = [
-  "/images/IMG-20250402-WA0139.jpg",
-  "/images/IMG-20250402-WA0134.jpg",
-  "/images/IMG-20250402-WA0140.jpg",
-];
+interface Props {
+  images: string[];
+}
 
-const ProductImages = () => {
+const ProductImages: React.FC<Props> = ({ images }) => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
   return (
@@ -16,7 +14,6 @@ const ProductImages = () => {
         alt="Product"
         className="w-full h-auto object-cover transition-transform duration-300 hover:scale-105"
       />
-
       <div className="flex mt-4 space-x-2">
         {images.map((img, index) => (
           <img
