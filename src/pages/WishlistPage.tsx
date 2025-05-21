@@ -1,36 +1,57 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
-import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
+
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  image: string;
+}
 
 const WishlistPage = () => {
   const { currentUser } = useAuth();
-  const [wishlist, setWishlist] = useState<any[]>([]);
+  const [wishlistProducts, setWishlistProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchWishlist = async () => {
-      if (currentUser) {
-        const userDoc = await getDoc(doc(db, "users", currentUser.uid));
-        if (userDoc.exists()) {
-          setWishlist(userDoc.data().wishlist || []);
+      if (!currentUser) return;
+
+      const userRef = doc(db, "users", currentUser.uid);
+      const userSnap = await getDoc(userRef);
+      const wishlist = userSnap.exists() ? userSnap.data().wishlist || [] : [];
+
+      const productPromises = wishlist.map(async (item: any) => {
+        const productSnap = await getDoc(doc(db, "products", item.productId));
+        if (productSnap.exists()) {
+          return { ...productSnap.data(), id: item.productId };
         }
-      }
+        return null;
+      });
+
+      const resolvedProducts = await Promise.all(productPromises);
+      const validProducts = resolvedProducts.filter(Boolean) as Product[];
+      setWishlistProducts(validProducts);
     };
 
     fetchWishlist();
   }, [currentUser]);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12 text-black">
+    <div className="max-w-5xl mx-auto px-4 py-12 text-black">
       <h2 className="text-3xl font-bold mb-6">Your Wishlist</h2>
 
-      {wishlist.length === 0 ? (
-        <p className="text-gray-600">You have no items in your wishlist.</p>
+      {wishlistProducts.length === 0 ? (
+        <p>Your wishlist is empty.</p>
       ) : (
-        <ul className="space-y-6">
-          {wishlist.map((item, index) => (
-            <li key={index} className="border-b py-4">
-              {item.productId}
+        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {wishlistProducts.map((item) => (
+            <li key={item.id} className="text-center">
+              <img src={item.image} alt={item.name} className="w-full h-48 object-cover rounded" />
+              <h4 className="mt-2 font-semibold">{item.name}</h4>
+              <p className="text-sm text-gray-600">₦{item.price}</p>
             </li>
           ))}
         </ul>

@@ -1,36 +1,37 @@
 [
-    {
-      "id": 1,
-      "name": "Boshan Luxurious Shea Butter",
-      "price": 3500,
-      "oldPrice": 5000,
-      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-      "isNew": true,
-      "features": ["100% Organic", "Infused with Herbs", "Smooth Texture"],
-      "rating": 4.8,
-      "reviews": 120,
-      "description": "Our premium shea butter is sourced from local Esan farmers and infused with traditional herbs to nourish your skin deeply.",
-      "images": [
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
-      ]
-    },
-    {
-      "id": 2,
-      "name": "Boshan Black Soap Bar",
-      "price": 2000,
-      "oldPrice": 2500,
-      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-      "isNew": false,
-      "features": ["Deep Cleanse", "No Harsh Chemicals", "For All Skin Types"],
-      "rating": 4.5,
-      "reviews": 80,
-      "description": "Gentle but effective, this black soap bar is perfect for daily skin detox without drying out your skin.",
-      "images": [
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
-      ]
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "Boshan Luxurious Shea Butter",
+    "price": 3500,
+    "oldPrice": 5000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": ["100% Organic", "Infused with Herbs", "Smooth Texture"],
+    "rating": 4.8,
+    "reviews": 120,
+    "description": "Our premium shea butter is sourced from local Esan farmers and infused with traditional herbs to nourish your skin deeply.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ],
+    "category": "skincare"
+  },
+  {
+    "id": 2,
+    "name": "Boshan Black Soap Bar",
+    "price": 2000,
+    "oldPrice": 2500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": false,
+    "features": ["Deep Cleanse", "No Harsh Chemicals", "For All Skin Types"],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Gentle but effective, this black soap bar is perfect for daily skin detox without drying out your skin.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ],
+    "category": "hygiene"
+  }
+]

@@ -22,6 +22,9 @@ import AccountPage from "./pages/AccountPage";
 // import LoginPage from "./pages/LoginPage";
 import { AuthProvider } from "./context/AuthContext"
 import { Toaster } from "react-hot-toast";
+import CartPage from "./pages/CartPage";
+import WishlistPage from "./pages/WishlistPage";
+import PreorderCategoryPage from "./pages/PreorderCategoryPage";
 
 function App() {
   const sampleProducts = [
@@ -79,7 +82,24 @@ function App() {
   return ( 
     <AuthProvider>
     <Router>
-    <Toaster position="top-right" reverseOrder={false} /> 
+    <Toaster
+  toastOptions={{
+    style: {
+      fontSize: "14px",
+      background: "#FFF8F5",
+      color: "#222",
+      borderRadius: "10px",
+      padding: "12px 16px",
+    },
+    success: {
+      iconTheme: {
+        primary: "#C07C6C",
+        secondary: "#fff",
+      },
+    },
+  }}
+/>
+
       <NavBar /> {/* NavBar stays on every page */}
       <Routes>
         <Route path="/" element={
@@ -114,6 +134,10 @@ function App() {
         <Route path="/AccountPage" element={<AccountPage />} />
         {/* <Route path="/Holiday-Specials" element={<HolidaySpecials />} /> */}
         <Route path="/product/:id" element={<ProductPage />} />
+        <Route path="/preorder/:category" element={<PreorderCategoryPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
+
         <Route path="/Oldpa" element={<>
             <HeroSection
             backgroundImage="/images/IMG-20250402-WA0139.jpg"
