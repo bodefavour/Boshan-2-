@@ -3,7 +3,6 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import ProductFilter from "./ProductFilter";
 import { Link } from "react-router-dom";
-import HeroSection from "./HeroSection";
 
 interface Product {
   id: string;

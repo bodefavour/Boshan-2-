@@ -1,15 +1,12 @@
-import React from "react";
+// Project: Boshan Beauty Preorder Landing Page
 import { Link } from "react-router-dom";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import HeroSection from "./HeroSection";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import { EffectCoverflow } from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const services = [

@@ -21,6 +21,7 @@ const NavBar: React.FC = () => {
     "About Us",
     "Blogs",
     "Contact Us",
+    
   ];
 
   //Submenu items for each menu item.
