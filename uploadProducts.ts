@@ -4,7 +4,7 @@ import fs from "fs";
 
 // Firebase Admin SDK initialization
 initializeApp({
-  credential: cert("./boshan-store-firebase-adminsdk-fbsvc-d239dd1610.json"), // Update the path
+  credential: cert("./boshan-store-firebase-adminsdk-fbsvc-f3eaea98ba.json"), // Update the path
 });
 
 const db = getFirestore();

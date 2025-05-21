@@ -22,11 +22,13 @@
 .env 
 boshan-store-firebase-adminsdk-fbsvc-d239dd1610.json
 process.env
+boshan-store-firebase-adminsdk-fbsvc-f3eaea98ba.json
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 boshan-store-firebase-adminsdk-fbsvc-d239dd1610.json
+boshan-store-firebase-adminsdk-fbsvc-f3eaea98ba.json
 # src/components/LandingContentPreorder.tsx
 BirthdayGiftPage.tsx
 Décor.tsx

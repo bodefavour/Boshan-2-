@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import ProductFilter from "./ProductFilter";
+import { Link } from "react-router-dom";
 import HeroSection from "./HeroSection";
 
 interface Product {
@@ -79,11 +80,13 @@ const ProductGrid: React.FC = () => {
         {filteredProducts.map((product) => (
           <div key={product.id} className="border border-gray-300 p-2 rounded-md shadow hover:shadow-lg transition">
             {/* Product Image */}
+            <Link to={`/product/${product.id}`}>
             <img
               src={product.image}
               alt={product.name}
               className="w-full h-48 object-cover rounded-md"
             />
+            </Link>
 
             {/* "New Arrival" Badge */}
             {product.isNew && (
