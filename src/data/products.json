@@ -1,7 +1,8 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Boshan Luxurious Shea Butter",
+    "category": "skincare-essentials",
     "price": 3500,
     "oldPrice": 5000,
     "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
@@ -14,12 +15,12 @@
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
-    ],
-    "category": "skincare"
+    ]
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Boshan Black Soap Bar",
+    "category": "personal-hygiene",
     "price": 2000,
     "oldPrice": 2500,
     "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
@@ -31,7 +32,6 @@
     "images": [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
-    ],
-    "category": "hygiene"
+    ]
   }
 ]

@@ -17,42 +17,38 @@ const services = [
         title: "Skincare Essentials",
         desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
         image: "/images/IMG-20250402-WA0132.jpg",
-        link: "/skincare",
       },
       {
         title: "Beardcare Essentials",
         desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
         image: "/images/IMG-20250322-WA0048.jpg",
-        link: "/Fashion",
       },
       {
         title: "Personal Hygiene",
         desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
         image: "/images/IMG-20250322-WA0051.jpg",
-        link: "/birthday-gifts",
       },
       {
         title: "Beauty Tools and Makeup Accessories",
         desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
         image: "/images/IMG-20250402-WA0140.jpg",
-        link: "/Decor",
       }, {
         title: "Subscription Boxes",
         desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
         image: "/images/IMG-20250322-WA0051.jpg",
-        link: "/Decor",
       }, {
         title: "Skin Therapy and Consultations",
         desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
         image: "/images/IMG-20250402-WA0132.jpg",
-        link: "/Decor",
       }, {
         title: "Skinfood & Nutrition",
         desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
         image: "/images/IMG-20250402-WA0134.jpg",
-        link: "/Decor",
       }, 
-];
+].map((service) => ({
+    ...service,
+    link: `/preorder/${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, "-"))}`,
+  }));
 
 const LandingContents = () => {
   return ( <><main>

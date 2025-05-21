@@ -4,32 +4,29 @@ import fs from "fs";
 
 // Firebase Admin SDK initialization
 initializeApp({
-  credential: cert("./boshan-store-firebase-adminsdk-fbsvc-f3eaea98ba.json"), // Update the path
+  credential: cert("./boshan-store-firebase-adminsdk-fbsvc-f3eaea98ba.json"), // Update this path if necessary
 });
 
 const db = getFirestore();
 
-// Function to upload products to Firestore
 async function uploadProducts() {
   try {
-    // Read and parse the products.json file
     const productsData = JSON.parse(fs.readFileSync("./src/data/products.json", "utf8"));
 
-    // Ensure products is an array
     if (!Array.isArray(productsData)) {
       throw new Error("Products data is not an array");
     }
 
     const collectionRef = db.collection("products");
 
-    // Loop through each product and upload to Firestore
     for (const product of productsData) {
-      const docRef = collectionRef.doc(product.id.toString()); // Use id as document ID
+      const docRef = collectionRef.doc(product.id.toString());
 
-      // Validate product fields
+      // Ensure category is valid
       const validatedProduct = {
         id: product.id,
         name: product.name,
+        category: product.category?.toLowerCase().replace(/\s+/g, "-") || "uncategorized",
         price: product.price,
         oldPrice: product.oldPrice || null,
         image: product.image,
