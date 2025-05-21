@@ -8,7 +8,10 @@ const useCartCount = () => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    if (!currentUser) return;
+    if (!currentUser) {
+      setCount(0); // Reset count when user logs out
+      return;
+    }
 
     const userRef = doc(db, "users", currentUser.uid);
 
@@ -19,7 +22,7 @@ const useCartCount = () => {
       }
     });
 
-    return () => unsubscribe(); // Cleanup the listener
+    return () => unsubscribe();
   }, [currentUser]);
 
   return count;
