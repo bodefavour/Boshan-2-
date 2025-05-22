@@ -40,7 +40,25 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black to-transparent opacity-300" style={{ width: "100%" }}></div>
+      <div
+  className="absolute inset-0 z-10 hidden md:block"
+  style={{
+    background: `
+      linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.9) 25%,
+        rgba(0, 0, 0, 0.85) 40%,
+        rgba(0, 0, 0, 0.7) 55%,
+        rgba(0, 0, 0, 0.5) 70%,
+        rgba(0, 0, 0, 0.3) 85%,
+        transparent 100%
+      )
+    `
+  }}
+></div>
+
+
 
       {/* Mobile View */}
       <div className="md:hidden absolute bottom-[13%] left-1/2 transform -translate-x-1/2 text-center text-white z-10 w-full">
@@ -66,7 +84,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="absolute left-[5%] top-[30%] text-left text-white z-20 w-1/2 space-y-4">
           {brandName && (
             <h1
-              className="font-extralight uppercase font-sans text-white leading-tight"
+              className="uppercase font-quicksand text-white leading-tight tracking-wide"
               style={{
                 fontSize: "9rem",
                 whiteSpace: "nowrap",

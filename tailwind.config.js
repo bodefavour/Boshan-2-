@@ -14,7 +14,10 @@ module.exports = {
         phudu: ["Phudu", "sans-serif"],
         playfair: ['"Playfair Display"', 'serif'],
         quicksand: ['"Quicksand"', 'sans-serif'],
-      },},
+      },
+      colors: {
+        boshan: '#F97316'
+      }},
   },
   plugins: [],
 }
