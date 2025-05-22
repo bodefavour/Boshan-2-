@@ -14,6 +14,7 @@ import { Toaster } from "react-hot-toast";
 import CartPage from "./pages/CartPage";
 import WishlistPage from "./pages/WishlistPage";
 import PreorderCategoryPage from "./pages/PreorderCategoryPage";
+import CheckoutSummaryPage from "./pages/CheckoutSummaryPage";
 
 function App() {
 
@@ -65,7 +66,7 @@ function App() {
         <Route path="/preorder/:category" element={<PreorderCategoryPage />} />
         <Route path="/cart" element={<PrivateRoute> <CartPage /> </PrivateRoute>} />
         <Route path="/wishlist" element={<PrivateRoute> <WishlistPage /> </PrivateRoute>} />
-
+        <Route path="/checkout" element={<PrivateRoute> <CheckoutSummaryPage /> </PrivateRoute>} />
         <Route path="/Oldpa" element={<>
             <HeroSection
             backgroundImage="/images/IMG-20250402-WA0139.jpg"

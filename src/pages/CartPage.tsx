@@ -92,70 +92,77 @@ const CartPage = () => {
       {cartProducts.length === 0 ? (
         <p className="text-center text-gray-500">Your cart is empty.</p>
       ) : (
-        <div className="space-y-6">
-          <AnimatePresence>
-            {cartProducts.map((item) => (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.4 }}
-                className="flex items-center gap-6 border-b pb-6"
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-24 h-24 object-cover rounded-lg shadow"
-                />
-                <div className="flex-1">
-                  <h4 className="text-xl font-semibold">{item.name}</h4>
-                  <p className="text-sm text-gray-600">
-                    ₦{item.price.toLocaleString()} × {item.quantity}
-                  </p>
-                  <div className="flex items-center mt-3 space-x-2">
-                    <button
-                      onClick={() => updateCart(item.id, item.quantity - 1)}
-                      className="w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300 text-lg flex items-center justify-center"
-                    >
-                      −
-                    </button>
-                    <span className="w-8 text-center">{item.quantity}</span>
-                    <button
-                      onClick={() => updateCart(item.id, item.quantity + 1)}
-                      className="w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300 text-lg flex items-center justify-center"
-                    >
-                      +
-                    </button>
-                    <button
-                      onClick={() => removeFromCart(item.id)}
-                      className="ml-4 text-red-500 hover:underline text-sm"
-                    >
-                      Remove
-                    </button>
+        <>
+          <div className="space-y-6">
+            <AnimatePresence>
+              {cartProducts.map((item) => (
+                <motion.div
+                  key={item.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.4 }}
+                  className="flex items-center gap-6 border-b pb-6"
+                >
+                  <Link to={`/product/${item.id}`}>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-24 h-24 object-cover rounded-lg shadow"
+                    />
+                  </Link>
+                  <div className="flex-1">
+                    <Link to={`/product/${item.id}`}>
+                    <h4 className="text-xl font-semibold">{item.name}</h4>
+                    </Link>
+                    <p className="text-sm text-gray-600">
+                      ₦{item.price.toLocaleString()} × {item.quantity}
+                    </p>
+                    <div className="flex items-center mt-3 space-x-2">
+                      <button
+                        onClick={() => updateCart(item.id, item.quantity - 1)}
+                        className="w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300 text-lg flex items-center justify-center"
+                      >
+                        −
+                      </button>
+                      <span className="w-8 text-center">{item.quantity}</span>
+                      <button
+                        onClick={() => updateCart(item.id, item.quantity + 1)}
+                        className="w-8 h-8 bg-gray-200 rounded-full hover:bg-gray-300 text-lg flex items-center justify-center"
+                      >
+                        +
+                      </button>
+                      <button
+                        onClick={() => removeFromCart(item.id)}
+                        className="ml-4 text-red-500 hover:underline text-sm"
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-
-          <div className="text-right pt-8 border-t mt-12">
-            <h3 className="text-2xl font-bold">
-              Total: ₦{totalPrice.toLocaleString()}
-            </h3>
-            <button className="mt-4 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-full font-semibold">
-              Proceed to Checkout
-            </button>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+            <div className="text-right pt-8 border-t mt-12">
+              <h3 className="text-2xl font-bold">
+                Total: ₦{totalPrice.toLocaleString()}
+              </h3>
+              <Link to="/checkout">
+                <button className="mt-4 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-full font-semibold">
+                  Proceed to Checkout
+                </button>
+              </Link>
+            </div>
           </div>
-        </div>
+        </>
       )}
 
-      <Link
-        to="/preorder"
+      <button
+        onClick={() => window.history.back()}
         className="text-orange-500 underline mt-10 inline-block"
       >
         ← Continue Shopping
-      </Link>
+      </button>
     </div>
   );
 };
