@@ -9,9 +9,9 @@ interface HeroSectionProps {
   children?: ReactNode;
   className?: string;
   brandNameStyle?: React.CSSProperties;
-  ctaText?: string;        // CTA copy text
-  ctaButton?: string;      // CTA button text
-  onCtaClick?: () => void; // CTA button action
+  ctaText?: string;
+  ctaButton?: string;
+  onCtaClick?: () => void;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -28,14 +28,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Background Image */}
       <div className="relative w-full flex justify-center items-start">
         <div
-          className="w-full h-screen md:h-2/3 bg-cover bg-center"
+          className="w-full h-[66vh] md:h-screen bg-cover bg-center"
           style={{
             backgroundImage: `url(${backgroundImage})`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             width: "100vw",
-            height: "100vh",
           }}
         ></div>
       </div>
@@ -51,14 +50,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {brandName && (
         <h1
           className="md:hidden absolute font-extralight uppercase font-phudu text-white"
-          style={{  
-            top: "5%",
-            left: "52%",
+          style={{
+            top: "10%",
+            left: "50%",
             transform: "translateX(-50%)",
             whiteSpace: "nowrap",
           }}
         >
-          <span className="text-[9rem] tracking-[0.2em]">{brandName}</span>
+          <span className="text-[3rem] tracking-[0.1em]">{brandName}</span>
         </h1>
       )}
 
@@ -77,7 +76,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </h1>
           )}
           {children}
-          {/* CTA Text and Button */}
           {ctaText && (
             <p className="text-xl text-gray-300">{ctaText}</p>
           )}
@@ -96,4 +94,3 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 };
 
 export default HeroSection;
- 
