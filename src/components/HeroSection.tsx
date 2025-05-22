@@ -54,21 +54,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           )`}}></div>
 
       {/* Mobile View */}
-<div className="md:hidden absolute bottom-[8%] left-1/2 transform -translate-x-1/2 text-center z-10 w-[90%] px-4">
-  {brandName && (
-    <h1 className="font-quicksand font-bold uppercase text-[#FFF8F5] text-3xl tracking-widest mb-4">
-      {brandName}
-    </h1>
-  )}
-  {children && (
-    <p className="text-[#f3e9e5] text-base mb-4 leading-relaxed">
-      Discover luxurious skincare & wellness essentials, handcrafted with care, curated for glow.
-    </p>
+<div className="md:hidden absolute bottom-[13%] left-1/2 transform -translate-x-1/2 text-center z-10 w-full px-4 text-white space-y-4">
+  {children}
+  {ctaText && (
+    <p className="text-sm text-gray-200">{ctaText}</p>
   )}
   {ctaButton && (
     <button
       onClick={onCtaClick}
-      className="bg-orange-600 hover:bg-orange-700 text-white font-medium px-5 py-2 rounded-full text-sm shadow-md transition"
+      className="bg-orange-600 hover:bg-orange-700 text-white text-sm px-5 py-2 rounded-full transition font-medium shadow"
     >
       {ctaButton}
     </button>
