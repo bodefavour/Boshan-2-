@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         phudu: ["Phudu", "sans-serif"],
+        playfair: ['"Playfair Display"', 'serif'],
       },},
   },
   plugins: [],
