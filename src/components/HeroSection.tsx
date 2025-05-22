@@ -49,7 +49,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
       {brandName && (
         <h1
-          className="md:hidden absolute font-bold uppercase font-playfair tracking-wide text-white"
+          className="md:hidden absolute font-bold uppercase font-quicksand tracking-wide text-white"
           style={{
             top: "10%",
             left: "50%",
