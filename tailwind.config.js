@@ -13,6 +13,7 @@ module.exports = {
       fontFamily: {
         phudu: ["Phudu", "sans-serif"],
         playfair: ['"Playfair Display"', 'serif'],
+        quicksand: ['"Quicksand"', 'sans-serif'],
       },},
   },
   plugins: [],
