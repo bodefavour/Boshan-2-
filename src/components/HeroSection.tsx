@@ -54,23 +54,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           )`}}></div>
 
       {/* Mobile View */}
-      <div className="md:hidden absolute bottom-[13%] left-1/2 transform -translate-x-1/2 text-center text-white z-10 w-full">
-        {children}
-      </div>
-
-      {brandName && (
-        <h1
-          className="md:hidden absolute font-bold uppercase font-quicksand tracking-wide text-white"
-          style={{
-            top: "10%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            whiteSpace: "nowrap",
-          }}
-        >
-          <span className="text-[3rem] tracking-[0.1em]">{brandName}</span>
-        </h1>
-      )}
+<div className="md:hidden absolute bottom-[13%] left-1/2 transform -translate-x-1/2 text-center z-10 w-full px-4 text-white space-y-4">
+  {children}
+  {ctaText && (
+    <p className="text-sm text-gray-200">{ctaText}</p>
+  )}
+  {ctaButton && (
+    <button
+      onClick={onCtaClick}
+      className="bg-orange-600 hover:bg-orange-700 text-white text-sm px-5 py-2 rounded-full transition font-medium shadow"
+    >
+      {ctaButton}
+    </button>
+  )}
+</div>
 
       {/* Desktop View */}
       <div className="hidden md:flex absolute inset-0 items-center justify-start pl-16">
