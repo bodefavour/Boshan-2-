@@ -77,7 +77,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <div className="absolute left-[5%] top-[30%] text-left text-white z-20 w-1/2 space-y-4">
           {brandName && (
             <h1
-              className="uppercase font-quicksand text-white leading-tight tracking-wide"
+              className="uppercase font-quicksand text-boshan leading-tight tracking-wide"
               style={{
                 fontSize: "9rem",
                 whiteSpace: "nowrap",

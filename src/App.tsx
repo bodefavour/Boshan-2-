@@ -39,7 +39,7 @@ function App() {
   }}
 />
 
-      <NavBar /> {/* NavBar stays on every page */}
+      <NavBar /> 
       <Routes>
         <Route path="/" element={
           <>
@@ -50,7 +50,7 @@ function App() {
             ctaButton="Shop Now"
             onCtaClick={() => console.log("CTA Clicked")}
              >
-              <p className="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p className="text-lg">First Beauty Club of Nigeria, here we come, blahhhhhh blahhhhhhh blahhhhhhhhhhhhh</p>
               </HeroSection>
               <LandingContent />
           </>
@@ -75,17 +75,16 @@ function App() {
             ctaButton="Shop Now"
             onCtaClick={() => console.log("CTA Clicked")}
              >
-              <p className="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p className="text-lg">Boshan is more than a brand, its a movement. Come join the first beauty club in Nigeria. Preorder to be a member instantly</p>
               </HeroSection>
               <LandingContents />
           </>
         } />
       </Routes> 
-<Layout children={undefined} /> {/* Wrap the entire app with the Layout component */}
+<Layout children={undefined} /> 
     </Router>
     </AuthProvider>
   );
 }
 
 export default App;
-//     //The  App  component is the main component that renders the navigation bar and the main content.
