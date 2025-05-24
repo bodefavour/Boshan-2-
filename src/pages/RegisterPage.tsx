@@ -20,7 +20,7 @@ const LoginPage = () => { const [isRegister, setIsRegister] = useState(false);
   const [showPassword, setShowPassword] = useState(false); // Toggle state
   const navigate = useNavigate();
   const location = useLocation(); // ✅ Correct position
-  const redirectPath = (location.state as any)?.from?.pathname || "/account";
+  const redirectPath = (location.state as any)?.from?.pathname;
 
   const handleGoogleSignIn = async () => { 
     try { const provider = new GoogleAuthProvider(); 
