@@ -7,6 +7,7 @@
     "@formspree/react": "^3.0.0",
     "@heroicons/react": "^1.0.6",
     "@lottiefiles/dotlottie-react": "^0.13.3",
+    "@paystack/inline-js": "^2.22.4",
     "@tanstack/react-query": "^5.71.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -64,6 +65,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.15.17",
+    "@types/paystack__inline-js": "^1.0.1",
     "@types/react-slick": "^0.23.13",
     "@types/swiper": "^5.4.3",
     "ts-node": "^10.9.2",
