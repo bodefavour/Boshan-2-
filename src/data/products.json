@@ -1,16 +1,20 @@
 [
   {
     "id": "1",
-    "name": "Boshan Luxurious Shea Butter",
-    "category": "skincare-essentials",
-    "price": 3500,
-    "oldPrice": 5000,
+    "name": "Boshan Beard Oil",
+    "category": "beardcare-essentials",
+    "price": 9500,
+    "oldPrice": 10500,
     "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
     "isNew": true,
-    "features": ["100% Organic", "Infused with Herbs", "Smooth Texture"],
+    "features": [
+      "Nourishes and soften Beards",
+      " shine + growth"
+    ],
     "rating": 4.8,
+    "size": "50ml",
     "reviews": 120,
-    "description": "Our premium shea butter is sourced from local Esan farmers and infused with traditional herbs to nourish your skin deeply.",
+    "description": "Nourishes and softens beard; shine + growth",
     "images": [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
@@ -19,16 +23,477 @@
   },
   {
     "id": "2",
-    "name": "Boshan Black Soap Bar",
-    "category": "personal-hygiene",
-    "price": 2000,
-    "oldPrice": 2500,
+    "name": "Boshan Beard Balm",
+    "category": "beardcare-essentials",
+    "price": 7500,
+    "oldPrice": 8500,
     "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-    "isNew": false,
-    "features": ["Deep Cleanse", "No Harsh Chemicals", "For All Skin Types"],
+    "isNew": true,
+    "features": [
+      "100% Organic",
+      "Infused with Herbs",
+      "Smooth Texture"
+    ],
+    "rating": 4.8,
+    "reviews": 120,
+    "description": "Mosturizes, styles, tames flyaways",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Boshan Beard Shampoo",
+    "category": "beardcare-essentials",
+    "price": 6000,
+    "oldPrice": 8000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "100% Organic",
+      "Infused with Herbs",
+      "Smooth Texture"
+    ],
+    "rating": 4.8,
+    "reviews": 120,
+    "description": "Deep cleanse for beard; sulfate-free.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Boshan Grooming Kit",
+    "category": "beardcare-essentials",
+    "price": 20000,
+    "oldPrice": 35000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "Brush",
+      "comb",
+      "Shaving Knife",
+      "Duster"
+    ],
     "rating": 4.5,
     "reviews": 80,
-    "description": "Gentle but effective, this black soap bar is perfect for daily skin detox without drying out your skin.",
+    "description": "The all in one product you need for you all round healthy beardcare.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Boshan Men Hydrating Face Wash",
+    "category": "skincare-essentials",
+    "price": 6500,
+    "oldPrice": 7000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "100% Organic",
+      "Infused with Herbs",
+      "Smooth Texture"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "CLeanses deepy, no dryness.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "6",
+    "name": "Boshan Men Hydrating Face Serum",
+    "category": "skincare-essentials",
+    "price": 5500,
+    "oldPrice": 6500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "100% Organic",
+      "Infused with Herbs",
+      "Smooth Texture"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Lighweight Serum for hydration & glow.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "7",
+    "name": "Boshan Men Face Milk (Moisturizer)",
+    "category": "skincare-essentials",
+    "price": 5500,
+    "oldPrice": 6500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "100% Organic",
+      "Infused with Herbs",
+      "Smooth Texture"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Post-shave cooling lotion, hydraes daily.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "8",
+    "name": "Boshan Men Glow & Go Kit (Full Set)",
+    "category": "skincare-essentials",
+    "price": 5500,
+    "oldPrice": 6500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "Set of 3",
+      "Face Wash",
+      "Serum",
+      "Face Milk",
+      "Guide"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Post-shave cooling lotion, hydraes daily.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "9",
+    "name": "Boshan Women Face Milk (Moisturizer)",
+    "category": "skincare-essentials",
+    "price": 5500,
+    "oldPrice": 6500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "100% Organic",
+      "Infused with Herbs",
+      "Smooth Texture"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Post-shave cooling lotion, hydraes daily.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "10",
+    "name": "Boshan Women Glow & Go Kit (Full Set)",
+    "category": "skincare-essentials",
+    "price": 20000,
+    "oldPrice": 30000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "Set of 3",
+      "Face Wash",
+      "Serum",
+      "Face Milk",
+      "Guide"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Post-shave cooling lotion, hydrates daily.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "11",
+    "name": "Boshan Women Hydrating Face Wash",
+    "category": "skincare-essentials",
+    "price": 6500,
+    "oldPrice": 7000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "100% Organic",
+      "Infused with Herbs",
+      "Smooth Texture"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "CLeanses deepy, no dryness.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "12",
+    "name": "Boshan Women Hydrating Face Serum",
+    "category": "skincare-essentials",
+    "price": 5500,
+    "oldPrice": 6500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "100% Organic",
+      "Infused with Herbs",
+      "Smooth Texture"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Lighweight Serum for hydration & glow.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "13",
+    "name": "Boshan Cotton Towels",
+    "category": "skincare-essentials",
+    "price": 7000,
+    "oldPrice": 8500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "For Women",
+      "80 sheets"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Gentle, reusable cotton towels for face & beauty care.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "14",
+    "name": "Boshan Skincare Brush",
+    "category": "skincare-essentials",
+    "price": 5000,
+    "oldPrice": 6500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "For Women"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Soft synthetic brushes for makeup & skincare routines.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "15",
+    "name": "Boshan Face Scraper",
+    "category": "skincare-essentials",
+    "price": 3500,
+    "oldPrice": 5000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "For Women",
+      "Single"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Precision facial shaving & exfoliation tool for women.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "16",
+    "name": "Boshan Silicone Mask",
+    "category": "skincare-essentials",
+    "price": 6000,
+    "oldPrice": 7500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "For Women"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Lock in Serum while sheet masking; comfortable & mess-free.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "17",
+    "name": "Boshan Silicone Egg Case",
+    "category": "skincare-essentials",
+    "price": 5000,
+    "oldPrice": 6500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "For Women"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Sanitary and stylish case for beauty blenders & puffs.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "18",
+    "name": "Boshan Standard Facial Mask",
+    "category": "skincare-essentials",
+    "price": 4500,
+    "oldPrice": 6500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "For Women",
+      "Single Use"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Sheet mask for hydration and brightening glow.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "19",
+    "name": "Premium Facial Mask",
+    "category": "skincare-essentials",
+    "price": 12000,
+    "oldPrice": 15000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "For Women",
+      "Pack of 4"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Luxurious 4-mask set infused with skin-reviving ingredients.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "20",
+    "name": "Boshan Skincare Brush",
+    "category": "skincare-essentials",
+    "price": 5000,
+    "oldPrice": 6500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "For Women",
+      "2-piece Set"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Lorem Ipsum text.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "21",
+    "name": "Boshan Silicone Face Mask Holder",
+    "category": "skincare-essentials",
+    "price": 6000,
+    "oldPrice": 7500,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "For Women",
+      "Reusable"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Lock in serum while sheet masking; comfortable & , mess-free",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "22",
+    "name": "Boshan Glow Starter Kit",
+    "category": "skincare-essentials",
+    "price": 14000,
+    "oldPrice": 15000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "Cotton Towels",
+      "Skincare Brush",
+      "Face Scraper"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Lock in serum while sheet masking; comfortable & , mess-free",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "23",
+    "name": "Boshan Mask Moment",
+    "category": "skincare-essentials",
+    "price": 20000,
+    "oldPrice": 25000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "1 Standard",
+      "1 Premium Mask",
+      "Silicone Holder"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Lock in serum while sheet masking; comfortable & , mess-free",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "24",
+    "name": "Boshan Everday Beauty Tools Set",
+    "category": "skincare-essentials",
+    "price": 35000,
+    "oldPrice": 45000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "Brush Set",
+      "Egg Case",
+      "Face Scraper"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "Lock in serum while sheet masking; comfortable & , mess-free",
     "images": [
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"

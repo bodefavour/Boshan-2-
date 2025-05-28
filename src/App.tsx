@@ -3,7 +3,7 @@ import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import ProductGrid from "./components/ProductGrid";
 import Layout from "./components/Layout";
-import ProductPage from "./components/productpage"; 
+import ProductPage from "./components/productpage";
 import LandingContent from "./components/LandingContent";
 import LandingContents from "./components/LandingContentPreorder";
 import PrivateRoute from './components/PrivateRoute';
@@ -18,71 +18,71 @@ import CheckoutSummaryPage from "./pages/CheckoutSummaryPage";
 
 function App() {
 
-  return ( 
+  return (
     <AuthProvider>
-    <Router>
-    <Toaster
-  toastOptions={{
-    style: {
-      fontSize: "14px",
-      background: "#FFF8F5",
-      color: "#222",
-      borderRadius: "10px",
-      padding: "12px 16px",
-    },
-    success: {
-      iconTheme: {
-        primary: "#C07C6C",
-        secondary: "#fff",
-      },
-    },
-  }}
-/>
+      <Router>
+        <Toaster
+          toastOptions={{
+            style: {
+              fontSize: "14px",
+              background: "#FFF8F5",
+              color: "#222",
+              borderRadius: "10px",
+              padding: "12px 16px",
+            },
+            success: {
+              iconTheme: {
+                primary: "#C07C6C",
+                secondary: "#fff",
+              },
+            },
+          }}
+        />
 
-      <NavBar /> 
-      <Routes>
-        <Route path="/" element={
-          <>
-            <HeroSection
-            backgroundImage="/images/IMG-20250402-WA0139.jpg"
-            brandName="Boshan"
-            ctaText="Experience the glow with Boshan."
-            ctaButton="Shop Now"
-            onCtaClick={() => console.log("CTA Clicked")}
-             >
-              <p className="text-lg">First Beauty Club of Nigeria, here we come, blahhhhhh blahhhhhhh blahhhhhhhhhhhhh</p>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <HeroSection
+                backgroundImage="/images/IMG-20250402-WA0139.jpg"
+                brandName="Boshan"
+                ctaText="For less than the cost of another failed Serum, Boshan sends you dermatologist-backed, Afrocentric beauty products right to your door. No stress. No guesswork. Just glow"
+                ctaButton="Shop Now"
+                onCtaClick={() => console.log("CTA Clicked")}
+              >
+                <p className="text-lg">Glowing Skin. Zero Guesswork. Delivered Monthly.</p>
               </HeroSection>
               <LandingContent />
-          </>
-        } />
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/Preorder-items" element={<>
-            <HeroSection backgroundImage="/images/IMG-20250402-WA0139.jpg" brandName="BOSHAN" /> 
+            </>
+          } />
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/Preorder-items" element={<>
+            <HeroSection backgroundImage="/images/IMG-20250402-WA0139.jpg" brandName="BOSHAN" />
             <ProductGrid />
           </>
-        } />
-        <Route path="/AccountPage" element={<PrivateRoute> <AccountPage /> </PrivateRoute>} />
-        <Route path="/product/:id" element={<ProductPage />} />
-        <Route path="/preorder/:category" element={<PreorderCategoryPage />} />
-        <Route path="/cart" element={<PrivateRoute> <CartPage /> </PrivateRoute>} />
-        <Route path="/wishlist" element={<PrivateRoute> <WishlistPage /> </PrivateRoute>} />
-        <Route path="/checkout" element={<PrivateRoute> <CheckoutSummaryPage /> </PrivateRoute>} />
-        <Route path="/Oldpa" element={<>
+          } />
+          <Route path="/AccountPage" element={<PrivateRoute> <AccountPage /> </PrivateRoute>} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/preorder/:category" element={<PreorderCategoryPage />} />
+          <Route path="/cart" element={<PrivateRoute> <CartPage /> </PrivateRoute>} />
+          <Route path="/wishlist" element={<PrivateRoute> <WishlistPage /> </PrivateRoute>} />
+          <Route path="/checkout" element={<PrivateRoute> <CheckoutSummaryPage /> </PrivateRoute>} />
+          <Route path="/Oldpa" element={<>
             <HeroSection
-            backgroundImage="/images/IMG-20250402-WA0139.jpg"
-            brandName="Boshan"
-            ctaText="Experience the glow with Boshan."
-            ctaButton="Shop Now"
-            onCtaClick={() => console.log("CTA Clicked")}
-             >
-              <p className="text-lg">Boshan is more than a brand, its a movement. Come join the first beauty club in Nigeria. Preorder to be a member instantly</p>
-              </HeroSection>
-              <LandingContents />
+              backgroundImage="/images/IMG-20250402-WA0139.jpg"
+              brandName="Boshan"
+              ctaText="For less than the cost of another failed Serum, Boshan sends you dermatologist-backed, Afrocentric beauty products right to your door. No stress. No guesswork. Just glow"
+              ctaButton="Start Your Glow Journey"
+              onCtaClick={() => console.log("CTA Clicked")}
+            >
+              <p className="text-lg">Glowing Skin. Zero Guesswork. Delivered Monthly.</p>
+            </HeroSection>
+            <LandingContents />
           </>
-        } />
-      </Routes> 
-<Layout children={undefined} /> 
-    </Router>
+          } />
+        </Routes>
+        <Layout children={undefined} />
+      </Router>
     </AuthProvider>
   );
 }
