@@ -36,24 +36,24 @@ const NavBar: React.FC = () => {
 
   const subMenus: { [key: string]: { name: string; image: string; path: string }[] } = {
     "Skincare Essentails": [
-      { name: "For Him", image: "/images/31343C.svg", path: "./birthday-gifts" },
-      { name: "For Her", image: "/images/31343C.svg", path: "./birthday-gifts" },
+      { name: "For Him", image: "/images/31343C.svg", path: "./preorder/skincare-essentials" },
+      { name: "For Her", image: "/images/31343C.svg", path: "./preorder/skincare-essentails" },
     ],
     "Personal Hygiene": [
-      { name: "For Him", image: "/images/31343C.svg", path: "./birthday-gifts" },
-      { name: "For Her", image: "/images/31343C.svg", path: "./birthday-gifts" },
+      { name: "For Him", image: "/images/31343C.svg", path: "./preorder/personal-hygiene" },
+      { name: "For Her", image: "/images/31343C.svg", path: "./preorder/personal-hygiene" },
     ],
     "Wellness and Supplements": [
-      { name: "For Him", image: "/images/31343C.svg", path: "./birthday-gifts" },
-      { name: "For Her", image: "/images/31343C.svg", path: "./birthday-gifts" },
+      { name: "For Him", image: "/images/31343C.svg", path: "./preorder/wellness-and-supplement" },
+      { name: "For Her", image: "/images/31343C.svg", path: "./preorder/wellness-and-supplement" },
     ],
     "Subscription Boxes": [
-      { name: "For Him", image: "/images/31343C.svg", path: "./birthday-gifts" },
-      { name: "For Her", image: "/images/31343C.svg", path: "./birthday-gifts" },
+      { name: "For Him", image: "/images/31343C.svg", path: "./preorder/subscription-boxes" },
+      { name: "For Her", image: "/images/31343C.svg", path: "./preorder/subscription-boxes" },
     ],
     "Skin Therapy/ Consultation": [
-      { name: "For Him", image: "/images/31343C.svg", path: "./birthday-gifts" },
-      { name: "For Her", image: "/images/31343C.svg", path: "./birthday-gifts" },
+      { name: "For Him", image: "/images/31343C.svg", path: "./preorder/skin-therapy" },
+      { name: "For Her", image: "/images/31343C.svg", path: "./preorder/skin-therpy" },
     ],
   };
 

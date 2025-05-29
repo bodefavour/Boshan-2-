@@ -55,9 +55,9 @@ const LandingContent = () => {
       >
         <h3 className="text-3xl md:text-4xl font-bold">PHASE 0: Pre-Order Campaign Plan (March 11 – April 20)</h3>
         <p className="max-w-3xl mx-auto text-lg">
-          🎯 Build hype & trust before product arrival <br/>
-          💌 Collect email sign-ups <br/>
-          🚀 Drive early interest for pre-orders <br/>
+          🎯 Build hype & trust before product arrival <br />
+          💌 Collect email sign-ups <br />
+          🚀 Drive early interest for pre-orders <br />
           🌍 Position Boshan as the go-to for Afrocentric beauty & self-care.
         </p>
       </motion.section>
