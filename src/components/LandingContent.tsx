@@ -1,63 +1,17 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick-theme.css"
 import Lottie from "lottie-react";
 import emailjs from '@emailjs/browser';
-import { useRef } from 'react';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import SuccessModal from './SuccessModal';
-
-const services = [
-  {
-    title: "Skincare Essentials",
-    desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
-    image: "/images/IMG-20250402-WA0132.jpg",
-    link: "/skincare",
-  },
-  {
-    title: "Beardcare Essentials",
-    desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
-    image: "/images/IMG-20250322-WA0048.jpg",
-    link: "/Fashion",
-  },
-  {
-    title: "Personal Hygiene",
-    desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
-    image: "/images/IMG-20250322-WA0051.jpg",
-    link: "/birthday-gifts",
-  },
-  {
-    title: "Beauty Tools and Makeup Accessories",
-    desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-    image: "/images/IMG-20250402-WA0140.jpg",
-    link: "/Decor",
-  }, {
-    title: "Subscription Boxes",
-    desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-    image: "/images/IMG-20250322-WA0051.jpg",
-    link: "/Decor",
-  }, {
-    title: "Skin Therapy and Consultations",
-    desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-    image: "/images/IMG-20250402-WA0132.jpg",
-    link: "/Decor",
-  }, {
-    title: "Skinfood & Nutrition",
-    desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-    image: "/images/IMG-20250402-WA0134.jpg",
-    link: "/Decor",
-  },
-];
 
 const LandingContent = () => {
   const [email, setEmail] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [formData, setFormData] = useState({ name: "", gender: "", ageRange: "", phone: "", email: "" });
   const [submitted, setSubmitted] = useState(false);
-  const formRef = useRef<HTMLFormElement>(null);
   const [showThankYou, setShowThankYou] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
 
