@@ -62,6 +62,10 @@ function App() {
           </>
           } />
           <Route path="/AccountPage" element={<PrivateRoute> <AccountPage /> </PrivateRoute>} />
+          <Route path="/preorder/skin-therapy-and-consultations" element={<PrivateRoute> <PreorderCategoryPage /> </PrivateRoute>} />
+          <Route path="/preorder/skinfood-and-nutrition" element={<PrivateRoute> <PreorderCategoryPage /> </PrivateRoute>} />
+          <Route path="/preorder/subscription-boxes" element={<PrivateRoute> <PreorderCategoryPage /> </PrivateRoute>} />
+          <Route path="/store" element={<StoreFrontPage />} />
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/preorder/:category" element={<PreorderCategoryPage />} />
           <Route path="/cart" element={<PrivateRoute> <CartPage /> </PrivateRoute>} />
