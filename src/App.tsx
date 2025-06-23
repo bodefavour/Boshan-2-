@@ -15,6 +15,7 @@ import CartPage from "./pages/CartPage";
 import WishlistPage from "./pages/WishlistPage";
 import PreorderCategoryPage from "./pages/PreorderCategoryPage";
 import CheckoutSummaryPage from "./pages/CheckoutSummaryPage";
+import StoreFrontPage from "./components/StoreFrontPage";
 
 function App() {
 
