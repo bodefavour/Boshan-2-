@@ -179,7 +179,7 @@
     "category": "skincare-essentials",
     "price": 5500,
     "oldPrice": 6500,
-    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "image": "https://collection.cloudinary.com/dm01w7d4t/71f7bffa617d0f33ce3cc89d396bc710",
     "isNew": true,
     "features": [
       "100% Organic",
@@ -190,8 +190,8 @@
     "reviews": 80,
     "description": "Post-shave cooling lotion, hydraes daily.",
     "images": [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+      "https://collection.cloudinary.com/dm01w7d4t/71f7bffa617d0f33ce3cc89d396bc710",
+      "https://collection.cloudinary.com/dm01w7d4t/71f7bffa617d0f33ce3cc89d396bc710"
     ]
   },
   {
