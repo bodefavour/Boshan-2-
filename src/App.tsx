@@ -16,12 +16,25 @@ import WishlistPage from "./pages/WishlistPage";
 import PreorderCategoryPage from "./pages/PreorderCategoryPage";
 import CheckoutSummaryPage from "./pages/CheckoutSummaryPage";
 import StoreFrontPage from "./components/StoreFrontPage";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [pathname]);
+
+  return null;
+};
 
 function App() {
 
   return (
     <AuthProvider>
       <Router>
+        <ScrollToTop />
         <Toaster
           toastOptions={{
             style: {
