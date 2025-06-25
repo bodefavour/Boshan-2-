@@ -61,7 +61,7 @@ const NavBar: React.FC = () => {
     <nav className="fixed top-0 left-0 w-full bg-black bg-opacity-50 text-white py-2 px-6 z-50 flex justify-between items-center">
       {/* Left Section: Boshan Logo */}
       <div className="flex items-center">
-        <Link to="Oldpa">
+        <Link to="/">
           <img src={boshanLogo} alt="Boshan Logo" className="h-10 w-auto" />
         </Link>
       </div>
