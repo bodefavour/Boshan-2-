@@ -1,4 +1,4 @@
- import React, { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 interface HeroSectionProps {
   backgroundImage: string;
@@ -40,7 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       {/* Dark Gradient Overlay */}
-      <div className="absolute inset-0 z-10 hidden md:block"
+      {/* <div className="absolute inset-0 z-10 hidden md:block"
         style={{
           background: `linear-gradient(
           to right,
@@ -51,23 +51,23 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           rgba(0, 0, 0, 0.5) 70%,
           rgba(0, 0, 0, 0.3) 85%,
           transparent 100%
-          )`}}></div>
+          )`}}></div> */}
 
       {/* Mobile View */}
-<div className="md:hidden absolute bottom-[6%] left-1/2 transform -translate-x-1/2 z-10 w-[90%] rounded-3xl px-6 py-8 text-white bg-black/60 backdrop-blur-md shadow-xl space-y-4 text-center">
-  <h1 className="text-2xl font-bold leading-snug">
-    Glowing Skin.<br />Zero Guesswork.<br />Delivered Monthly.
-  </h1>
-  <p className="text-sm text-gray-300">
-    Dermatologist-backed, Afrocentric beauty kits, tailored to your skin.
-  </p>
-  <button
-    onClick={onCtaClick}
-    className="bg-orange-600 hover:bg-orange-700 text-white text-sm px-6 py-3 rounded-full font-semibold transition shadow-md"
-  >
-    Start Your Ritual →
-  </button>
-</div>
+      <div className="md:hidden absolute bottom-[6%] left-1/2 transform -translate-x-1/2 z-10 w-[90%] rounded-3xl px-6 py-8 text-white bg-black/60 backdrop-blur-md shadow-xl space-y-4 text-center">
+        <h1 className="text-2xl font-bold leading-snug">
+          Glowing Skin.<br />Zero Guesswork.<br />Delivered Monthly.
+        </h1>
+        <p className="text-sm text-gray-300">
+          Dermatologist-backed, Afrocentric beauty kits, tailored to your skin.
+        </p>
+        <button
+          onClick={onCtaClick}
+          className="bg-orange-600 hover:bg-orange-700 text-white text-sm px-6 py-3 rounded-full font-semibold transition shadow-md"
+        >
+          Start Your Ritual →
+        </button>
+      </div>
 
       {/* Desktop View */}
       <div className="hidden md:flex absolute inset-0 items-center justify-start pl-16">

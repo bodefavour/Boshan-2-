@@ -4,7 +4,7 @@ import HeroSection from "./components/HeroSection";
 import ProductGrid from "./components/ProductGrid";
 import Layout from "./components/Layout";
 import ProductPage from "./components/productpage";
-import LandingContent from "./components/LandingContent";
+// import LandingContent from "./components/LandingContent";
 import LandingContents from "./components/LandingContentPreorder";
 import PrivateRoute from './components/PrivateRoute';
 import AuthPage from "./pages/RegisterPage";
