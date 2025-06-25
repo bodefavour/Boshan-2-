@@ -32,6 +32,7 @@ const NavBar: React.FC = () => {
     "About Us",
     "Blogs",
     "Contact Us",
+    "Cart",
   ];
 
   const subMenus: { [key: string]: { name: string; image: string; path: string }[] } = {
@@ -54,6 +55,10 @@ const NavBar: React.FC = () => {
     "Skin Therapy/ Consultation": [
       { name: "For Him", image: "/images/31343C.svg", path: "./preorder/skin-therapy" },
       { name: "For Her", image: "/images/31343C.svg", path: "./preorder/skin-therpy" },
+    ],
+    "Cart": [
+      { name: "Cart", image: "/images/31343C.svg", path: "./cart" },
+      { name: "Wishlist", image: "/images/31343C.svg", path: "./wishlist" },
     ],
   };
 
