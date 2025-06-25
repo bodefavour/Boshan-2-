@@ -87,7 +87,7 @@ function App() {
           <Route path="/checkout" element={<PrivateRoute> <CheckoutSummaryPage /> </PrivateRoute>} />
           <Route path="/Oldpa" element={<>
             <HeroSection
-              backgroundImage="/images/IMG-20250402-WA0139.jpg"
+              backgroundImage="/images/heroimage.png"
               brandName="Boshan"
               ctaText="For less than the cost of another failed Serum, Boshan sends you dermatologist-backed, Afrocentric beauty products right to your door. No stress. No guesswork. Just glow"
               ctaButton="Start Your Glow Journey"
