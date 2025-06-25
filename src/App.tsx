@@ -55,7 +55,7 @@ function App() {
 
         <NavBar />
         <Routes>
-          <Route path="/" element={
+          {/* <Route path="/" element={
             <>
               <HeroSection
                 backgroundImage="/images/heroimage.png"
@@ -68,7 +68,7 @@ function App() {
               </HeroSection>
               <LandingContent />
             </>
-          } />
+          } /> */}
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/Preorder-items" element={<>
             <HeroSection backgroundImage="/images/heroimage.png" brandName="BOSHAN" />
@@ -85,7 +85,7 @@ function App() {
           <Route path="/cart" element={<PrivateRoute> <CartPage /> </PrivateRoute>} />
           <Route path="/wishlist" element={<PrivateRoute> <WishlistPage /> </PrivateRoute>} />
           <Route path="/checkout" element={<PrivateRoute> <CheckoutSummaryPage /> </PrivateRoute>} />
-          <Route path="/Oldpa" element={<>
+          <Route path="/" element={<>
             <HeroSection
               backgroundImage="/images/heroimage.png"
               brandName="Boshan"
