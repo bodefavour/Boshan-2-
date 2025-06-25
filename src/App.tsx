@@ -102,6 +102,7 @@ function App() {
         </Routes>
         <Layout children={undefined} />
       </Router>
+      <Analytics />
     </AuthProvider>
   );
 }
