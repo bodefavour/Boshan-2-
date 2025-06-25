@@ -27,7 +27,7 @@
     "category": "beardcare-essentials",
     "price": 7500,
     "oldPrice": 8500,
-    "image": "https://collection.cloudinary.com/dm01w7d4t/1ba5e11a5edf42d667fb2ea2684b0e0e",
+    "image": "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0012_ujasdl.jpg",
     "isNew": true,
     "features": [
       "100% Organic",
@@ -38,9 +38,9 @@
     "reviews": 120,
     "description": "Mosturizes, styles, tames flyaways",
     "images": [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+      "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0012_ujasdl.jpg",
+      "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0012_ujasdl.jpg",
+      "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0012_ujasdl.jpg"
     ]
   },
   {
@@ -135,7 +135,7 @@
     "category": "skincare-essentials",
     "price": 5500,
     "oldPrice": 6500,
-    "image": "https://collection.cloudinary.com/dm01w7d4t/1ba5e11a5edf42d667fb2ea2684b0e0e",
+    "image": "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0012_ujasdl.jpg",
     "isNew": true,
     "features": [
       "100% Organic",
@@ -179,7 +179,7 @@
     "category": "skincare-essentials",
     "price": 5500,
     "oldPrice": 6500,
-    "image": "https://collection.cloudinary.com/dm01w7d4t/71f7bffa617d0f33ce3cc89d396bc710",
+    "image": "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0013_nvnqej.jpg",
     "isNew": true,
     "features": [
       "100% Organic",
@@ -190,8 +190,8 @@
     "reviews": 80,
     "description": "Post-shave cooling lotion, hydraes daily.",
     "images": [
-      "https://collection.cloudinary.com/dm01w7d4t/71f7bffa617d0f33ce3cc89d396bc710",
-      "https://collection.cloudinary.com/dm01w7d4t/71f7bffa617d0f33ce3cc89d396bc710"
+      "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0013_nvnqej.jpg",
+      "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0013_nvnqej.jpg"
     ]
   },
   {
@@ -244,7 +244,7 @@
     "category": "skincare-essentials",
     "price": 5500,
     "oldPrice": 6500,
-    "image": "https://collection.cloudinary.com/dm01w7d4t/c26b9b05f909d0101a0a95418449547c",
+    "image": "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0017_ukxee1.jpg",
     "isNew": true,
     "features": [
       "100% Organic",
@@ -255,8 +255,8 @@
     "reviews": 80,
     "description": "Lighweight Serum for hydration & glow.",
     "images": [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+      "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0017_ukxee1.jpg",
+      "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750785804/IMG-20250508-WA0017_ukxee1.jpg"
     ]
   },
   {
