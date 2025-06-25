@@ -93,7 +93,7 @@
     "category": "skincare-essentials",
     "price": 6500,
     "oldPrice": 7000,
-    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "image": "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750849070/ChatGPT_Image_Jun_21_2025_11_38_05_AM_o0ihfo.png",
     "isNew": true,
     "features": [
       "100% Organic",
@@ -104,8 +104,8 @@
     "reviews": 80,
     "description": "CLeanses deepy, no dryness.",
     "images": [
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+      "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750849070/ChatGPT_Image_Jun_21_2025_11_38_05_AM_o0ihfo.png",
+      "https://res.cloudinary.com/dm01w7d4t/image/upload/v1750849070/ChatGPT_Image_Jun_21_2025_11_38_05_AM_o0ihfo.png"
     ]
   },
   {
