@@ -54,7 +54,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           )`}}></div> */}
 
       {/* Mobile View */}
-      <div className="md:hidden absolute bottom-[6%] left-1/2 transform -translate-x-1/2 z-10 w-[90%] rounded-3xl px-6 py-8 text-white bg-black/60 backdrop-blur-md shadow-xl space-y-4 text-center">
+      <div className="md:hidden absolute bottom-[6%] left-1/2 transform -translate-x-1/2 z-10 w-[90%] rounded-3xl px-6 py-8 text-white bg-white/10 backdrop-blur-md shadow-xl border border-white/20 space-y-4 text-center">
         <h1 className="text-2xl font-bold leading-snug">
           Glowing Skin.<br />Zero Guesswork.<br />Delivered Monthly.
         </h1>
@@ -71,7 +71,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
       {/* Desktop View */}
       <div className="hidden md:flex absolute inset-0 items-center justify-start pl-16">
-        <div className="absolute left-[5%] top-[30%] text-left text-white z-20 w-1/2 space-y-4">
+        <div className="absolute left-[5%] top-[30%] z-20 w-1/2 p-8 rounded-3xl bg-white/10 backdrop-blur-md shadow-xl border border-white/20 text-white space-y-4">
           {brandName && (
             <h1
               className="uppercase font-quicksand text-boshan leading-tight tracking-wide"
