@@ -72,7 +72,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       {/* Desktop View */}
       <div className="hidden md:flex absolute inset-0 items-center justify-start pl-16">
         <div className="absolute left-[5%] top-[30%] z-20 w-1/2 space-y-4 text-white">
-          <div className="inline-block bg-white/10 backdrop-blur-md rounded-3xl px-8 py-6 border border-white/20 shadow-md max-w-fit">
+          <div className="inline-block bg-black/70 backdrop-blur-md rounded-3xl px-8 py-6 border border-black/20 shadow-md max-w-fit">
             {brandName && (
               <h1
                 className="uppercase font-quicksand text-boshan leading-tight tracking-wide"

@@ -90,11 +90,11 @@ function App() {
             <HeroSection
               backgroundImage="/images/heroimage.png"
               brandName="Boshan"
-              ctaText="For less than the cost of another failed Serum, Boshan sends you dermatologist-backed, Afrocentric beauty products right to your door. No stress. No guesswork. Just glow"
+              ctaText="For less than the cost of another failed Serum, Boshan sends you dermatologist-backed, Afrocentric beauty products right to your door"
               ctaButton="Start Your Glow Journey"
               onCtaClick={() => console.log("CTA Clicked")}
             >
-              <p className="text-lg">Glowing Skin. Zero Guesswork. Delivered Monthly.</p>
+              <p className="text-lg">First beauty club of Nigeria.</p>
             </HeroSection>
             <LandingContents />
           </>
