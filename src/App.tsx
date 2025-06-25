@@ -18,6 +18,7 @@ import CheckoutSummaryPage from "./pages/CheckoutSummaryPage";
 import StoreFrontPage from "./components/StoreFrontPage";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react"
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
