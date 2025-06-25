@@ -96,32 +96,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             )}
           </div>
         </div>
-
-        {brandName && (
-          <h1
-            className="uppercase font-quicksand text-boshan leading-tight tracking-wide"
-            style={{
-              fontSize: "9rem",
-              whiteSpace: "nowrap",
-            }}
-          >
-            {brandName}
-          </h1>
-        )}
-        {children}
-        {ctaText && (
-          <p className="text-xl text-gray-300">{ctaText}</p>
-        )}
-        {ctaButton && (
-          <button
-            onClick={onCtaClick}
-            className="mt-4 px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white text-lg rounded-lg transition"
-          >
-            {ctaButton}
-          </button>
-        )}
       </div>
-    </section >
+    </section>
   );
 };
 
