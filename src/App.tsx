@@ -71,7 +71,7 @@ function App() {
           } />
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/Preorder-items" element={<>
-            <HeroSection backgroundImage="/images/IMG-20250402-WA0139.jpg" brandName="BOSHAN" />
+            <HeroSection backgroundImage="/images/heroimage.png" brandName="BOSHAN" />
             <ProductGrid />
           </>
           } />
