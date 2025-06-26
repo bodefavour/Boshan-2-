@@ -59,7 +59,7 @@ const StoreFrontPage: React.FC = () => {
               Shop Boshan’s Curated Rituals
             </h1>
             <p className="text-sm md:text-base text-gray-200">
-              Skincare, therapy & essentials tailored to melanin-rich skin.
+              Skincare, beardcare, therapy & essentials tailored to your choice as you want it
             </p>
           </div>
         </div>
