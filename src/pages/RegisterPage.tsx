@@ -18,9 +18,9 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); // Toggle state
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation(); // ✅ Correct position
+  const location = useLocation();
   const redirectPath = (location.state as any)?.from?.pathname;
 
   const handleGoogleSignIn = async () => {
@@ -54,7 +54,7 @@ const LoginPage = () => {
   const handleLoginSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    console.log("Login attempt started"); // Debugging line
+    console.log("Login attempt started"); //for debugging
 
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);

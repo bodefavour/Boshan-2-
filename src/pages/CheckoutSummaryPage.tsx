@@ -59,51 +59,51 @@ const CheckoutSummaryPage = () => {
 
     fetchCart();
   }, [currentUser]);
-      
-      const handlePaystackPayment = () => {
-        if (!currentUser || !currentUser.email) return;
-        const paystack = new PaystackPop();
-        paystack.newTransaction({
-          key: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY!, // Replace with your actual Paystack public key
-          email: currentUser.email,
-          amount: (total + 1500) * 100, // Paystack expects amount in kobo
-          currency: "NGN",
-          metadata: {
-          custom_fields: [
-            {display_name: "state", variable_name: "state", value: shippingInfo.state},
-            {display_name: "lga", variable_name: "lga", value: shippingInfo.lga},
-            {display_name: "Items", variable_name: "cart", value: cart.map((item) => '${item.name x${item.quantity').join(", ")}, // Format cart items for metadata
+
+  const handlePaystackPayment = () => {
+    if (!currentUser || !currentUser.email) return;
+    const paystack = new PaystackPop();
+    paystack.newTransaction({
+      key: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY!, // 
+      email: currentUser.email,
+      amount: (total + 1500) * 100,
+      currency: "NGN",
+      metadata: {
+        custom_fields: [
+          { display_name: "state", variable_name: "state", value: shippingInfo.state },
+          { display_name: "lga", variable_name: "lga", value: shippingInfo.lga },
+          { display_name: "Items", variable_name: "cart", value: cart.map((item) => '${item.name x${item.quantity').join(", ") }, // Format cart items for metadata
+        ],
+      },
+      onSuccess: async (transaction: any) => {
+        console.log("Payment successful:", transaction.reference);
+        // TODO: Handle successful payment, e.g., navigate to a confirmation page
+        // navigate("/payment-confirmation");
+
+        const UserRef = doc(db, "users", currentUser.uid);
+        const userSnap = await getDoc(UserRef);
+        const prevOrders = userSnap.exists() ? userSnap.data().orders || [] : [];
+        await updateDoc(UserRef, {
+          orders: [
+            ...prevOrders,
+            {
+              orderId: transaction.reference,
+              cart,
+              total: total + 1500,
+              state: shippingInfo.state,
+              lga: shippingInfo.lga,
+              date: new Date().toISOString(),
+            },
           ],
-        },
-          onSuccess: async (transaction: any) => {
-            console.log("Payment successful:", transaction.reference);
-            // TODO: Handle successful payment, e.g., navigate to a confirmation page
-            // navigate("/payment-confirmation");
-            
-            const UserRef = doc(db, "users", currentUser.uid);
-            const userSnap = await getDoc(UserRef);
-            const prevOrders = userSnap.exists()? userSnap.data().orders || [] : [];
-            await updateDoc(UserRef, {
-              orders: [
-                ...prevOrders,
-                {
-                  orderId: transaction.reference,
-                  cart,
-                  total: total + 1500,
-                  state: shippingInfo.state,
-                  lga: shippingInfo.lga,
-                  date: new Date().toISOString(),
-                },
-              ],
-              cart : [], // Clear the cart after successful payment
-            });
-            navigate("/payment-confirmation");
-          },
-          onCancel: () => {
-            console.log("Payment cancelled");
-          },
-      }); // Closes the newTransaction call and its argument object
-    }; // Closes the handlePaystackPayment function
+          cart: [], // Clear the cart after successful payment
+        });
+        navigate("/payment-confirmation");
+      },
+      onCancel: () => {
+        console.log("Payment cancelled");
+      },
+    }); // Closes the newTransaction call and its argument object
+  }; // Closes the handlePaystackPayment function
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 text-black">
@@ -122,8 +122,8 @@ const CheckoutSummaryPage = () => {
         <ul className="divide-y divide-gray-200">
           {cart.map((item) => (
             <li key={item.id} className="py-4 flex items-center gap-4">
-                <Link to={`/product/${item.id}`} className="flex-shrink-0">
-              <img src={item.image} alt={item.name} className="w-16 h-16 rounded object-cover" />
+              <Link to={`/product/${item.id}`} className="flex-shrink-0">
+                <img src={item.image} alt={item.name} className="w-16 h-16 rounded object-cover" />
               </Link>
               <div className="flex-1">
                 <h3 className="text-lg font-medium">{item.name}</h3>
