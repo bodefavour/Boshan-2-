@@ -261,114 +261,114 @@ const LandingContents = () => {
                         Shop Now
                     </button>
                 </Link>
-            </motion.section> {/* Founder Section - Refined */}
-            <motion.section
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="bg-[#FFF8F5] text-black py-12 px-4 md:px-16 rounded-3xl shadow-lg"
-            >
-                <h3 className="text-3xl md:text-4xl font-bold text-center text-boshan mb-8 tracking-wide">
-                    Meet the Glowmakers
-                </h3>
+            </motion.section> {/* Founder Section – Refined */}
+<motion.section
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="bg-[#FFF8F5] text-black py-16 px-4 md:px-16 rounded-3xl shadow-lg"
+>
+  <h3 className="text-3xl md:text-4xl font-bold text-center text-boshan mb-10 tracking-wide">
+    Meet the Glowmakers
+  </h3>
 
-                <Swiper
-                    effect="coverflow"
-                    grabCursor={true}
-                    centeredSlides={true}
-                    slidesPerView="auto"
-                    loop={true}
-                    autoplay={{ delay: 4500 }}
-                    coverflowEffect={{
-                        rotate: 0,
-                        stretch: 0,
-                        depth: 100,
-                        modifier: 2,
-                        slideShadows: false,
-                    }}
-                    modules={[EffectCoverflow, Autoplay]}
-                    className="w-full max-w-5xl mx-auto"
-                >
-                    {[
-                        {
-                            name: "Miss Sarah Iyere — Founder",
-                            img: "/images/Sarah.png",
-                            role: "Vision, Formulation, Strategy",
-                            socials: {
-                                instagram: "#",
-                                twitter: "#",
-                                linkedin: "#",
-                            },
-                        },
-                        {
-                            name: "Felicia — CLients Resource Manager",
-                            img: "/images/Sarah.pngs",
-                            role: "Brand & UI Aesthetics",
-                            socials: {
-                                instagram: "#",
-                                twitter: "#",
-                                linkedin: "#",
-                            },
-                        },
-                        {
-                            name: "Faith — Project Manager",
-                            img: "/images/Sarah.png",
-                            role: "Growth & Community",
-                            socials: {
-                                instagram: "#",
-                                twitter: "#",
-                                linkedin: "#",
-                            },
-                        },
-                        {
-                            name: "Bode Favour — Product Dev",
-                            img: "/images/Sarah.png",
-                            role: "Tech & Experience",
-                            socials: {
-                                instagram: "#",
-                                twitter: "#",
-                                linkedin: "#",
-                            },
-                        },
-                        {
-                            name: "Janet — Resource Person",
-                            img: "/images/Sarah.png",
-                            role: "Tech & Experience",
-                            socials: {
-                                instagram: "#",
-                                twitter: "#",
-                                linkedin: "#",
-                            },
-                        },
-                    ].map((member, i) => (
-                        <SwiperSlide key={i} className="w-[260px] md:w-[280px]">
-                            <div className="bg-white rounded-2xl shadow-md p-5 text-center space-y-4">
-                                <img
-                                    src={member.img}
-                                    alt={member.name}
-                                    className="w-44 h-44 object-cover rounded-full border-4 border-orange-400 shadow mx-auto"
-                                />
-                                <div>
-                                    <h4 className="text-lg font-semibold text-boshan">{member.name}</h4>
-                                    <p className="text-sm text-gray-600">{member.role}</p>
-                                </div>
-                                {/* Socials */}
-                                <div className="flex justify-center gap-4 text-gray-500 mt-2">
-                                    <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer">
-                                        <i className="fab fa-instagram hover:text-orange-500"></i>
-                                    </a>
-                                    <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer">
-                                        <i className="fab fa-twitter hover:text-orange-500"></i>
-                                    </a>
-                                    <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer">
-                                        <i className="fab fa-linkedin hover:text-orange-500"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </motion.section>
+  <Swiper
+    effect="coverflow"
+    grabCursor={true}
+    centeredSlides={true}
+    slidesPerView="auto"
+    loop={true}
+    autoplay={{ delay: 4500 }}
+    coverflowEffect={{
+      rotate: 0,
+      stretch: 0,
+      depth: 120,
+      modifier: 2,
+      slideShadows: false,
+    }}
+    modules={[EffectCoverflow, Autoplay]}
+    className="w-full max-w-6xl mx-auto"
+  >
+    {[
+      {
+        name: "Miss Sarah Iyere",
+        role: "Founder — Vision, Formulation, Strategy",
+        img: "/images/Sarah.png",
+        socials: {
+          instagram: "#",
+          twitter: "#",
+          linkedin: "#",
+        },
+      },
+      {
+        name: "Felicia",
+        role: "Clients Resource Manager — Brand & UI Aesthetics",
+        img: "/images/Sarah.pngs",
+        socials: {
+          instagram: "#",
+          twitter: "#",
+          linkedin: "#",
+        },
+      },
+      {
+        name: "Faith",
+        role: "Project Manager — Growth & Community",
+        img: "/images/Sarah.png",
+        socials: {
+          instagram: "#",
+          twitter: "#",
+          linkedin: "#",
+        },
+      },
+      {
+        name: "Bode Favour",
+        role: "Tech Lead & Social Media Manager — Tech & Experience",
+        img: "/images/Sarah.png",
+        socials: {
+          instagram: "#",
+          twitter: "#",
+          linkedin: "#",
+        },
+      },
+      {
+        name: "Janet",
+        role: "Resource Person — (Role Pending)",
+        img: "/images/Sarah.png",
+        socials: {
+          instagram: "#",
+          twitter: "#",
+          linkedin: "#",
+        },
+      },
+    ].map((member, i) => (
+      <SwiperSlide key={i} className="w-[290px] md:w-[320px]">
+        <div className="bg-white rounded-3xl shadow-xl p-6 text-center space-y-5 transition hover:shadow-2xl">
+          <img
+            src={member.img}
+            alt={member.name}
+            className="w-48 h-48 object-cover rounded-full border-4 border-boshan mx-auto shadow-md"
+          />
+          <div className="space-y-1">
+            <h4 className="text-xl font-bold text-boshan">{member.name}</h4>
+            <p className="text-sm text-gray-600 leading-snug">{member.role}</p>
+          </div>
+          {/* Social Icons */}
+          <div className="flex justify-center gap-4 text-gray-400 text-lg">
+            <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition">
+              <i className="fab fa-instagram"></i>
+            </a>
+            <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition">
+              <i className="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</motion.section>
 
         </div></>
     );
