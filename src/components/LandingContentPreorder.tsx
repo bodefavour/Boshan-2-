@@ -303,7 +303,7 @@ const LandingContents = () => {
                         {
                             name: "Felicia",
                             role: "Clients Resource Manager — Brand & UI Aesthetics",
-                            img: "/images/Sarah.pngs",
+                            img: "/images/Sarah.png",
                             socials: {
                                 instagram: "#",
                                 twitter: "#",
