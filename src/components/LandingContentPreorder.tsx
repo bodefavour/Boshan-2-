@@ -261,8 +261,7 @@ const LandingContents = () => {
                         Shop Now
                     </button>
                 </Link>
-            </motion.section> {/* Founder Section – Refined */}
-            <motion.section
+            </motion.section> <motion.section
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -303,7 +302,7 @@ const LandingContents = () => {
                         {
                             name: "Felicia",
                             role: "Clients Resource Manager — Brand & UI Aesthetics",
-                            img: "/images/Sarah.png",
+                            img: "/images/Sarah.pngs",
                             socials: {
                                 instagram: "#",
                                 twitter: "#",
@@ -341,19 +340,19 @@ const LandingContents = () => {
                             },
                         },
                     ].map((member, i) => (
-                        <SwiperSlide key={i} className="w-[290px] md:w-[320px]">
-                            <div className="bg-white rounded-3xl shadow-xl p-6 text-center space-y-5 transition hover:shadow-2xl">
+                        <SwiperSlide key={i} className="w-[250px] md:w-[260px]">
+                            <div className="bg-white rounded-2xl shadow-md px-4 py-6 text-center space-y-4 hover:shadow-xl transition">
                                 <img
                                     src={member.img}
                                     alt={member.name}
-                                    className="w-48 h-48 object-cover rounded-full border-4 border-boshan mx-auto shadow-md"
+                                    className="w-44 h-44 object-cover rounded-full border-4 border-orange-400 shadow mx-auto"
                                 />
                                 <div className="space-y-1">
-                                    <h4 className="text-xl font-bold text-boshan">{member.name}</h4>
-                                    <p className="text-sm text-gray-600 leading-snug">{member.role}</p>
+                                    <h4 className="text-base font-semibold text-boshan">{member.name}</h4>
+                                    <p className="text-xs text-gray-600">{member.role}</p>
                                 </div>
-                                {/* Social Icons */}
-                                <div className="flex justify-center gap-4 text-gray-400 text-lg">
+                                {/* Socials */}
+                                <div className="flex justify-center gap-4 text-gray-400 text-sm">
                                     <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-orange-500 transition">
                                         <i className="fab fa-instagram"></i>
                                     </a>
