@@ -19,6 +19,7 @@ import StoreFrontPage from "./components/StoreFrontPage";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react"
+import '@fortawesome/fontawesome-free/css/all.min.css';
 // import ConsultationBookingPage from "./pages/ConsultationBookingPage";
 
 const ScrollToTop = () => {
