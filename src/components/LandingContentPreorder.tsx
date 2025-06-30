@@ -302,7 +302,7 @@ const LandingContents = () => {
                         },
                         {
                             name: "Felicia — CLients Resource Manager",
-                            img: "/images/team-ella.jpg",
+                            img: "/images/Sarah.pngs",
                             role: "Brand & UI Aesthetics",
                             socials: {
                                 instagram: "#",
@@ -312,7 +312,7 @@ const LandingContents = () => {
                         },
                         {
                             name: "Faith — Project Manager",
-                            img: "/images/team-tayo.jpg",
+                            img: "/images/Sarah.png",
                             role: "Growth & Community",
                             socials: {
                                 instagram: "#",
@@ -322,7 +322,7 @@ const LandingContents = () => {
                         },
                         {
                             name: "Bode Favour — Product Dev",
-                            img: "/images/team-chidera.jpg",
+                            img: "/images/Sarah.png",
                             role: "Tech & Experience",
                             socials: {
                                 instagram: "#",
@@ -332,7 +332,7 @@ const LandingContents = () => {
                         },
                         {
                             name: "Janet — Resource Person",
-                            img: "/images/team-chidera.jpg",
+                            img: "/images/Sarah.png",
                             role: "Tech & Experience",
                             socials: {
                                 instagram: "#",
