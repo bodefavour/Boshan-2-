@@ -19,6 +19,7 @@ import StoreFrontPage from "./components/StoreFrontPage";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react"
+import ConsultationBookingPage from "./pages/ConsultationBookingPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -71,6 +72,7 @@ function App() {
             </>
           } /> */}
           <Route path="/auth" element={<AuthPage />} />
+          <Route path="/consultation-booking" element={<ConsultationBookingPage />} />
           <Route path="/Preorder-items" element={<>
             <HeroSection backgroundImage="/images/heroimage.png" brandName="BOSHAN" />
             <ProductGrid />
