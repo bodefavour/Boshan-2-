@@ -261,51 +261,56 @@ const LandingContents = () => {
                         Shop Now
                     </button>
                 </Link>
-            </motion.section> {/* Founder Section */}
-            <motion.section
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 1 }}
-                className="bg-orange-100 text-black p-8 md:p-16 rounded-3xl shadow-md text-center"
-            >
-                <h3 className="text-3xl font-semibold mb-6">Meet the Team</h3>
-                <Swiper
-                    effect="coverflow"
-                    grabCursor={true}
-                    centeredSlides={true}
-                    slidesPerView="auto"
-                    loop={true}
-                    autoplay={{ delay: 4000 }}
-                    coverflowEffect={{
-                        rotate: 0,
-                        stretch: 0,
-                        depth: 120,
-                        modifier: 2.5,
-                        slideShadows: false,
-                    }}
-                    modules={[EffectCoverflow, Autoplay]}
-                    className="w-full max-w-5xl"
-                >
-                    {[
-                        { name: "Jane (Founder)", img: "/images/IMG-20250322-WA0051.jpg" },
-                        { name: "Ella (Designer)", img: "/images/team-ella.jpg" },
-                        { name: "Tayo (Marketing)", img: "/images/team-tayo.jpg" },
-                        { name: "Chidera (Product Dev)", img: "/images/team-chidera.jpg" },
-                        // Add more as needed
-                    ].map((member, i) => (
-                        <SwiperSlide key={i} className="w-[250px]">
-                            <div className="flex flex-col items-center space-y-4">
-                                <img
-                                    src={member.img}
-                                    alt={member.name}
-                                    className="w-[200px] h-[200px] object-cover rounded-full border-4 border-orange-400 shadow-lg"
-                                />
-                                <p className="font-medium text-lg">{member.name}</p>
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </motion.section>
+            </motion.section> {/* Founder Section - Refined */}
+<motion.section
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8 }}
+  className="bg-[#FFF8F5] text-black py-16 px-6 md:px-20 rounded-3xl shadow-xl"
+>
+  <h3 className="text-4xl font-bold text-center text-boshan mb-10 tracking-wide">
+    Meet the Glowmakers
+  </h3>
+
+  <Swiper
+    effect="coverflow"
+    grabCursor={true}
+    centeredSlides={true}
+    slidesPerView="auto"
+    loop={true}
+    autoplay={{ delay: 4500 }}
+    coverflowEffect={{
+      rotate: 0,
+      stretch: 0,
+      depth: 120,
+      modifier: 2,
+      slideShadows: false,
+    }}
+    modules={[EffectCoverflow, Autoplay]}
+    className="w-full max-w-6xl mx-auto"
+  >
+    {[
+      { name: "Jane — Founder", img: "/images/IMG-20250322-WA0051.jpg", role: "Vision, Formulation, Strategy" },
+      { name: "Ella — Designer", img: "/images/team-ella.jpg", role: "Brand & UI Aesthetics" },
+      { name: "Tayo — Marketing", img: "/images/team-tayo.jpg", role: "Growth & Community" },
+      { name: "Chidera — Product Dev", img: "/images/team-chidera.jpg", role: "Tech & Experience" },
+    ].map((member, i) => (
+      <SwiperSlide key={i} className="w-[260px] md:w-[280px]">
+        <div className="bg-white rounded-2xl shadow-lg p-6 text-center space-y-4">
+          <img
+            src={member.img}
+            alt={member.name}
+            className="w-40 h-40 object-cover rounded-full border-[3px] border-orange-400 shadow-md mx-auto"
+          />
+          <div>
+            <h4 className="text-lg font-semibold text-boshan">{member.name}</h4>
+            <p className="text-sm text-gray-600">{member.role}</p>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</motion.section>
 
         </div></>
     );
