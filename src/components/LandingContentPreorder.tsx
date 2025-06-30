@@ -1,4 +1,4 @@
-I'm// Project: Boshan Beauty Preorder Landing Page
+// Project: Boshan Beauty Preorder Landing Page
 import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -291,8 +291,8 @@ const LandingContents = () => {
                 >
                     {[
                         {
-                            name: "Jane — Founder",
-                            img: "/images/IMG-20250322-WA0051.jpg",
+                            name: "Miss Sarah Iyere — Founder",
+                            img: "/images/Sarah.png",
                             role: "Vision, Formulation, Strategy",
                             socials: {
                                 instagram: "#",
@@ -301,7 +301,7 @@ const LandingContents = () => {
                             },
                         },
                         {
-                            name: "Ella — Designer",
+                            name: "Felicia — CLients Resource Manager",
                             img: "/images/team-ella.jpg",
                             role: "Brand & UI Aesthetics",
                             socials: {
@@ -311,7 +311,7 @@ const LandingContents = () => {
                             },
                         },
                         {
-                            name: "Tayo — Marketing",
+                            name: "Faith — Project Manager",
                             img: "/images/team-tayo.jpg",
                             role: "Growth & Community",
                             socials: {
@@ -321,7 +321,17 @@ const LandingContents = () => {
                             },
                         },
                         {
-                            name: "Chidera — Product Dev",
+                            name: "Bode Favour — Product Dev",
+                            img: "/images/team-chidera.jpg",
+                            role: "Tech & Experience",
+                            socials: {
+                                instagram: "#",
+                                twitter: "#",
+                                linkedin: "#",
+                            },
+                        },
+                        {
+                            name: "Janet — Resource Person",
                             img: "/images/team-chidera.jpg",
                             role: "Tech & Experience",
                             socials: {
