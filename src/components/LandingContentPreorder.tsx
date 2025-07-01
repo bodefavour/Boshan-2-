@@ -127,16 +127,12 @@ const LandingContents = () => {
                             className="rounded-xl mb-4 h-48 object-cover w-full" />
                         <h4 className="text-2xl font-semibold mb-2">{service.title}</h4>
                         <p className="text-base text-gray-700 mb-4">{service.desc}</p>
-                        {service.link ? (
-                            <Link
-                                to={service.link}
-                                className="text-orange-500 hover:underline font-medium"
-                            >
-                                Explore More →
-                            </Link>
-                        ) : (
-                            <span className="text-gray-500">Coming Soon</span>
-                        )}
+                        <Link
+                            to={service.link}
+                            className="text-orange-500 hover:underline font-medium"
+                        >
+                            Explore More →
+                        </Link>
                     </motion.div>
                 ))}
             </motion.section>
