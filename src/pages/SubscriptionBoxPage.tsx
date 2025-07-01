@@ -20,7 +20,7 @@ const SubscriptionBoxPage = () => {
             Your Glow, Curated Monthly
           </motion.h1>
           <p className="text-base md:text-lg text-gray-200 max-w-2xl mx-auto">
-            A premium subscription box experience built around your unique skin needs — curated by Boshan experts for melanin-rich skin.
+            A premium subscription box experience built around your unique skin needs curated by Boshan experts for melanin-rich skin.
           </p>
           <Link to="/subscribe">
             <button className="mt-4 px-8 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm md:text-base transition font-semibold shadow-md">
