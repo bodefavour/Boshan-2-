@@ -261,7 +261,8 @@ const LandingContents = () => {
                         Shop Now
                     </button>
                 </Link>
-            </motion.section> <motion.section
+            </motion.section> 
+<motion.section
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8 }}
@@ -271,7 +272,24 @@ const LandingContents = () => {
     Meet the Glowmakers
   </h3>
 
-  <div className="flex gap-6 overflow-x-auto scrollbar-hide pb-4">
+  <Swiper
+    modules={[Autoplay, EffectCoverflow]}
+    effect="coverflow"
+    autoplay={{ delay: 3500, disableOnInteraction: false }}
+    loop={true}
+    grabCursor={true}
+    centeredSlides={true}
+    slidesPerView={3}
+    spaceBetween={10}
+    coverflowEffect={{
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 2,
+      slideShadows: false,
+    }}
+    className="max-w-5xl mx-auto"
+  >
     {[
       {
         name: "Miss Sarah Iyere",
@@ -309,32 +327,26 @@ const LandingContents = () => {
         socials: { instagram: "#", twitter: "#", linkedin: "#" },
       },
     ].map((member, i) => (
-      <div
-        key={i}
-        className="flex-shrink-0 bg-white rounded-2xl shadow-md px-5 py-6 text-center transition-transform hover:scale-105 min-w-[260px] md:min-w-[300px]"
-      >
-        <img
-          src={member.img}
-          alt={member.name}
-          className="w-32 h-32 md:w-36 md:h-36 object-cover rounded-full border-4 border-orange-400 shadow-lg mx-auto mb-4"
-        />
-        <h4 className="text-base md:text-lg font-semibold text-boshan">{member.name}</h4>
-        <p className="text-sm text-gray-600">{member.role}</p>
-        <p className="text-xs text-gray-500 mt-1">{member.details}</p>
-        <div className="flex justify-center gap-3 text-gray-400 text-sm mt-3">
-          <a href={member.socials.instagram}>
-            <i className="fab fa-instagram hover:text-orange-500"></i>
-          </a>
-          <a href={member.socials.twitter}>
-            <i className="fab fa-twitter hover:text-orange-500"></i>
-          </a>
-          <a href={member.socials.linkedin}>
-            <i className="fab fa-linkedin hover:text-orange-500"></i>
-          </a>
+      <SwiperSlide key={i} className="!w-[250px] md:!w-[280px]">
+        <div className="bg-white rounded-xl shadow-md px-5 py-6 text-center hover:shadow-lg transition duration-300">
+          <img
+            src={member.img}
+            alt={member.name}
+            className="w-32 h-32 md:w-36 md:h-36 object-cover rounded-full border-4 border-orange-400 mx-auto"
+          />
+          <h4 className="mt-4 text-base font-semibold text-boshan">{member.name}</h4>
+          <p className="text-xs text-gray-600">{member.role}</p>
+          <p className="text-xs text-gray-500">{member.details}</p>
+
+          <div className="flex justify-center gap-3 text-gray-400 mt-3 text-sm">
+            <a href={member.socials.instagram}><i className="fab fa-instagram hover:text-orange-500" /></a>
+            <a href={member.socials.twitter}><i className="fab fa-twitter hover:text-orange-500" /></a>
+            <a href={member.socials.linkedin}><i className="fab fa-linkedin hover:text-orange-500" /></a>
+          </div>
         </div>
-      </div>
+      </SwiperSlide>
     ))}
-  </div>
+  </Swiper>
 </motion.section>
 
         </div></>
