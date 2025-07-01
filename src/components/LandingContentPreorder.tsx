@@ -11,41 +11,41 @@ import 'swiper/css/autoplay';
 import { motion } from "framer-motion";
 
 const services = [
-  {
-    title: "Skincare Essentials",
-    desc: "Nurture your skin with our carefully crafted skincare essentials, inspired by rich Esan heritage and designed to celebrate your natural glow.",
-    image: "/images/IMG-20250402-WA0132.jpg",
-  },
-  {
-    title: "Beardcare Essentials",
-    desc: "Elevate your beard game with grooming rituals that honor tradition while delivering softness, strength, and style.",
-    image: "/images/IMG-20250322-WA0048.jpg",
-  },
-  {
-    title: "Personal Hygiene",
-    desc: "Cleanse and refresh daily with products rooted in culture and crafted for lasting freshness and confidence.",
-    image: "/images/IMG-20250322-WA0051.jpg",
-  },
-  {
-    title: "Beauty Tools and Makeup Accessories",
-    desc: "Tools and accessories designed to enhance your natural beauty and express your unique style with cultural pride.",
-    image: "/images/IMG-20250402-WA0140.jpg",
-  },
-  {
-    title: "Subscription Boxes",
-    desc: "Curated self-care experiences delivered to your door — discover the perfect blend of tradition and modern indulgence every month.",
-    image: "/images/IMG-20250322-WA0051.jpg",
-  },
-  {
-    title: "Skin Therapy and Consultations",
-    desc: "Personalized skin solutions and expert advice that connect age-old wisdom with modern skincare science.",
-    image: "/images/IMG-20250402-WA0132.jpg",
-  },
-  {
-    title: "Skinfood & Nutrition",
-    desc: "Fuel your skin from within with nutrition inspired by nature and crafted for radiant, healthy skin.",
-    image: "/images/IMG-20250402-WA0134.jpg",
-  },
+    {
+        title: "Skincare Essentials",
+        desc: "Nurture your skin with our carefully crafted skincare essentials, inspired by rich Esan heritage and designed to celebrate your natural glow.",
+        image: "/images/IMG-20250402-WA0132.jpg",
+    },
+    {
+        title: "Beardcare Essentials",
+        desc: "Elevate your beard game with grooming rituals that honor tradition while delivering softness, strength, and style.",
+        image: "/images/IMG-20250322-WA0048.jpg",
+    },
+    {
+        title: "Personal Hygiene",
+        desc: "Cleanse and refresh daily with products rooted in culture and crafted for lasting freshness and confidence.",
+        image: "/images/IMG-20250322-WA0051.jpg",
+    },
+    {
+        title: "Beauty Tools and Makeup Accessories",
+        desc: "Tools and accessories designed to enhance your natural beauty and express your unique style with cultural pride.",
+        image: "/images/IMG-20250402-WA0140.jpg",
+    },
+    {
+        title: "Subscription Boxes",
+        desc: "Curated self-care experiences delivered to your door; Discover the perfect blend of tradition and modern indulgence every month.",
+        image: "/images/IMG-20250322-WA0051.jpg",
+    },
+    {
+        title: "Skin Therapy and Consultations",
+        desc: "Personalized skin solutions and expert advice that connect age-old wisdom with modern skincare science.",
+        image: "/images/IMG-20250402-WA0132.jpg",
+    },
+    {
+        title: "Skinfood & Nutrition",
+        desc: "Fuel your skin from within with nutrition inspired by nature and crafted for radiant, healthy skin.",
+        image: "/images/IMG-20250402-WA0134.jpg",
+    },
 ].map((service) => ({
     ...service,
     link: `/preorder/${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, "-"))}`,
@@ -222,14 +222,6 @@ const LandingContents = () => {
             >
                 Logout
             </button>
-
-
-            {/* Countdown Section */}
-            <motion.section className="text-center bg-orange-100 py-10 rounded-2xl">
-                <h3 className="text-3xl font-semibold">Boshan is Almost Here!</h3>
-                <p className="text-lg">Something gorgeous arrives. Pre-orders drop soon.</p>
-                <p className="text-lg mt-2">Only 50 pre-order spots left! Don’t miss out.</p>
-            </motion.section>
 
             {/* Preorder CTA */}
             <motion.section
