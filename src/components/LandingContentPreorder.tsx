@@ -267,7 +267,7 @@ const LandingContents = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="bg-[#FFF8F5] text-black py-14 px-4 md:px-16"
+                className="bg-[#FFF8F5] text-black py-8 px-4 md:px-8 rounded-3xl shadow-lg space-y-8"
             >
                 <h3 className="text-2xl md:text-3xl font-bold text-center text-boshan mb-10 tracking-wide">
                     Meet the Glowmakers
@@ -278,7 +278,7 @@ const LandingContents = () => {
                     effect="coverflow"
                     grabCursor
                     centeredSlides
-                    slidesPerView={3}
+                    slidesPerView={6}
                     loop
                     autoplay={{ delay: 3500 }}
                     coverflowEffect={{
@@ -302,7 +302,7 @@ const LandingContents = () => {
                             name: "Felicia",
                             role: "Clients Resource Manager",
                             details: "Brand & UI Aesthetics",
-                            img: "/images/Sarah.png",
+                            img: "/images/IMG-20250630-WA0002.jpg",
                             socials: { instagram: "#", twitter: "#", linkedin: "#" },
                         },
                         {
@@ -314,8 +314,8 @@ const LandingContents = () => {
                         },
                         {
                             name: "Bode Favour",
-                            role: "Tech Lead & Socials",
-                            details: "Tech & Experience",
+                            role: "Developer & Socials",
+                            details: "Tech & Socials",
                             img: "/images/Sarah.png",
                             socials: { instagram: "#", twitter: "#", linkedin: "#" },
                         },
