@@ -11,38 +11,41 @@ import 'swiper/css/autoplay';
 import { motion } from "framer-motion";
 
 const services = [
-    {
-        title: "Skincare Essentials",
-        desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
-        image: "/images/IMG-20250402-WA0132.jpg",
-    },
-    {
-        title: "Beardcare Essentials",
-        desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
-        image: "/images/IMG-20250322-WA0048.jpg",
-    },
-    {
-        title: "Personal Hygiene",
-        desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
-        image: "/images/IMG-20250322-WA0051.jpg",
-    },
-    {
-        title: "Beauty Tools and Makeup Accessories",
-        desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-        image: "/images/IMG-20250402-WA0140.jpg",
-    }, {
-        title: "Subscription Boxes",
-        desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-        image: "/images/IMG-20250322-WA0051.jpg",
-    }, {
-        title: "Skin Therapy and Consultations",
-        desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-        image: "/images/IMG-20250402-WA0132.jpg",
-    }, {
-        title: "Skinfood & Nutrition",
-        desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
-        image: "/images/IMG-20250402-WA0134.jpg",
-    },
+  {
+    title: "Skincare Essentials",
+    desc: "Nurture your skin with our carefully crafted skincare essentials, inspired by rich Esan heritage and designed to celebrate your natural glow.",
+    image: "/images/IMG-20250402-WA0132.jpg",
+  },
+  {
+    title: "Beardcare Essentials",
+    desc: "Elevate your beard game with grooming rituals that honor tradition while delivering softness, strength, and style.",
+    image: "/images/IMG-20250322-WA0048.jpg",
+  },
+  {
+    title: "Personal Hygiene",
+    desc: "Cleanse and refresh daily with products rooted in culture and crafted for lasting freshness and confidence.",
+    image: "/images/IMG-20250322-WA0051.jpg",
+  },
+  {
+    title: "Beauty Tools and Makeup Accessories",
+    desc: "Tools and accessories designed to enhance your natural beauty and express your unique style with cultural pride.",
+    image: "/images/IMG-20250402-WA0140.jpg",
+  },
+  {
+    title: "Subscription Boxes",
+    desc: "Curated self-care experiences delivered to your door — discover the perfect blend of tradition and modern indulgence every month.",
+    image: "/images/IMG-20250322-WA0051.jpg",
+  },
+  {
+    title: "Skin Therapy and Consultations",
+    desc: "Personalized skin solutions and expert advice that connect age-old wisdom with modern skincare science.",
+    image: "/images/IMG-20250402-WA0132.jpg",
+  },
+  {
+    title: "Skinfood & Nutrition",
+    desc: "Fuel your skin from within with nutrition inspired by nature and crafted for radiant, healthy skin.",
+    image: "/images/IMG-20250402-WA0134.jpg",
+  },
 ].map((service) => ({
     ...service,
     link: `/preorder/${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, "-"))}`,
