@@ -20,7 +20,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react"
 import '@fortawesome/fontawesome-free/css/all.min.css';
-// import ConsultationBookingPage from "./pages/ConsultationBookingPage";
+import ConsultationBookingPage from "./pages/ConsultationBookingPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -73,7 +73,7 @@ function App() {
             </>
           } /> */}
           <Route path="/auth" element={<AuthPage />} />
-          {/* <Route path="/consultation-booking" element={<ConsultationBookingPage />} /> */}
+          <Route path="/consultation-booking" element={<ConsultationBookingPage />} />
           <Route path="/Preorder-items" element={<>
             <HeroSection backgroundImage="/images/heroimage.png" brandName="BOSHAN" />
             <ProductGrid />
