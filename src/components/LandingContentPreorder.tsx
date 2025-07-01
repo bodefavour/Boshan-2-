@@ -216,13 +216,6 @@ const LandingContents = () => {
                 </Swiper>
             </motion.section>
 
-            <button
-                onClick={handleLogout}
-                className="mt-4 px-6 py-3 bg-red-500 text-white rounded-full hover:bg-red-600"
-            >
-                Logout
-            </button>
-
             {/* Preorder CTA */}
             <motion.section
                 initial={{ opacity: 0 }}
