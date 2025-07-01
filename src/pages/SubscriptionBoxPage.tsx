@@ -6,7 +6,7 @@ const SubscriptionBoxPage = () => {
   return (
     <div className="bg-[#FFF8F5] text-black">
       {/* Hero Section */}
-      <section className="relative h-[85vh] md:h-screen bg-cover bg-center flex items-center justify-center px-6" style={{ backgroundImage: `url('/images/subscription-hero.jpg')` }}>
+      <section className="relative h-[85vh] md:h-screen bg-cover bg-center flex items-center justify-center px-6" style={{ backgroundImage: `url('/images/IMG-20250402-WA0141')` }}>
         <div className="bg-white/20 backdrop-blur-md p-8 md:p-16 rounded-3xl max-w-3xl text-center shadow-lg">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
