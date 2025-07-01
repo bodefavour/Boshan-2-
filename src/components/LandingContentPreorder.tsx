@@ -261,11 +261,7 @@ const LandingContents = () => {
                         Shop Now
                     </button>
                 </Link>
-            </motion.section> import {Swiper, SwiperSlide} from "swiper/react";
-            import {Autoplay, EffectCoverflow} from "swiper/modules";
-            import "swiper/css";
-            import "swiper/css/effect-coverflow";
-
+            </motion.section>
             <motion.section
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
