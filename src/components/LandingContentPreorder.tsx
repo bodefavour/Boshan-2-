@@ -43,9 +43,11 @@ const services = [
         desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
         image: "/images/IMG-20250402-WA0134.jpg",
     },
-].map((service) => ({
+].map((service, index) => ({
     ...service,
-    link: `/preorder/${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, "-"))}`,
+    link: index < 3
+        ? `/preorder/${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, "-"))}`
+        : undefined,
 }));
 
 const LandingContents = () => {
@@ -112,12 +114,16 @@ const LandingContents = () => {
                             className="rounded-xl mb-4 h-48 object-cover w-full" />
                         <h4 className="text-2xl font-semibold mb-2">{service.title}</h4>
                         <p className="text-base text-gray-700 mb-4">{service.desc}</p>
-                        <Link
-                            to={service.link}
-                            className="text-orange-500 hover:underline font-medium"
-                        >
-                            Explore More →
-                        </Link>
+                        {service.link ? (
+                            <Link
+                                to={service.link}
+                                className="text-orange-500 hover:underline font-medium"
+                            >
+                                Explore More →
+                            </Link>
+                        ) : (
+                            <span className="text-gray-500">Coming Soon</span>
+                        )}
                     </motion.div>
                 ))}
             </motion.section>

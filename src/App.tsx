@@ -21,6 +21,7 @@ import { useLocation } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ConsultationBookingPage from "./pages/ConsultationBookingPage";
+import SubscriptionBoxPage from "./pages/SubscriptionBoxPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -87,6 +88,7 @@ function App() {
           <Route path="/product/:id" element={<ProductPage />} />
           <Route path="/preorder/:category" element={<PreorderCategoryPage />} />
           <Route path="/cart" element={<PrivateRoute> <CartPage /> </PrivateRoute>} />
+          <Route path="/preorder/subscription-boxes" element={<SubscriptionBoxPage />} />
           <Route path="/wishlist" element={<PrivateRoute> <WishlistPage /> </PrivateRoute>} />
           <Route path="/checkout" element={<PrivateRoute> <CheckoutSummaryPage /> </PrivateRoute>} />
           <Route path="/" element={<>

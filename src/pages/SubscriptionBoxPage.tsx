@@ -8,7 +8,7 @@ const SubscriptionBoxPage = () => {
       {/* Hero Section */}
       <section
         className="relative w-full h-[80vh] md:h-[90vh] bg-cover bg-center flex items-center justify-center px-6"
-        style={{ backgroundImage: `url('/images/subscription-hero.jpg')` }}
+        style={{ backgroundImage: `url('/images/IMG-20250402-WA0139.jpg')` }}
       >
         <div className="bg-black/60 backdrop-blur-md rounded-3xl p-6 md:p-14 max-w-3xl text-center text-white space-y-4">
           <motion.h1
