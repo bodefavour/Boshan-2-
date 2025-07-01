@@ -76,7 +76,7 @@ const LandingContents = () => {
                     Your Skin. Your Ritual. Your Lifestyle.
                 </h2>
                 <p className="text-lg md:text-xl leading-relaxed">
-                    BOSHAN is more than a brand – it's a movement. Rooted in rich Esan culture and elevated with modern elegance,
+                    BOSHAN is more than a brand, it's a movement. Rooted in rich Esan culture and elevated with modern elegance,
                     we curate handcrafted skincare, luxe fashion, and memorable gifting experiences for today’s bold, conscious generation.
                     Join the Glow List today to be the first to preorder and get exclusive early bird benefits!
                 </p>
