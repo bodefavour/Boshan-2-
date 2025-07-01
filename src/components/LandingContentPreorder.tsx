@@ -72,7 +72,7 @@ const LandingContents = () => {
                     Your Skin. Your Ritual. Your Lifestyle.
                 </h2>
                 <p className="text-lg md:text-xl leading-relaxed">
-                    BOSHAN is more than a brand – it's a movement. Rooted in rich Esan culture and elevated with modern elegance,
+                    BOSHAN is more than a brand, it's a movement. Rooted in rich Esan culture and elevated with modern elegance,
                     we curate handcrafted skincare, luxe fashion, and memorable gifting experiences for today’s bold, conscious generation.
                     Join the Glow List today to be the first to preorder and get exclusive early bird benefits!
                 </p>
@@ -261,7 +261,8 @@ const LandingContents = () => {
                         Shop Now
                     </button>
                 </Link>
-            </motion.section> <motion.section
+            </motion.section>
+            <motion.section
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -271,7 +272,29 @@ const LandingContents = () => {
                     Meet the Glowmakers
                 </h3>
 
-                <div className="flex space-x-4 overflow-x-auto scrollbar-hide pb-4 px-1">
+                <Swiper
+                    grabCursor={true}
+                    centeredSlides={true}
+                    loop={true}
+                    autoplay={{ delay: 4500 }}
+                    effect="coverflow"
+                    slidesPerView={3}
+                    coverflowEffect={{
+                        rotate: 0,
+                        stretch: 0,
+                        depth: 120,
+                        modifier: 2.5,
+                        slideShadows: false,
+                    }}
+                    breakpoints={{
+                        0: { slidesPerView: 1 },
+                        640: { slidesPerView: 1.5 },
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 },
+                    }}
+                    modules={[Autoplay, EffectCoverflow]}
+                    className="w-full max-w-6xl mx-auto"
+                >
                     {[
                         {
                             name: "Miss Sarah Iyere",
@@ -309,34 +332,28 @@ const LandingContents = () => {
                             socials: { instagram: "#", twitter: "#", linkedin: "#" },
                         },
                     ].map((member, i) => (
-                        <div
-                            key={i}
-                            className="min-w-[160px] bg-white rounded-xl shadow-sm px-4 py-6 text-center flex-shrink-0 hover:shadow-md transition"
-                        >
-                            <img
-                                src={member.img}
-                                alt={member.name}
-                                className="w-24 h-24 object-cover rounded-full border-2 border-orange-400 mx-auto"
-                            />
-                            <h4 className="mt-3 text-sm font-semibold text-boshan">{member.name}</h4>
-                            <p className="text-xs text-gray-600">{member.role}</p>
-                            <p className="text-[11px] text-gray-500">{member.details}</p>
-
-                            <div className="flex justify-center gap-2 text-xs mt-3 text-gray-400">
-                                <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer">
-                                    <i className="fab fa-instagram hover:text-orange-500"></i>
-                                </a>
-                                <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer">
-                                    <i className="fab fa-twitter hover:text-orange-500"></i>
-                                </a>
-                                <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer">
-                                    <i className="fab fa-linkedin hover:text-orange-500"></i>
-                                </a>
+                        <SwiperSlide key={i}>
+                            <div className="bg-white rounded-xl px-5 py-6 text-center shadow-md transition-all duration-300 swiper-slide-active:scale-110">
+                                <img
+                                    src={member.img}
+                                    alt={member.name}
+                                    className="w-28 h-28 md:w-32 md:h-32 object-cover rounded-full border-4 border-orange-500 shadow-lg mx-auto"
+                                />
+                                <h4 className="mt-3 text-sm font-semibold text-boshan">{member.name}</h4>
+                                <p className="text-xs text-gray-600">{member.role}</p>
+                                <p className="text-[11px] text-gray-500">{member.details}</p>
+                                <div className="flex justify-center gap-3 text-sm mt-2 text-gray-400">
+                                    <a href={member.socials.instagram}><i className="fab fa-instagram hover:text-orange-500"></i></a>
+                                    <a href={member.socials.twitter}><i className="fab fa-twitter hover:text-orange-500"></i></a>
+                                    <a href={member.socials.linkedin}><i className="fab fa-linkedin hover:text-orange-500"></i></a>
+                                </div>
                             </div>
-                        </div>
+                        </SwiperSlide>
                     ))}
-                </div>
+                </Swiper>
             </motion.section>
+
+
 
         </div></>
     );
