@@ -72,8 +72,8 @@ function App() {
               <LandingContent />
             </>
           } /> */}
-          <Route path="/auth" element={<AuthPage />} />
-          <Route path="/consultation-booking" element={<ConsultationBookingPage />} />
+          <Route path="/auth" element={<AuthPage />} /><Route path="/preorder/skin-therapy-and-consultations" element={<ConsultationBookingPage />} />
+
           <Route path="/Preorder-items" element={<>
             <HeroSection backgroundImage="/images/heroimage.png" brandName="BOSHAN" />
             <ProductGrid />
