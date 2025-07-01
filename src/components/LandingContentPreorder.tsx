@@ -10,8 +10,7 @@ import 'swiper/css/effect-coverflow';
 import 'swiper/css/autoplay';
 import { motion } from "framer-motion";
 
-// Auto-generate only the first 3 services
-const autoServices = [
+const services = [
     {
         title: "Skincare Essentials",
         desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
@@ -27,41 +26,27 @@ const autoServices = [
         desc: "Handcrafted skincare essentials and beard grooming rituals that nourish, glow, and respect your roots.",
         image: "/images/IMG-20250322-WA0051.jpg",
     },
-].map((service) => ({
-    ...service,
-    link: `/preorder/${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, "-"))}`,
-}));
-
-// Manually add the remaining 4 services
-const manualServices = [
     {
         title: "Beauty Tools and Makeup Accessories",
         desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
         image: "/images/IMG-20250402-WA0140.jpg",
-        link: "/beauty-tools-and-accessories",
-    },
-    {
+    }, {
         title: "Subscription Boxes",
-        desc: "Curated skincare boxes delivered monthly — personalized for you.",
+        desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
         image: "/images/IMG-20250322-WA0051.jpg",
-        link: "/subscription-boxes",
-    },
-    {
+    }, {
         title: "Skin Therapy and Consultations",
-        desc: "Book your personalized skin analysis and virtual consultation session.",
+        desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
         image: "/images/IMG-20250402-WA0132.jpg",
-        link: "/consultation",
-    },
-    {
+    }, {
         title: "Skinfood & Nutrition",
-        desc: "Feed your skin from within with Boshan’s plant-powered nutrition kits.",
+        desc: "Aesthetic event experiences with decor that tells a story and speaks your tribe.",
         image: "/images/IMG-20250402-WA0134.jpg",
-        link: "/skinfood-and-nutrition",
     },
-];
-
-// Merge all together
-const services = [...autoServices, ...manualServices];
+].map((service) => ({
+    ...service,
+    link: `/preorder/${encodeURIComponent(service.title.toLowerCase().replace(/\s+/g, "-"))}`,
+}));
 
 const LandingContents = () => {
     function handleLogout(event: React.MouseEvent<HTMLButtonElement>): void {
