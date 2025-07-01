@@ -3,8 +3,8 @@
     "id": "1",
     "name": "Boshan Beard Oil",
     "category": "beardcare-essentials",
-    "price": 9500,
-    "oldPrice": 10500,
+    "price": 6000,
+    "oldPrice": 7500,
     "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
     "isNew": true,
     "features": [
@@ -12,7 +12,7 @@
       " shine + growth"
     ],
     "rating": 4.8,
-    "size": "50ml",
+    "size": "30ml",
     "reviews": 120,
     "description": "Nourishes and softens beard; shine + growth",
     "images": [
@@ -35,6 +35,7 @@
       "Smooth Texture"
     ],
     "rating": 4.8,
+    "size": "50g",
     "reviews": 120,
     "description": "Mosturizes, styles, tames flyaways",
     "images": [
@@ -78,6 +79,28 @@
       "comb",
       "Shaving Knife",
       "Duster"
+    ],
+    "rating": 4.5,
+    "reviews": 80,
+    "description": "The all in one product you need for you all round healthy beardcare.",
+    "images": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Boshan Beard Ritual Kit (Full Box)",
+    "category": "beardcare-essentials",
+    "price": 20000,
+    "oldPrice": 35000,
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800",
+    "isNew": true,
+    "features": [
+      "Beard Oil",
+      "Balm",
+      "Shampoo",
+      "Grooming Kit"
     ],
     "rating": 4.5,
     "reviews": 80,

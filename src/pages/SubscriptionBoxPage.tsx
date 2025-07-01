@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import HeroBg from "/images/subscription-hero.jpg";
-import CtaBg from "/images/subscription-cta.jpg";
-import CleanserImg from "/images/cleanser.jpg"; // Replace with real assets
-import SerumImg from "/images/serum.jpg";
-import OilImg from "/images/oil.jpg";
-import ToolImg from "/images/tool.jpg";
+import HeroBg from "../../images/subscription-hero.jpg";
+import CtaBg from "../IMG-20250402-WA0141.jpg";
+import CleanserImg from "../IMG-20250402-WA0141.jpg"; // Replace with real assets
+import SerumImg from "../IMG-20250402-WA0141.jpg";
+import OilImg from "../IMG-20250402-WA0141.jpg";
+import ToolImg from "../IMG-20250402-WA0141.jpg";
 
 const SubscriptionBoxPage = () => {
   return (
@@ -14,7 +14,7 @@ const SubscriptionBoxPage = () => {
       {/* Hero Section */}
       <section
         className="relative w-full h-[85vh] md:h-screen bg-cover bg-center flex items-center justify-center px-6"
-        style={{ backgroundImage: `url(${HeroBg})` }}
+        style={{ backgroundImage: `url('/images/IMG-20250402-WA0141.jpg')` }}
       >
         <div className="bg-black/60 backdrop-blur-md p-8 md:p-14 rounded-3xl text-white max-w-2xl text-center space-y-4">
           <motion.h1
