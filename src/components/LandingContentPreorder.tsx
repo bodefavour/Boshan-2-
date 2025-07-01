@@ -353,6 +353,7 @@ const LandingContents = () => {
                     ))}
                 </Swiper>
             </motion.section>
+
         </div></>
     );
 };
