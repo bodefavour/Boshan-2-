@@ -280,8 +280,8 @@ const LandingContents = () => {
                 >
                     {[
                         {
-                            name: "Miss Sarah Iyere",
-                            role: "Founder",
+                            name: "Sarah Iyere",
+                            role: "MD/Founder",
                             details: "Vision, Formulation, Strategy",
                             img: "/images/Sarah.png",
                             socials: { instagram: "#", twitter: "#", linkedin: "#" },
