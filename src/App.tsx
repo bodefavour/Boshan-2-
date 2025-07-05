@@ -23,7 +23,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import ConsultationBookingPage from "./pages/ConsultationBookingPage";
 import SubscriptionBoxPage from "./pages/SubscriptionBoxPage";
 import ContactPage from "./pages/Contactpage";
-import BookConsultationPage from "./BookingConsultationPage.tsx";
+import BookConsultationPage from "./BookingConsultationPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
