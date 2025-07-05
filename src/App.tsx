@@ -23,6 +23,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import ConsultationBookingPage from "./pages/ConsultationBookingPage";
 import SubscriptionBoxPage from "./pages/SubscriptionBoxPage";
 import ContactPage from "./pages/Contactpage";
+import BookConsultationPage from "./BookingConsultationPage.tsx";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -81,6 +82,7 @@ function App() {
             <ProductGrid />
           </>
           } />
+<Route path="/preorder/skin-therapy-and-consultations/booking" element={<PrivateRoute> <BookConsultationPage/> </PrivateRoute>} />
           <Route path="/account" element={<PrivateRoute> <AccountPage /> </PrivateRoute>} />
           <Route path="/preorder/skin-therapy-and-consultations" element={<PrivateRoute> <PreorderCategoryPage /> </PrivateRoute>} />
           <Route path="/preorder/skinfood-and-nutrition" element={<PrivateRoute> <PreorderCategoryPage /> </PrivateRoute>} />
