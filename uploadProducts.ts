@@ -2,54 +2,53 @@ import { initializeApp, cert } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import fs from "fs";
 
-// Initialize Firebase Admin SDK
+// 🔐 Initialize Firebase Admin
 initializeApp({
-  credential: cert("./boshan-store-firebase-adminsdk-fbsvc-f3eaea98ba.json"), // Update if needed
+  credential: cert("./boshan-store-firebase-adminsdk-fbsvc-f3eaea98ba.json"),
 });
 
 const db = getFirestore();
 
 async function uploadProducts() {
   try {
-    const productsData = JSON.parse(fs.readFileSync("./src/data/products.json", "utf8"));
+    const rawData = fs.readFileSync("./src/data/products.json", "utf8");
+    const products = JSON.parse(rawData);
 
-    if (!Array.isArray(productsData)) {
-      throw new Error("Products data is not an array");
-    }
+    if (!Array.isArray(products)) throw new Error("JSON is not an array");
 
     const collectionRef = db.collection("products");
 
-    for (const product of productsData) {
-      // Validate essential fields
-      if (!product.id || !product.name || !product.price || !product.category) {
-        console.warn(`Skipping product due to missing fields: ${JSON.stringify(product)}`);
+    for (const product of products) {
+      if (!product.id || !product.name) {
+        console.warn("⚠️ Skipping product with missing ID or name:", product);
         continue;
       }
 
+      const docRef = collectionRef.doc(product.id.toString());
+
       const validatedProduct = {
-        id: product.id.toString(),
+        id: product.id,
         name: product.name,
         category: product.category?.toLowerCase().replace(/\s+/g, "-") || "uncategorized",
-        price: Number(product.price),
-        oldPrice: product.oldPrice ? Number(product.oldPrice) : null,
+        price: product.price || 0,
+        oldPrice: product.oldPrice || null,
         image: product.image || "",
-        isNew: Boolean(product.isNew),
+        isNew: product.isNew || false,
         features: Array.isArray(product.features) ? product.features : [],
-        rating: Number(product.rating) || 0,
+        rating: product.rating || 0,
+        reviews: product.reviews || 0,
         size: product.size || "",
-        reviews: Number(product.reviews) || 0,
         description: product.description || "",
         images: Array.isArray(product.images) ? product.images : [],
       };
 
-      const docRef = collectionRef.doc(validatedProduct.id);
       await docRef.set(validatedProduct);
-      console.log(`✅ Uploaded: ${validatedProduct.name}`);
+      console.log(`✅ Uploaded: ${product.name}`);
     }
 
-    console.log("\n🎉 All products uploaded successfully.");
-  } catch (error) {
-    console.error("❌ Error uploading products:", error);
+    console.log("🎉 All products uploaded successfully.");
+  } catch (err) {
+    console.error("❌ Error uploading products:", err);
   }
 }
 
