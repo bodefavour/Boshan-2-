@@ -36,12 +36,12 @@ const Footer: React.FC = () => {
               </a>
             </li>
             <li>
-              <a href="https://www.instagram.com/yourbrand" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="https://www.instagram.com/boshan.co?igsh=bWxyaWFmZzQyYTAy" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <i className="fab fa-instagram text-gray-300 hover:text-white text-lg transition" />
               </a>
             </li>
             <li>
-              <a href="https://www.twitter.com/yourbrand" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <a href="https://x.com/boshanofficial?t=aeFbnZw5uvCktn5pN6Q9-g&s=09" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <i className="fab fa-twitter text-gray-300 hover:text-white text-lg transition" />
               </a>
             </li>
