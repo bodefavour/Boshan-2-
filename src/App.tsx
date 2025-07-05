@@ -25,6 +25,7 @@ import SubscriptionBoxPage from "./pages/SubscriptionBoxPage";
 import ContactPage from "./pages/Contactpage";
 import BookConsultationPage from "./pages/BookingConsultationPage";
 import SubscribeSetupPage from "./pages/SubscribeSetupPage";
+import ThankYouPage from "./pages/ThankYouPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -85,6 +86,8 @@ function App() {
           } />
 <Route path="/consultation/booking" element={<PrivateRoute> <BookConsultationPage/> </PrivateRoute>} />
           <Route path="/account" element={<PrivateRoute> <AccountPage /> </PrivateRoute>} />
+<Route path="/thank-you" element={<PrivateRoute> <ThankYouPage /> </PrivateRoute>} />
+<Route path="/payment-confirmation" element={<PrivateRoute> <PaymentConfirmationPage /> </PrivateRoute>} />
           <Route path="/preorder/skin-therapy-and-consultations" element={<PrivateRoute> <PreorderCategoryPage /> </PrivateRoute>} />
           <Route path="/preorder/skinfood-and-nutrition" element={<PrivateRoute> <PreorderCategoryPage /> </PrivateRoute>} />
           <Route path="/store" element={<StoreFrontPage />} />
