@@ -26,6 +26,7 @@ import ContactPage from "./pages/Contactpage";
 import BookConsultationPage from "./pages/BookingConsultationPage";
 import SubscribeSetupPage from "./pages/SubscribeSetupPage";
 import ThankYouPage from "./pages/ThankYouPage";
+import PaymentConfirmationPage from "./pages/PaymentConfirmationPage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
