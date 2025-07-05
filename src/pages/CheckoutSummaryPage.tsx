@@ -110,12 +110,52 @@ const CheckoutSummaryPage = () => {
       <h1 className="text-3xl font-bold text-center mb-10">Checkout Summary</h1>
 
       <section className="mb-8">
-        <h2 className="text-xl font-semibold mb-2">Delivery Address</h2>
-        <div className="bg-gray-100 p-4 rounded-md">
-          <p className="text-lg">State: <span className="font-medium">{shippingInfo.state}</span></p>
-          <p className="text-lg">LGA: <span className="font-medium">{shippingInfo.lga}</span></p>
-        </div>
-      </section>
+  <h2 className="text-xl font-semibold mb-4">Delivery Info</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+    {/* State (fetched from Firestore, read-only) */}
+    <input
+      type="text"
+      value={shippingInfo.state}
+      readOnly
+      className="input bg-gray-100"
+      placeholder="State"
+    />
+
+    {/* LGA (fetched from Firestore, read-only) */}
+    <input
+      type="text"
+      value={shippingInfo.lga}
+      readOnly
+      className="input bg-gray-100"
+      placeholder="LGA"
+    />
+
+    {/* House Address (user input) */}
+    <input
+      type="text"
+      placeholder="Enter your house address"
+      value={shippingInfo.address || ""}
+      onChange={(e) =>
+        setShippingInfo((prev) => ({ ...prev, address: e.target.value }))
+      }
+      className="input"
+      required
+    />
+
+    {/* Phone Number (user input) */}
+    <input
+      type="tel"
+      placeholder="Enter your phone number"
+      value={shippingInfo.phone || ""}
+      onChange={(e) =>
+        setShippingInfo((prev) => ({ ...prev, phone: e.target.value }))
+      }
+      className="input"
+      required
+    />
+  </div>
+</section>
 
       <section className="mb-10">
         <h2 className="text-xl font-semibold mb-4">Order Details</h2>
