@@ -1,81 +1,99 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "../firebaseConfig"; // adjust this path if needed
+import React, { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { db } from "../firebaseConfig";
+import { doc, getDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
-initializeApp(firebaseConfig);
-const auth = getAuth();
+const AccountPage = () => {
+  const { currentUser } = useAuth();
+  const navigate = useNavigate();
+  const [profile, setProfile] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
 
-const AccountPage: React.FC = () => {
-    const [isLogin, setIsLogin] = useState(true);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState("");
+  useEffect(() => {
+    if (!currentUser) {
+      navigate("/login", { state: { from: "/account" } });
+      return;
+    }
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setError("");
-        try {
-            if (isLogin) {
-                await signInWithEmailAndPassword(auth, email, password);
-            } else {
-                await createUserWithEmailAndPassword(auth, email, password);
-            }
-            window.location.href = "/"; // redirect to homepage or dashboard
-        } catch (err: any) {
-            setError(err.message);
-        }
+    const fetchUserData = async () => {
+      const userRef = doc(db, "users", currentUser.uid);
+      const userSnap = await getDoc(userRef);
+      if (userSnap.exists()) {
+        setProfile(userSnap.data());
+      }
+      setLoading(false);
     };
 
+    fetchUserData();
+  }, [currentUser, navigate]);
+
+  if (loading) {
     return (
-        <div className="min-h-screen bg-white flex flex-col justify-center items-center px-6">
-            <motion.div 
-                initial={{ opacity: 0, y: 50 }} 
-                animate={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.5 }}
-                className="max-w-md w-full bg-[#fff8f5] p-8 rounded-2xl shadow-xl text-center"
-            >
-                <h2 className="text-3xl font-bold text-[#C07C6C] mb-6">
-                    {isLogin ? "Login to Your Boshan Account" : "Create Your Boshan Account"}
-                </h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="w-full px-4 py-2 border rounded"
-                    />
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                        className="w-full px-4 py-2 border rounded"
-                    />
-                    {error && <p className="text-red-500 text-sm">{error}</p>}
-                    <button
-                        type="submit"
-                        className="w-full bg-[#C07C6C] text-white py-2 rounded hover:bg-opacity-90"
-                    >
-                        {isLogin ? "Login" : "Register"}
-                    </button>
-                </form>
-                <p className="text-sm mt-4">
-                    {isLogin ? "Don't have an account?" : "Already have an account?"}{" "}
-                    <button
-                        onClick={() => setIsLogin(!isLogin)}
-                        className="text-[#C07C6C] font-bold hover:underline"
-                    >
-                        {isLogin ? "Sign up" : "Login"}
-                    </button>
-                </p>
-            </motion.div>
-        </div>
+      <div className="flex justify-center items-center min-h-screen">
+        <ClipLoader size={40} color="#C07C6C" />
+      </div>
     );
+  }
+
+  return (
+    <div className="max-w-5xl mx-auto px-6 py-12 space-y-12 text-black">
+      <h1 className="text-3xl font-bold mb-6">My Account</h1>
+
+      {/* Profile Section */}
+      <section className="bg-white p-6 rounded-xl shadow-md">
+        <h2 className="text-xl font-semibold mb-2">Profile Information</h2>
+        <p><strong>Name:</strong> {profile?.profile?.name || "N/A"}</p>
+        <p><strong>Email:</strong> {profile?.profile?.email || "N/A"}</p>
+        <p><strong>Gender:</strong> {profile?.profile?.gender || "N/A"}</p>
+        <p><strong>Age:</strong> {profile?.profile?.age || "N/A"}</p>
+      </section>
+
+      {/* Cart Section */}
+      <section className="bg-white p-6 rounded-xl shadow-md">
+        <h2 className="text-xl font-semibold mb-4">Items in Cart</h2>
+        {profile?.cart?.length > 0 ? (
+          <ul className="space-y-2">
+            {profile.cart.map((item: any, index: number) => (
+              <li key={index} className="text-sm text-gray-700">
+                • Product ID: {item.productId} × {item.quantity}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-gray-500">No items in cart.</p>
+        )}
+      </section>
+
+      {/* Wishlist Section */}
+      <section className="bg-white p-6 rounded-xl shadow-md">
+        <h2 className="text-xl font-semibold mb-4">Wishlist</h2>
+        {profile?.wishlist?.length > 0 ? (
+          <ul className="space-y-2">
+            {profile.wishlist.map((item: any, index: number) => (
+              <li key={index} className="text-sm text-gray-700">
+                • Product ID: {item.productId}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-gray-500">No items in wishlist.</p>
+        )}
+      </section>
+
+      {/* Change Password */}
+      <section className="bg-white p-6 rounded-xl shadow-md">
+        <h2 className="text-xl font-semibold mb-4">Change Password</h2>
+        <button
+          onClick={() => navigate("/change-password")}
+          className="bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-full"
+        >
+          Change Password
+        </button>
+      </section>
+    </div>
+  );
 };
 
 export default AccountPage;
