@@ -25,15 +25,23 @@ const PaymentConfirmationPage = () => {
   }, [currentUser]);
 
   const handleDownload = () => {
+    if (!order) return;
     const doc = new jsPDF();
     doc.text("Boshan Payment Receipt", 14, 20);
+
+    const items = order.items?.length
+      ? order.items.map((item: any) => [item.name, item.qty || 1, `₦${item.price?.toLocaleString()}`])
+      : [["No items", "-", "-"]];
+
     doc.autoTable({
       startY: 30,
       head: [["Item", "Qty", "Price"]],
-      body: order?.items?.map((item: any) => [item.name, item.qty || 1, `₦${item.price?.toLocaleString()}`]),
+      body: items,
     });
-    doc.text(`Total: ₦${order.total?.toLocaleString()}`, 14, doc.lastAutoTable.finalY + 10);
-    doc.text(`Transaction ID: ${order.txnId}`, 14, doc.lastAutoTable.finalY + 20);
+
+    const finalY = (doc as any).lastAutoTable?.finalY ?? 50;
+    doc.text(`Total: ₦${order.total?.toLocaleString()}`, 14, finalY + 10);
+    doc.text(`Transaction ID: ${order.txnId}`, 14, finalY + 20);
     doc.save(`Boshan-Receipt-${order.txnId}.pdf`);
   };
 
@@ -46,7 +54,7 @@ const PaymentConfirmationPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#FFF8F5] px-6 py-16 text-black text-center">
+    <div className="min-h-screen bg-[#FFF8F5] px-6 py-20 text-black text-center">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -55,7 +63,9 @@ const PaymentConfirmationPage = () => {
       >
         <img src="/images/success.gif" alt="Success" className="w-20 mx-auto" />
         <h1 className="text-2xl md:text-3xl font-bold text-green-600">Payment Successful</h1>
-        <p className="text-sm md:text-base text-gray-600">Thanks for shopping with Boshan!</p>
+        <p className="text-sm md:text-base text-gray-600">
+          Thanks for shopping with Boshan! Your glow journey has begun.
+        </p>
 
         <div className="bg-[#fff6f2] p-4 rounded-md text-left space-y-2 text-sm md:text-base">
           <p><strong>Transaction ID:</strong> {order.txnId}</p>
@@ -67,7 +77,7 @@ const PaymentConfirmationPage = () => {
                 <li key={idx}>
                   {item.name} – ₦{item.price?.toLocaleString()}
                 </li>
-              ))}
+              )) ?? <li>No items</li>}
             </ul>
           </div>
         </div>
