@@ -66,7 +66,7 @@ const CheckoutSummaryPage = () => {
     paystack.newTransaction({
       key: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY!, // 
       email: currentUser.email,
-      amount: (total + 1500) * 100,
+      amount: (total + 3000) * 100,
       currency: "NGN",
       metadata: {
         custom_fields: [
