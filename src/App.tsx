@@ -22,6 +22,7 @@ import { Analytics } from "@vercel/analytics/react"
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import ConsultationBookingPage from "./pages/ConsultationBookingPage";
 import SubscriptionBoxPage from "./pages/SubscriptionBoxPage";
+import ContactPage from "./pages/Contactpage";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -74,7 +75,7 @@ function App() {
             </>
           } /> */}
           <Route path="/auth" element={<AuthPage />} /><Route path="/preorder/skin-therapy-and-consultations" element={<ConsultationBookingPage />} />
-
+<Route path="/contact-us" element={<ContactPage />} />
           <Route path="/Preorder-items" element={<>
             <HeroSection backgroundImage="/images/heroimage.png" brandName="BOSHAN" />
             <ProductGrid />
