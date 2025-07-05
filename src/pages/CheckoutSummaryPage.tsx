@@ -191,7 +191,7 @@ const CheckoutSummaryPage = () => {
 
         <div className="text-right mt-6">
           <p className="text-lg font-semibold">Subtotal: ₦{total.toLocaleString()}</p>
-          <p className="text-sm text-gray-500">Delivery Fee: ₦1,500</p>
+          <p className="text-sm text-gray-500">Delivery Fee: ₦3,000</p>
           <p className="text-xl font-bold mt-2">
             Total: ₦{(total + 3000).toLocaleString()}
           </p>
