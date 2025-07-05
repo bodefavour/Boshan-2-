@@ -1,19 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebaseConfig";
+import { db } from "../../firebaseConfig";
 import { motion } from "framer-motion";
 
+interface Tier {
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  features: string[];
+  image: string;
+}
+
 const SubscriptionBoxPage = () => {
-  const [plans, setPlans] = useState<any[]>([]);
+  const [tiers, setTiers] = useState<Tier[]>([]);
 
   useEffect(() => {
-    const fetchPlans = async () => {
+    const fetchTiers = async () => {
       const snapshot = await getDocs(collection(db, "subscriptionTiers"));
-      const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      setPlans(list);
+      const list = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      })) as Tier[];
+      setTiers(list);
     };
-    fetchPlans();
+
+    fetchTiers();
   }, []);
 
   return (
@@ -48,7 +61,7 @@ const SubscriptionBoxPage = () => {
       <section className="max-w-6xl mx-auto px-6 py-20">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">Available Boxes</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {plans.map((plan) => (
+          {tiers.map((plan) => (
             <div
               key={plan.id}
               className="bg-white rounded-xl shadow p-6 space-y-4 hover:shadow-md transition"
@@ -58,20 +71,32 @@ const SubscriptionBoxPage = () => {
                 alt={plan.name}
                 className="w-full h-40 object-cover rounded-lg"
               />
-              <h3 className="text-lg font-semibold text-orange-600">{plan.name}</h3>
-              <p className="text-sm text-gray-700">₦{plan.price?.toLocaleString()}</p>
+              <h3 className="text-lg font-semibold text-boshan">{plan.name}</h3>
+              <p className="text-sm text-gray-600">{plan.description}</p>
               <ul className="text-sm text-gray-600 list-disc ml-5">
-                {plan.features?.map((f: string, idx: number) => (
+                {plan.features?.map((f, idx) => (
                   <li key={idx}>{f}</li>
                 ))}
               </ul>
+              <p className="text-orange-600 font-bold text-lg">
+                ₦{plan.price.toLocaleString()}
+              </p>
             </div>
           ))}
         </div>
 
-        {plans.length === 0 && (
+        {tiers.length === 0 && (
           <p className="text-center text-gray-500 mt-10">No subscription boxes available yet.</p>
         )}
+
+        {/* CTA to custom box setup */}
+        <div className="text-center mt-16">
+          <Link to="/subscribe/setup">
+            <button className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm md:text-base transition">
+              Build My Own Box →
+            </button>
+          </Link>
+        </div>
       </section>
     </div>
   );
