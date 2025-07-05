@@ -1,142 +1,77 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../firebaseConfig";
 import { motion } from "framer-motion";
-import HeroBg from "../../images/subscription-hero.jpg";
-import CtaBg from "../IMG-20250402-WA0141.jpg";
-import CleanserImg from "../IMG-20250402-WA0141.jpg"; // Replace with real assets
-import SerumImg from "../IMG-20250402-WA0141.jpg";
-import OilImg from "../IMG-20250402-WA0141.jpg";
-import ToolImg from "../IMG-20250402-WA0141.jpg";
 
 const SubscriptionBoxPage = () => {
+  const [plans, setPlans] = useState<any[]>([]);
+
+  useEffect(() => {
+    const fetchPlans = async () => {
+      const snapshot = await getDocs(collection(db, "subscriptionTiers"));
+      const list = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setPlans(list);
+    };
+    fetchPlans();
+  }, []);
+
   return (
-    <div className="bg-[#FFF8F5] text-black overflow-hidden">
+    <div className="bg-[#FFF8F5] text-black">
       {/* Hero Section */}
       <section
-        className="relative w-full h-[85vh] md:h-screen bg-cover bg-center flex items-center justify-center px-6"
-        style={{ backgroundImage: `url('/images/IMG-20250402-WA0141.jpg')` }}
+        className="w-full h-[80vh] md:h-[85vh] bg-cover bg-center flex items-center justify-center px-6 relative"
+        style={{ backgroundImage: "url('/images/subscription-hero.jpg')" }}
       >
-        <div className="bg-black/60 backdrop-blur-md p-8 md:p-14 rounded-3xl text-white max-w-2xl text-center space-y-4">
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+        <div className="relative z-10 max-w-3xl text-center text-white space-y-6">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-5xl font-bold leading-tight"
+            className="text-3xl md:text-5xl font-bold"
           >
-            Your Glow, Curated Monthly
+            Subscription Boxes Curated Just For You
           </motion.h1>
-          <p className="text-sm md:text-base text-gray-200">
-            Boshan’s personalized skincare boxes evolve with your skin. Less stress, more glow.
+          <p className="text-sm md:text-base">
+            Explore our expertly tailored skincare and beard care boxes. Choose what suits you, or create your own glow box.
           </p>
-          <Link to="/subscribe">
-            <button className="mt-3 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm md:text-base transition">
-              Build Your Glow Box →
+          <Link to="/subscribe/setup">
+            <button className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm md:text-base transition">
+              Create My Own Box
             </button>
           </Link>
         </div>
       </section>
 
-      {/* Why Subscribe */}
-      <section className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-3 gap-10">
-        {[
-          {
-            title: "Tailored to You",
-            desc: "We use your profile to curate products that suit your skin’s real needs — no guessing games.",
-          },
-          {
-            title: "New Discoveries Monthly",
-            desc: "Stay ahead of the glow game with seasonal product drops, trends & tools.",
-          },
-          {
-            title: "Expert-Backed",
-            desc: "Dermatologists & product developers help handpick what works best for melanin-rich skin.",
-          },
-        ].map((item, i) => (
-          <div key={i} className="bg-white rounded-xl shadow-md p-6 space-y-2 hover:shadow-lg transition">
-            <h3 className="text-lg font-semibold text-orange-600">{item.title}</h3>
-            <p className="text-sm text-gray-700">{item.desc}</p>
-          </div>
-        ))}
-      </section>
-
-      {/* What's Inside */}
-      <section className="bg-[#fff2eb] py-20 px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">What’s Inside Your Box?</h2>
-          <p className="text-sm md:text-base text-gray-700 max-w-2xl mx-auto mb-10">
-            Each box contains 3–5 full-size products curated for your skin goals — cleansers, oils, exfoliants, body scrubs & sometimes a surprise accessory.
-          </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[CleanserImg, SerumImg, OilImg, ToolImg].map((img, i) => (
-              <div key={i} className="bg-white rounded-lg shadow-md p-3">
-                <img src={img} alt="box-item" className="w-full h-32 object-cover rounded-md mb-2" />
-                <p className="text-sm text-gray-600 font-medium">
-                  {["Gentle Cleanser", "Serum or Mask", "Glow Oil", "Surprise Tool"][i]}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works */}
+      {/* Plans Section */}
       <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">How It Works</h2>
-        <div className="grid md:grid-cols-3 gap-8 text-center">
-          {[
-            {
-              step: "1. Build Your Profile",
-              desc: "Tell us your skin type, goals, allergies & routine.",
-            },
-            {
-              step: "2. Get Your Box",
-              desc: "We curate a box and ship directly to your doorstep every month.",
-            },
-            {
-              step: "3. Adjust As You Glow",
-              desc: "Rate products, update preferences, and evolve your routine.",
-            },
-          ].map((item, i) => (
-            <div key={i} className="bg-white rounded-xl shadow p-6 space-y-2 hover:shadow-md transition">
-              <h3 className="text-lg font-semibold text-orange-600">{item.step}</h3>
-              <p className="text-sm text-gray-700">{item.desc}</p>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">Available Boxes</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {plans.map((plan) => (
+            <div
+              key={plan.id}
+              className="bg-white rounded-xl shadow p-6 space-y-4 hover:shadow-md transition"
+            >
+              <img
+                src={plan.image || "/images/default.jpg"}
+                alt={plan.name}
+                className="w-full h-40 object-cover rounded-lg"
+              />
+              <h3 className="text-lg font-semibold text-orange-600">{plan.name}</h3>
+              <p className="text-sm text-gray-700">₦{plan.price?.toLocaleString()}</p>
+              <ul className="text-sm text-gray-600 list-disc ml-5">
+                {plan.features?.map((f: string, idx: number) => (
+                  <li key={idx}>{f}</li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
-      </section>
 
-      {/* Visual CTA */}
-      <section
-        className="relative w-full h-[50vh] md:h-[60vh] bg-cover bg-center flex items-center justify-center mt-12"
-        style={{ backgroundImage: `url(${CtaBg})` }}
-      >
-        <div className="bg-black/60 backdrop-blur-md text-white text-center p-8 rounded-2xl max-w-xl">
-          <h2 className="text-2xl md:text-3xl font-bold">A Ritual You’ll Look Forward To</h2>
-          <p className="text-sm md:text-base mt-2">
-            You deserve more than random products. Get personalized, tested, and luxurious skincare in one box.
-          </p>
-          <Link to="/subscribe">
-            <button className="mt-4 px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm md:text-base transition">
-              Start My Ritual →
-            </button>
-          </Link>
-        </div>
-      </section>
-
-      {/* Glow Stories */}
-      <section className="max-w-6xl mx-auto px-6 py-20">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">Glow Stories</h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            "I didn’t know skincare could feel this luxurious. Everything fits my skin.",
-            "No more TikTok confusion — Boshan made my routine personal.",
-            "I don’t have to think. I just open my box and glow.",
-          ].map((quote, idx) => (
-            <blockquote key={idx} className="bg-white p-6 rounded-xl shadow text-sm italic text-gray-700">
-              “{quote}”
-            </blockquote>
-          ))}
-        </div>
+        {plans.length === 0 && (
+          <p className="text-center text-gray-500 mt-10">No subscription boxes available yet.</p>
+        )}
       </section>
     </div>
   );
