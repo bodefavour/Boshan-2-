@@ -13,6 +13,15 @@ interface Product {
   category: string;
 }
 
+interface SubscriptionData {
+  userId: string | undefined;
+  skinType: string;
+  concerns: string[];
+  products: Product[];
+  total: number;
+  createdAt: string;
+}
+
 const SubscribeSetupPage = () => {
   const { currentUser } = useAuth();
   const navigate = useNavigate();
@@ -61,7 +70,7 @@ const SubscribeSetupPage = () => {
       return;
     }
 
-    const subscription = {
+    const subscription: SubscriptionData = {
       userId: currentUser?.uid,
       skinType,
       concerns,
@@ -71,10 +80,7 @@ const SubscribeSetupPage = () => {
     };
 
     try {
-      // Save to /subscriptions
       await addDoc(collection(db, "subscriptions"), subscription);
-
-      // Save to user's history
       await addDoc(collection(doc(db, "users", currentUser!.uid), "subscriptions"), subscription);
 
       toast.success("Subscription created!");
