@@ -39,9 +39,10 @@ const SubscribeSetupPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const snapshot = await getDocs(collection(db, "products"));
-      const filtered = snapshot.docs
-        .map((doc) => ({ id: doc.id, ...doc.data() })) as Product[]
-        .filter((p) => p.category === "subscription-boxes");
+      const filtered = (snapshot.docs
+  .map((doc) => ({ id: doc.id, ...doc.data() })) as Product[]).filter(
+    (p) => p.category === "subscription-boxes"
+);
       setProducts(filtered);
     };
     fetchProducts();
