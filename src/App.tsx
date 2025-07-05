@@ -80,7 +80,7 @@ function App() {
             <ProductGrid />
           </>
           } />
-          <Route path="/AccountPage" element={<PrivateRoute> <AccountPage /> </PrivateRoute>} />
+          <Route path="/account" element={<PrivateRoute> <AccountPage /> </PrivateRoute>} />
           <Route path="/preorder/skin-therapy-and-consultations" element={<PrivateRoute> <PreorderCategoryPage /> </PrivateRoute>} />
           <Route path="/preorder/skinfood-and-nutrition" element={<PrivateRoute> <PreorderCategoryPage /> </PrivateRoute>} />
           <Route path="/store" element={<StoreFrontPage />} />
