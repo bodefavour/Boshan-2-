@@ -60,25 +60,62 @@ const CheckoutSummaryPage = () => {
     fetchCart();
   }, [currentUser]);
 
-  const handlePaystackPayment = () => {
-    if (!currentUser || !currentUser.email) return;
-    const paystack = new PaystackPop();
-    paystack.newTransaction({
-      key: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY!, // 
-      email: currentUser.email,
-      amount: (total + 3000) * 100,
-      currency: "NGN",
-      metadata: {
-        custom_fields: [
-          { display_name: "state", variable_name: "state", value: shippingInfo.state },
-          { display_name: "lga", variable_name: "lga", value: shippingInfo.lga },
-          { display_name: "Items", variable_name: "cart", value: cart.map((item) => '${item.name x${item.quantity').join(", ") }, // Format cart items for metadata
+  const handlePaystackPayment = async () => {
+  if (!currentUser || !currentUser.email) return;
+
+  const userRef = doc(db, "users", currentUser.uid);
+
+  // Update Firestore profile with address & phone (state/LGA already exist)
+  await updateDoc(userRef, {
+    "profile.address": shippingInfo.address,
+    "profile.phone": shippingInfo.phone,
+  });
+
+  const paystack = new PaystackPop();
+  paystack.newTransaction({
+    key: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY!,
+    email: currentUser.email,
+    amount: (total + 3000) * 100,
+    currency: "NGN",
+    metadata: {
+      custom_fields: [
+        { display_name: "State", variable_name: "state", value: shippingInfo.state },
+        { display_name: "LGA", variable_name: "lga", value: shippingInfo.lga },
+        { display_name: "Address", variable_name: "address", value: shippingInfo.address },
+        { display_name: "Phone", variable_name: "phone", value: shippingInfo.phone },
+        {
+          display_name: "Cart Items",
+          variable_name: "cart",
+          value: cart.map((item) => `${item.name} x${item.quantity}`).join(", "),
+        },
+      ],
+    },
+    onSuccess: async (transaction) => {
+      // Save to orders in user profile
+      const userSnap = await getDoc(userRef);
+      const prevOrders = userSnap.exists() ? userSnap.data().orders || [] : [];
+
+      await updateDoc(userRef, {
+        orders: [
+          ...prevOrders,
+          {
+            orderId: transaction.reference,
+            cart,
+            total: total + 3000,
+            ...shippingInfo, // state, lga, address, phone
+            date: new Date().toISOString(),
+          },
         ],
-      },
-      onSuccess: async (transaction: any) => {
-        console.log("Payment successful:", transaction.reference);
-        // TODO: Handle successful payment, e.g., navigate to a confirmation page
-        // navigate("/payment-confirmation");
+        cart: [], // Clear cart after order
+      });
+
+      navigate("/payment-confirmation");
+    },
+    onCancel: () => {
+      console.log("Payment cancelled");
+    },
+  });
+};
 
         const UserRef = doc(db, "users", currentUser.uid);
         const userSnap = await getDoc(UserRef);
