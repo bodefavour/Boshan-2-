@@ -188,32 +188,32 @@ const LandingContents = () => {
                 </p>
 
                 <Swiper
-                    modules={[Autoplay, Pagination]}
-                    autoplay={{ delay: 4000, disableOnInteraction: false }}
-                    pagination={{ clickable: true }}
-                    loop={true}
-                    spaceBetween={20}
-                    className="max-w-3xl mx-auto"
-                >
-                    {[
-                        "https://www.tiktok.com/@woktrapped/video/7477802203718126878?is_from_webapp=1&sender_device=pc",
-                        "https://www.tiktok.com/embed/v2/YOUR_SECOND_VIDEO/",
-                        "https://www.tiktok.com/embed/v2/YOUR_THIRD_VIDEO/"
-                    ].map((url, index) => (
-
-                        <SwiperSlide key={index}>
-                            <div className="w-full min-h-[400px] flex justify-center">
-                                <iframe
-                                    src={url}
-                                    allowFullScreen
-                                    allow="autoplay"
-                                    frameBorder="0"
-                                    className="w-[300px] h-[400px] rounded-xl shadow-xl"
-                                />
-                            </div>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+  modules={[Autoplay, Pagination]}
+  autoplay={{ delay: 4000, disableOnInteraction: false }}
+  pagination={{ clickable: true }}
+  loop={true}
+  spaceBetween={20}
+  className="max-w-3xl mx-auto"
+>
+  {[
+    "7493909151530142981",
+    "7497125325999033606",
+    "7501264179135843589",
+    "7520560569456348421"
+  ].map((id, index) => (
+    <SwiperSlide key={index}>
+      <div className="w-full flex justify-center min-h-[400px]">
+        <iframe
+          src={`https://www.tiktok.com/embed/${id}`}
+          allowFullScreen
+          allow="autoplay"
+          frameBorder="0"
+          className="w-[300px] h-[500px] rounded-xl shadow-xl"
+        />
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
             </motion.section>
 
             {/* Preorder CTA */}
