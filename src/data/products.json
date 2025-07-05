@@ -1,4 +1,4 @@
-[
+up[
   {
     "id": "1",
     "name": "Boshan Beard Oil",
@@ -522,7 +522,6 @@
       "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=800"
     ]
   },
-  [
   {
     "id": "101",
     "name": "Boshan Beard Grooming Kit",
@@ -658,5 +657,4 @@
     "description": "A daily ritual of tools designed to refresh, clean and glow.",
     "images": ["/images/beauty-tools.jpg"]
   }
-]
 ]
