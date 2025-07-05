@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../firebaseConfig";
 import { motion } from "framer-motion";
 
-interface Tier {
+interface Product {
   id: string;
   name: string;
   price: number;
@@ -14,24 +14,25 @@ interface Tier {
 }
 
 const SubscriptionBoxPage = () => {
-  const [tiers, setTiers] = useState<Tier[]>([]);
+  const [boxes, setBoxes] = useState<Product[]>([]);
 
   useEffect(() => {
-    const fetchTiers = async () => {
-      const snapshot = await getDocs(collection(db, "subscriptionTiers"));
+    const fetchBoxes = async () => {
+      const q = query(collection(db, "products"), where("category", "==", "subscription-boxes"));
+      const snapshot = await getDocs(q);
       const list = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
-      })) as Tier[];
-      setTiers(list);
+      })) as Product[];
+      setBoxes(list);
     };
 
-    fetchTiers();
+    fetchBoxes();
   }, []);
 
   return (
     <div className="bg-[#FFF8F5] text-black">
-      {/* Hero Section */}
+      {/* Hero */}
       <section
         className="w-full h-[80vh] md:h-[85vh] bg-cover bg-center flex items-center justify-center px-6 relative"
         style={{ backgroundImage: "url('/images/subscription-hero.jpg')" }}
@@ -47,7 +48,7 @@ const SubscriptionBoxPage = () => {
             Subscription Boxes Curated Just For You
           </motion.h1>
           <p className="text-sm md:text-base">
-            Explore our expertly tailored skincare and beard care boxes. Choose what suits you, or create your own glow box.
+            Explore tailored skincare & beardcare boxes or build your own.
           </p>
           <Link to="/subscribe/setup">
             <button className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm md:text-base transition">
@@ -57,39 +58,39 @@ const SubscriptionBoxPage = () => {
         </div>
       </section>
 
-      {/* Plans Section */}
+      {/* Display Boxes */}
       <section className="max-w-6xl mx-auto px-6 py-20">
         <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">Available Boxes</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {tiers.map((plan) => (
+          {boxes.map((box) => (
             <div
-              key={plan.id}
+              key={box.id}
               className="bg-white rounded-xl shadow p-6 space-y-4 hover:shadow-md transition"
             >
               <img
-                src={plan.image || "/images/default.jpg"}
-                alt={plan.name}
+                src={box.image || "/images/default.jpg"}
+                alt={box.name}
                 className="w-full h-40 object-cover rounded-lg"
               />
-              <h3 className="text-lg font-semibold text-boshan">{plan.name}</h3>
-              <p className="text-sm text-gray-600">{plan.description}</p>
+              <h3 className="text-lg font-semibold text-boshan">{box.name}</h3>
+              <p className="text-sm text-gray-600">{box.description}</p>
               <ul className="text-sm text-gray-600 list-disc ml-5">
-                {plan.features?.map((f, idx) => (
+                {box.features?.map((f, idx) => (
                   <li key={idx}>{f}</li>
                 ))}
               </ul>
               <p className="text-orange-600 font-bold text-lg">
-                ₦{plan.price.toLocaleString()}
+                ₦{box.price.toLocaleString()}
               </p>
             </div>
           ))}
         </div>
 
-        {tiers.length === 0 && (
+        {boxes.length === 0 && (
           <p className="text-center text-gray-500 mt-10">No subscription boxes available yet.</p>
         )}
 
-        {/* CTA to custom box setup */}
+        {/* CTA to Custom Box */}
         <div className="text-center mt-16">
           <Link to="/subscribe/setup">
             <button className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm md:text-base transition">
