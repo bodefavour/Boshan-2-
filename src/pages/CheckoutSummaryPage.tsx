@@ -16,10 +16,16 @@ interface Product {
 
 const CheckoutSummaryPage = () => {
   const { currentUser } = useAuth();
+  const navigate = useNavigate();
+
   const [cart, setCart] = useState<Product[]>([]);
   const [total, setTotal] = useState(0);
-  const [shippingInfo, setShippingInfo] = useState({ state: "", lga: "" });
-  const navigate = useNavigate();
+  const [shippingInfo, setShippingInfo] = useState({
+    state: "",
+    lga: "",
+    address: "",
+    phone: "",
+  });
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -48,12 +54,14 @@ const CheckoutSummaryPage = () => {
       const totalPrice = validCart.reduce((acc, item) => acc + item.price * item.quantity, 0);
       setTotal(totalPrice);
 
-      // Assume shipping details exist on the first item
-      if (cartData.length > 0) {
-        setShippingInfo({
-          state: cartData[0].state || "",
-          lga: cartData[0].lga || "",
-        });
+      // Fetch state and lga from Firestore
+      if (userSnap.exists()) {
+        const profile = userSnap.data().profile || {};
+        setShippingInfo((prev) => ({
+          ...prev,
+          state: profile.state || "",
+          lga: profile.lga || "",
+        }));
       }
     };
 
@@ -61,138 +69,104 @@ const CheckoutSummaryPage = () => {
   }, [currentUser]);
 
   const handlePaystackPayment = async () => {
-  if (!currentUser || !currentUser.email) return;
+    if (!currentUser || !currentUser.email) return;
 
-  const userRef = doc(db, "users", currentUser.uid);
+    const userRef = doc(db, "users", currentUser.uid);
 
-  // Update Firestore profile with address & phone (state/LGA already exist)
-  await updateDoc(userRef, {
-    "profile.address": shippingInfo.address,
-    "profile.phone": shippingInfo.phone,
-  });
+    // Save new address and phone to profile
+    await updateDoc(userRef, {
+      "profile.address": shippingInfo.address,
+      "profile.phone": shippingInfo.phone,
+    });
 
-  const paystack = new PaystackPop();
-  paystack.newTransaction({
-    key: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY!,
-    email: currentUser.email,
-    amount: (total + 3000) * 100,
-    currency: "NGN",
-    metadata: {
-      custom_fields: [
-        { display_name: "State", variable_name: "state", value: shippingInfo.state },
-        { display_name: "LGA", variable_name: "lga", value: shippingInfo.lga },
-        { display_name: "Address", variable_name: "address", value: shippingInfo.address },
-        { display_name: "Phone", variable_name: "phone", value: shippingInfo.phone },
-        {
-          display_name: "Cart Items",
-          variable_name: "cart",
-          value: cart.map((item) => `${item.name} x${item.quantity}`).join(", "),
-        },
-      ],
-    },
-    onSuccess: async (transaction) => {
-      // Save to orders in user profile
-      const userSnap = await getDoc(userRef);
-      const prevOrders = userSnap.exists() ? userSnap.data().orders || [] : [];
-
-      await updateDoc(userRef, {
-        orders: [
-          ...prevOrders,
+    const paystack = new PaystackPop();
+    paystack.newTransaction({
+      key: process.env.REACT_APP_PAYSTACK_PUBLIC_KEY!,
+      email: currentUser.email,
+      amount: (total + 3000) * 100, // total + delivery
+      currency: "NGN",
+      metadata: {
+        custom_fields: [
+          { display_name: "State", variable_name: "state", value: shippingInfo.state },
+          { display_name: "LGA", variable_name: "lga", value: shippingInfo.lga },
+          { display_name: "Address", variable_name: "address", value: shippingInfo.address },
+          { display_name: "Phone", variable_name: "phone", value: shippingInfo.phone },
           {
-            orderId: transaction.reference,
-            cart,
-            total: total + 3000,
-            ...shippingInfo, // state, lga, address, phone
-            date: new Date().toISOString(),
+            display_name: "Cart Items",
+            variable_name: "cart",
+            value: cart.map((item) => `${item.name} x${item.quantity}`).join(", "),
           },
         ],
-        cart: [], // Clear cart after order
-      });
-
-      navigate("/payment-confirmation");
-    },
-    onCancel: () => {
-      console.log("Payment cancelled");
-    },
-  });
-};
-
-        const UserRef = doc(db, "users", currentUser.uid);
-        const userSnap = await getDoc(UserRef);
+      },
+      onSuccess: async (transaction) => {
+        const userSnap = await getDoc(userRef);
         const prevOrders = userSnap.exists() ? userSnap.data().orders || [] : [];
-        await updateDoc(UserRef, {
+
+        await updateDoc(userRef, {
           orders: [
             ...prevOrders,
             {
               orderId: transaction.reference,
               cart,
-              total: total + 1500,
-              state: shippingInfo.state,
-              lga: shippingInfo.lga,
+              total: total + 3000,
+              ...shippingInfo,
               date: new Date().toISOString(),
             },
           ],
-          cart: [], // Clear the cart after successful payment
+          cart: [],
         });
+
         navigate("/payment-confirmation");
       },
       onCancel: () => {
         console.log("Payment cancelled");
       },
-    }); // Closes the newTransaction call and its argument object
-  }; // Closes the handlePaystackPayment function
+    });
+  };
 
   return (
     <div className="max-w-4xl mx-auto px-6 py-12 text-black">
       <h1 className="text-3xl font-bold text-center mb-10">Checkout Summary</h1>
 
       <section className="mb-8">
-  <h2 className="text-xl font-semibold mb-4">Delivery Info</h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-
-    {/* State (fetched from Firestore, read-only) */}
-    <input
-      type="text"
-      value={shippingInfo.state}
-      readOnly
-      className="input bg-gray-100"
-      placeholder="State"
-    />
-
-    {/* LGA (fetched from Firestore, read-only) */}
-    <input
-      type="text"
-      value={shippingInfo.lga}
-      readOnly
-      className="input bg-gray-100"
-      placeholder="LGA"
-    />
-
-    {/* House Address (user input) */}
-    <input
-      type="text"
-      placeholder="Enter your house address"
-      value={shippingInfo.address || ""}
-      onChange={(e) =>
-        setShippingInfo((prev) => ({ ...prev, address: e.target.value }))
-      }
-      className="input"
-      required
-    />
-
-    {/* Phone Number (user input) */}
-    <input
-      type="tel"
-      placeholder="Enter your phone number"
-      value={shippingInfo.phone || ""}
-      onChange={(e) =>
-        setShippingInfo((prev) => ({ ...prev, phone: e.target.value }))
-      }
-      className="input"
-      required
-    />
-  </div>
-</section>
+        <h2 className="text-xl font-semibold mb-4">Delivery Info</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input
+            type="text"
+            value={shippingInfo.state}
+            readOnly
+            className="input bg-gray-100"
+            placeholder="State"
+          />
+          <input
+            type="text"
+            value={shippingInfo.lga}
+            readOnly
+            className="input bg-gray-100"
+            placeholder="LGA"
+          />
+          <input
+            type="text"
+            placeholder="Enter your house address"
+            value={shippingInfo.address}
+            onChange={(e) =>
+              setShippingInfo((prev) => ({ ...prev, address: e.target.value }))
+            }
+            className="input"
+            required
+          />
+          <input
+            type="tel"
+            placeholder="Enter your phone number"
+            value={shippingInfo.phone}
+            onChange={(e) =>
+              setShippingInfo((prev) => ({ ...prev, phone: e.target.value }))
+            }
+            className="input"
+            required
+          />
+        </div>
+      </section>
 
       <section className="mb-10">
         <h2 className="text-xl font-semibold mb-4">Order Details</h2>
@@ -204,9 +178,13 @@ const CheckoutSummaryPage = () => {
               </Link>
               <div className="flex-1">
                 <h3 className="text-lg font-medium">{item.name}</h3>
-                <p className="text-sm text-gray-500">₦{item.price.toLocaleString()} × {item.quantity}</p>
+                <p className="text-sm text-gray-500">
+                  ₦{item.price.toLocaleString()} × {item.quantity}
+                </p>
               </div>
-              <p className="font-semibold">₦{(item.price * item.quantity).toLocaleString()}</p>
+              <p className="font-semibold">
+                ₦{(item.price * item.quantity).toLocaleString()}
+              </p>
             </li>
           ))}
         </ul>
@@ -214,7 +192,9 @@ const CheckoutSummaryPage = () => {
         <div className="text-right mt-6">
           <p className="text-lg font-semibold">Subtotal: ₦{total.toLocaleString()}</p>
           <p className="text-sm text-gray-500">Delivery Fee: ₦1,500</p>
-          <p className="text-xl font-bold mt-2">Total: ₦{(total + 1500).toLocaleString()}</p>
+          <p className="text-xl font-bold mt-2">
+            Total: ₦{(total + 3000).toLocaleString()}
+          </p>
         </div>
       </section>
 
@@ -222,8 +202,12 @@ const CheckoutSummaryPage = () => {
         <h2 className="text-xl font-semibold mb-2">Payment Method</h2>
         <p className="text-gray-700 mb-4">Choose your preferred payment method to proceed.</p>
         <div className="flex flex-col md:flex-row gap-4">
-          <button className="flex-1 bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-md shadow-md transition">Pay with Card</button>
-          <button className="flex-1 bg-gray-200 hover:bg-gray-300 text-black py-3 rounded-md transition">Pay on Delivery</button>
+          <button className="flex-1 bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-md shadow-md transition">
+            Pay with Card
+          </button>
+          <button className="flex-1 bg-gray-200 hover:bg-gray-300 text-black py-3 rounded-md transition">
+            Pay on Delivery
+          </button>
         </div>
       </section>
 
