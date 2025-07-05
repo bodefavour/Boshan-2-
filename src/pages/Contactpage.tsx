@@ -94,7 +94,7 @@ const ContactPage = () => {
 
           {/* WhatsApp Integration */}
           <a
-            href="https://wa.me/2348100000000" // Replace with actual number
+            href="https://wa.me/+2349023640812" // Replace with actual number
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-full shadow w-fit"
