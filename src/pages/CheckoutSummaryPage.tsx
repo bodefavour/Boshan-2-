@@ -116,7 +116,7 @@ const CheckoutSummaryPage = () => {
           cart: [],
         });
 
-        navigate("/payment-confirmation");
+        navigate("/thank-you");
       },
       onCancel: () => {
         console.log("Payment cancelled");
