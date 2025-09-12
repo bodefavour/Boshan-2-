@@ -61,7 +61,7 @@ const LandingContents = () => {
     </main><div className="bg-white text-black px-6 md:px-16 py-12 space-y-20">
             {/* Awareness Teaser */}
             {/* <motion.section className="text-center">
-              <p className="text-xl italic text-gray-700">“You’ve never glowed like this before… Boshan is almost here 👀✨”</p>
+              <p className="text-xl italic text-gray-700">“You’ve never glowed like this before… Boshban is almost here 👀✨”</p>
           </motion.section> */}
 
             <motion.section
@@ -70,13 +70,13 @@ const LandingContents = () => {
                 transition={{ duration: 1 }}
                 className="max-w-4xl mx-auto text-center">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                    Welcome to Boshan
+                    Welcome to Bogshan
                 </h2>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
                     Your Skin. Your Ritual. Your Lifestyle.
                 </h2>
                 <p className="text-lg md:text-xl leading-relaxed">
-                    BOSHAN is more than a brand, it's a movement. Rooted in rich Esan culture and elevated with modern elegance,
+                    BOShHAN is more than a brand, it's a movement. Rooted in rich Esan culture and elevated with modern elegance,
                     we curate handcrafted skincare, luxe fashion, and memorable gifting experiences for today’s bold, conscious generation.
                     Join the Glow List today to be the first to preorder and get exclusive early bird benefits!
                 </p>
@@ -142,7 +142,7 @@ const LandingContents = () => {
                         Join Now
                     </button>
                 </form>
-                <p className="text-sm italic">Thanks for joining Boshan’s Glow List. We’ll let you know when pre-orders open!</p>
+                <p className="text-sm italic">Thanks for joining Boskhan’s Glow List. We’ll let you know when pre-orders open!</p>
             </motion.section>
 
             {/* Product Sneak Peek */}
@@ -171,7 +171,7 @@ const LandingContents = () => {
                 className="bg-orange-100 text-black p-8 md:p-16 rounded-3xl shadow-md space-y-6 text-center"
             >
                 <p className="text-lg">“How often do you use makeup brushes? 🤔”</p>
-                <p className="font-semibold">“Each Boshan Box = brushes, beauty, and bold confidence.”</p>
+                <p className="font-semibold">“Each Boshkan Box = brushes, beauty, and bold confidence.”</p>
                 <img src="/images/IMG-20250322-WA0051.jpg" alt="Makeup Brushes" className="w-64 h-64 object-cover rounded-xl mx-auto" />
             </motion.section>
 
@@ -182,7 +182,7 @@ const LandingContents = () => {
                 transition={{ duration: 1 }}
                 className="text-center space-y-6"
             >
-                <h3 className="text-3xl md:text-4xl font-bold">Want to be a Boshan Babe?</h3>
+                <h3 className="text-3xl md:text-4xl font-bold">Want to be a Broshan Babe?</h3>
                 <p className="text-lg text-gray-700 max-w-2xl mx-auto">
                     We’re looking for glow queens 👑 to try our products early!
                 </p>
@@ -225,7 +225,7 @@ const LandingContents = () => {
             >
                 <h3 className="text-3xl md:text-4xl font-semibold">Be the first to glow. Pre-orders drop soon. Join our list.</h3>
                 <p className="text-lg max-w-2xl mx-auto">
-                    Get early access to our exclusive Boshan Beauty Sets. All preorders come with a cultural collectible + a surprise gift on launch day.
+                    Get early access to our exclusive Boshian Beauty Sets. All preorders come with a cultural collectible + a surprise gift on launch day.
                 </p>
                 <Link to="/product-page">
                     <button className="bg-orange-500 hover:bg-orange-600 transition text-white px-6 py-3 rounded-full text-lg font-medium shadow-xl">
@@ -241,7 +241,7 @@ const LandingContents = () => {
                 transition={{ duration: 0.7 }}
                 className="text-center space-y-6"
             >
-                <h3 className="text-3xl font-bold">Glow Different. Gift Bold. The Boshan Way.</h3>
+                <h3 className="text-3xl font-bold">Glow Different. Gift Bold. The Bosohan Way.</h3>
                 <p className="max-w-2xl mx-auto text-lg">
                     Join the tribe that's redefining beauty, fashion, and celebration. Culture meets Gen-Z energy in every drop, stitch, and beat.
                 </p>
@@ -280,21 +280,21 @@ const LandingContents = () => {
                 >
                     {[
                         {
-                            name: "Sarah Iyere",
+                            name: "Sh Iere",
                             role: "MD/Founder",
                             details: "Vision, Formulation, Strategy",
                             img: "/images/Sarah.png",
                             socials: { instagram: "#", twitter: "#", linkedin: "#" },
                         },
                         {
-                            name: "Felicia",
+                            name: "Fcia",
                             role: "Clients Resource Manager",
                             details: "Brand & UI Aesthetics",
                             img: "/images/IMG-20250630-WA0002.jpg",
                             socials: { instagram: "#", twitter: "#", linkedin: "#" },
                         },
                         {
-                            name: "Faith",
+                            name: "Fth",
                             role: "Project Manager",
                             details: "Growth & Community",
                             img: "/images/Sarah.png",
@@ -308,7 +308,7 @@ const LandingContents = () => {
                             socials: { instagram: "#", twitter: "#", linkedin: "#" },
                         },
                         {
-                            name: "Janet",
+                            name: "Jat",
                             role: "Resource Person",
                             details: "—",
                             img: "/images/Sarah.png",
