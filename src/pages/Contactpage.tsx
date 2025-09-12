@@ -25,7 +25,7 @@ const ContactPage = () => {
         transition={{ duration: 0.6 }}
         className="text-3xl md:text-4xl font-bold text-center text-boshan mb-10"
       >
-        Get in Touch with Boshan
+        Get in Touch with Bovshan
       </motion.h1>
 
       {/* Contact + Info Section */}
