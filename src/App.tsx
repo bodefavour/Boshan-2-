@@ -68,8 +68,8 @@ function App() {
             <>
               <HeroSection
                 backgroundImage="/images/heroimage.png"
-                brandName="Boshan"
-                ctaText="For less than the cost of another failed Serum, Boshan sends you dermatologist-backed, Afrocentric beauty products right to your door. No stress. No guesswork. Just glow"
+                brandName="Voshan"
+                ctaText="For less than the cost of another failed Serum, B(v)oshan sends you dermatologist-backed, Afrocentric beauty products right to your door. No stress. No guesswork. Just glow"
                 ctaButton="Shop Now"
                 onCtaClick={() => console.log("CTA Clicked")}
               >
@@ -81,7 +81,7 @@ function App() {
           <Route path="/auth" element={<AuthPage />} /><Route path="/preorder/skin-therapy-and-consultations" element={<ConsultationBookingPage />} />
 <Route path="/contact-us" element={<ContactPage />} />
           <Route path="/Preorder-items" element={<>
-            <HeroSection backgroundImage="/images/heroimage.png" brandName="BOSHAN" />
+            <HeroSection backgroundImage="/images/heroimage.png" brandName="BOVSHAN" />
             <ProductGrid />
           </>
           } />
@@ -102,8 +102,8 @@ function App() {
           <Route path="/" element={<>
             <HeroSection
               backgroundImage="/images/heroimage.png"
-              brandName="Boshan"
-              ctaText="For less than the cost of another failed Serum, Boshan sends you dermatologist-backed, Afrocentric beauty products right to your door"
+              brandName="Bcoshan"
+              ctaText="For less than the cost of another failed Serum, Bovshan sends you dermatologist-backed, Afrocentric beauty products right to your door"
               ctaButton="Start Your Glow Journey"
               onCtaClick={() => console.log("CTA Clicked")}
             >
