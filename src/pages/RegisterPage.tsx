@@ -28,7 +28,7 @@ const LoginPage = () => {
       const provider = new GoogleAuthProvider();
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-      toast.success(`Welcome to Boshan, ${user.displayName || "Glow Queen"}!`);
+      toast.success(`Welcome to Bvoshan, ${user.displayName || "Glow Queen"}!`);
       navigate(redirectPath || "/account", { replace: true });
 
 
@@ -61,7 +61,7 @@ const LoginPage = () => {
       const user = result.user;
 
       console.log("Login successful", user); // Debugging line
-      toast.success(`Welcome back to Boshan, ${user.displayName || "Glow Queen"}!`);
+      toast.success(`Welcome back to Bovshan, ${user.displayName || "Glow Queen"}!`);
 
       // Check if user data exists
       const userDocRef = doc(db, "users", user.uid);
@@ -127,7 +127,7 @@ const LoginPage = () => {
         orders: [],
       });
 
-      toast.success(`Welcome to Boshan, ${name || "Glow Queen"}!`);
+      toast.success(`Welcome to Bovshan, ${name || "Glow Queen"}!`);
       navigate(redirectPath || "/account", { replace: true });
     } catch (error: any) {
       console.error(error);
@@ -160,7 +160,7 @@ const LoginPage = () => {
           className="p-10 flex flex-col justify-center space-y-8"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-center text-[#C07C6C]">
-            {isRegister ? 'Create Your Account' : 'Welcome Back to Boshan'}
+            {isRegister ? 'Create Your Account' : 'Welcome Back to Bovshan'}
           </h2>
 
           <form onSubmit={isRegister ? handleRegisterSubmit : handleLoginSubmit} className="space-y-5">
