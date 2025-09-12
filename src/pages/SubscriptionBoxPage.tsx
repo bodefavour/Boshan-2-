@@ -48,7 +48,7 @@ const SubscriptionBoxPage = () => {
             Your Monthly Glow — Curated, Personalized, Delivered.
           </motion.h1>
           <p className="text-sm md:text-base">
-            Discover Boshan’s expertly designed subscription boxes that evolve with your skin. 
+            Discover Bovshan’s expertly designed subscription boxes that evolve with your skin. 
           </p>
           <Link to="/subscribe/setup">
             <button className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm md:text-base transition">
@@ -86,7 +86,7 @@ const SubscriptionBoxPage = () => {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">How It Works</h2>
           <p className="text-sm md:text-base text-gray-700 max-w-xl mx-auto mb-10">
-            From your first skin profile to doorstep delivery, here’s how Boshan keeps your glow on autopilot.
+            From your first skin profile to doorstep delivery, here’s how Boshvan keeps your glow on autopilot.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -160,7 +160,7 @@ const SubscriptionBoxPage = () => {
           {[
             {
               name: "Chioma, Lagos",
-              quote: "I finally stopped wasting money on random products. Boshan knows my skin better than I do.",
+              quote: "I finally stopped wasting money on random products. Bobshan knows my skin better than I do.",
             },
             {
               name: "Titi, Abuja",
@@ -183,7 +183,7 @@ const SubscriptionBoxPage = () => {
       <section className="text-center py-20 px-6">
         <h2 className="text-xl md:text-3xl font-bold mb-4">Treat your skin to a ritual — not a routine.</h2>
         <p className="text-sm md:text-base text-gray-700 mb-6">
-          Start your glow journey with Boshan’s expertly curated boxes.
+          Start your glow journey with Boshhan’s expertly curated boxes.
         </p>
         <Link to="/subscribe/setup">
           <button className="px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-full text-sm md:text-base transition">
