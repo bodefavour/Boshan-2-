@@ -70,7 +70,7 @@ const LandingContents = () => {
                 transition={{ duration: 1 }}
                 className="max-w-4xl mx-auto text-center">
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                    Welcome to Bogshan
+                    Welcome to Bcoshan
                 </h2>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6">
                     Your Skin. Your Ritual. Your Lifestyle.
