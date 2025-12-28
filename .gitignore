@@ -1,6 +1,4 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-.env.local
-.env
 
 # dependencies
 /node_modules
@@ -15,11 +13,9 @@
 
 # misc
 .DS_Store
-.env.local
 .env.development.local
 .env.test.local
 .env.production.local
-.env 
 boshan-store-firebase-adminsdk-fbsvc-d239dd1610.json
 process.env
 boshan-store-firebase-adminsdk-fbsvc-f3eaea98ba.json
@@ -41,3 +37,4 @@ ToteBaSec.tsx
 TravelSection.tsx
 test2.tsx
 test.tsx
+config.bat
