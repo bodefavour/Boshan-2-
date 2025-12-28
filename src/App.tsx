@@ -107,7 +107,7 @@ function App() {
               ctaButton="Start Your Glow Journey"
               onCtaClick={() => console.log("CTA Clicked")}
             >
-              <p className="text-lg">First beauty club of Nigeria.</p>
+              <p className="text-lg">First beauty club.</p>
             </HeroSection>
             <LandingContents />
           </>
